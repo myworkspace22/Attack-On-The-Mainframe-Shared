@@ -52,6 +52,22 @@ public class Node : MonoBehaviour
             Debug.Log("Build more Pylons!");
             return;
         }
+
+        // null check måske ikke nødvendigt
+        Collider2D[] canPlaceChecks = Physics2D.OverlapCircleAll(transform.position, 0.1f);
+        if (canPlaceChecks != null)
+        {
+            for (int i = 0; i < canPlaceChecks.Length; i++)
+            {
+                if (canPlaceChecks[i].gameObject.tag == "Tower")
+                {
+                    Debug.Log("there is no space for a turret");
+                    return;
+                }              
+            }
+        }
+        
+    
         PlayerStats.Money -= blueprint.cost;
 
         GameObject _turret = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
@@ -60,6 +76,18 @@ public class Node : MonoBehaviour
         turretBlueprint = blueprint;
 
         Debug.Log("Turret build!");
+
+        //move collider forwards to make it easy to select
+        Vector3 pos = transform.position;
+        pos.z = -0.1f;
+        transform.position = pos;
+
+        //make the collider as big as the tower
+        BoxCollider2D collider = GetComponent<BoxCollider2D>();
+        collider.size = new Vector2(0.5f, 0.5f);
+
+        //add tag "Tower"
+        gameObject.tag = "Tower";
     }
     public void UpgradeTurret()
     {
@@ -87,6 +115,18 @@ public class Node : MonoBehaviour
 
         //Sell effect for later use!
 
+        //move collider back again
+        Vector3 pos = transform.position;
+        pos.z = 0.0f;
+        transform.position = pos;
+
+        //make the collider as small again
+        BoxCollider2D collider = GetComponent<BoxCollider2D>();
+        collider.size = new Vector2(0.25f, 0.25f);
+
+        //remove tag "Tower"
+        gameObject.tag = "Untagged";
+
         Destroy(turret);
         turretBlueprint = null;
     }
@@ -99,6 +139,18 @@ public class Node : MonoBehaviour
         if (!buildManager.CanBuild)
         {
             return;
+        }
+        Collider2D[] canPlaceChecks = Physics2D.OverlapCircleAll(transform.position, 0.1f);
+        if (canPlaceChecks != null)
+        {
+            for (int i = 0; i < canPlaceChecks.Length; i++)
+            {
+                if (canPlaceChecks[i].gameObject.tag == "Tower")
+                {
+                    anim.SetBool("Decline", true);
+                    return;
+                }
+            }
         }
         if (buildManager.HasMoney)
         {
