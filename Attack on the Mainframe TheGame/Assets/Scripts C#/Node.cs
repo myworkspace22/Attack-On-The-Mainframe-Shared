@@ -8,6 +8,9 @@ public class Node : MonoBehaviour
     private Animator anim;
     public Vector3 positionOffset;
 
+    [Header("Tower Properties")]
+    public GameObject towerRange;
+
     [HideInInspector]
     public GameObject turret;
     [HideInInspector]
@@ -22,12 +25,26 @@ public class Node : MonoBehaviour
         anim = GetComponent<Animator>();
 
         buildManager = BuildManager.instance;
+
+        towerRange.SetActive(false);
     }
 
     public Vector2 GetBuildPosition()
     {
         return transform.position + positionOffset;
     }
+
+    //MÅSKE
+    public void ChangeRange(bool rangeStatus)
+    {
+        towerRange.SetActive(rangeStatus);
+    }
+    public void ChangeRange(bool rangeStatus, float rangeRadius)
+    {
+        towerRange.transform.localScale = new Vector2(rangeRadius * 2, rangeRadius * 2);
+        towerRange.SetActive(rangeStatus);
+    }
+    
 
     private void OnMouseDown()
     {
@@ -107,6 +124,8 @@ public class Node : MonoBehaviour
 
         isUpgraded = true;
 
+        ChangeRange(true, turret.GetComponent<Turret>().range);
+
         Debug.Log("Turret Upgraded!");
     }
     public void SellTurret()
@@ -129,6 +148,8 @@ public class Node : MonoBehaviour
 
         Destroy(turret);
         turretBlueprint = null;
+
+        ChangeRange(false);
     }
     private void OnMouseEnter()
     {
@@ -155,6 +176,7 @@ public class Node : MonoBehaviour
         if (buildManager.HasMoney)
         {
             anim.SetBool("Place", true);
+            ChangeRange(true, buildManager.GetTurretToBuild().prefab.GetComponent<Turret>().range);
         }
         else
         {
@@ -163,6 +185,8 @@ public class Node : MonoBehaviour
     }
     private void OnMouseExit()
     {
+        if (buildManager.CanBuild)
+            ChangeRange(false);
         anim.SetBool("Place", false);
         anim.SetBool("Decline", false);
     }

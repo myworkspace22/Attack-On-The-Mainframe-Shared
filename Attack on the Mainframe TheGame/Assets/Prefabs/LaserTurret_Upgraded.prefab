@@ -163,10 +163,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 4
-  fireRate: 2
+  fireRate: 1
   useLaser: 1
-  damageOverTime: 30
-  slowAmount: 0.5
+  damageOverTime: 60
+  slowAmount: 0.8
   lineRenderer: {fileID: 6920416368136055428}
   impactEffect: {fileID: 2872334427099462869}
   enemyTag: Enemy

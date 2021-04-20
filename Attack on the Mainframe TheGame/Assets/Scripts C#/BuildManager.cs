@@ -15,6 +15,7 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
+
     private TurretBluePrint turretToBuild;
     private Node selectedNode;
 
@@ -30,21 +31,31 @@ public class BuildManager : MonoBehaviour
             DeselectNode();
             return;
         }
-        
+
+        if (selectedNode != null)
+            selectedNode.ChangeRange(false);
+
+        if (node.turret != null)
+            node.ChangeRange(true, node.turret.GetComponent<Turret>().range);
+
         selectedNode = node;
         turretToBuild = null;
 
         nodeUI.SetTarget(node);
+
+        
     }
     public void DeselectNode()
     {
+        if (selectedNode != null)
+            selectedNode.ChangeRange(false);
         selectedNode = null;
         nodeUI.Hide();
     }
     public void SelectTurretToBuild (TurretBluePrint turret)
     {
         turretToBuild = turret;
-        selectedNode = null;
+        //selectedNode = null;
 
         DeselectNode();
     }

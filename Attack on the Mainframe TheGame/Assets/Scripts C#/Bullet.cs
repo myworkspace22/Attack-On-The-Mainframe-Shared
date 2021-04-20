@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
 
     public float explosionRadius = 0f;
     public GameObject impactEffect;
+    public GameObject impactMissile;
 
     public void Seek (Transform _target)
     {
@@ -61,13 +62,22 @@ public class Bullet : MonoBehaviour
     }
     void Explode()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
-        foreach (Collider collider in colliders)
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius); //Physics.OverlapSphere(transform.position, explosionRadius);
+        foreach (Collider2D collider in colliders)
         {
             if (collider.tag == "Enemy")
             {
+                GameObject effectIns = (GameObject)Instantiate(impactMissile, collider.transform.position, collider.transform.rotation);
+                Destroy(effectIns, 2f);
+
                 Damage(collider.transform);
             }
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
 }

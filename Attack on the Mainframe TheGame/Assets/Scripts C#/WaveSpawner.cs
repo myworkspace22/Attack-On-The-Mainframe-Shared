@@ -8,6 +8,8 @@ public class WaveSpawner : MonoBehaviour
 {
     public static int EnemiesAlive = 0;
 
+    //public int enCount; //til at kunne se hvor mange enemies der er i banen
+
     public Wave[] waves;
 
     public Transform spawnPoint;
@@ -21,6 +23,8 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
+        //enCount = EnemiesAlive; //til at kunne se hvor mange enemies der er i banen
+
         if (EnemiesAlive > 0)
         {
             return;
@@ -43,11 +47,14 @@ public class WaveSpawner : MonoBehaviour
 
         Wave wave = waves[waveIndex];
 
+        EnemiesAlive += wave.count;
+
         for (int i = 0; i < wave.count; i++)
         {
             SpawnEnemy(wave.enemy);
             yield return new WaitForSeconds(1f / wave.rate);
         }
+
         waveIndex++;
         if (waveIndex == waves.Length)
         {
@@ -58,6 +65,5 @@ public class WaveSpawner : MonoBehaviour
     void SpawnEnemy(GameObject enemy)
     {
         Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
-        EnemiesAlive++;
     }
 }

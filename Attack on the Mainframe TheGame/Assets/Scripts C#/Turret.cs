@@ -9,6 +9,8 @@ public class Turret : MonoBehaviour
 
     [Header("General")]
     public float range = 15f;
+    public bool nearestTarget = false;
+    //public GameObject towerRange;
 
     [Header("Use Bullets (defualt)")]
     public float fireRate = 1f;
@@ -34,9 +36,17 @@ public class Turret : MonoBehaviour
     private void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        //towerRange.transform.localScale = new Vector2(range * 2, range * 2);
     }
     void UpdateTarget()
     {
+        if (target != null && transform.position != null && !nearestTarget)
+        {
+            if (Vector2.Distance(transform.position, target.position) <= range)
+                return;
+        }
+
+
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
@@ -50,6 +60,7 @@ public class Turret : MonoBehaviour
                 nearestEnemy = enemy;
             }
         }
+
         if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
