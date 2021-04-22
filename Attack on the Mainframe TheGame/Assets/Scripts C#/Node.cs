@@ -73,7 +73,7 @@ public class Node : MonoBehaviour
     {
         if (PlayerStats.Money < blueprint.cost)
         {
-            Debug.Log("Build more Pylons!");
+            Debug.Log("Not enough money to Build!");
             return;
         }
 

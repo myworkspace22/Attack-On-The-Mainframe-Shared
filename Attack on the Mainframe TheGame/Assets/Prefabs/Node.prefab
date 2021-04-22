@@ -81,7 +81,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.4, y: 10.4}
+  m_Size: {x: 0.52, y: 0.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -104,8 +104,12 @@ MonoBehaviour:
   spriteToChange: {fileID: 8620048545108702975}
   turret: {fileID: 0}
   turretBlueprint:
+    title: 
+    description: 
     prefab: {fileID: 0}
     cost: 0
+    upgadeDescription1: 
+    upgadeDescription2: 
     upgradedPrefab: {fileID: 0}
     upgradeCost: 0
   isUpgraded: 0
@@ -127,7 +131,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.52, y: 0.52}
-    newSize: {x: 10.4, y: 10.4}
+    newSize: {x: 0.52, y: 0.52}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -224,9 +228,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a871eea6aca92cd489bd410b1f392f1b, type: 3}
-  m_Color: {r: 0, g: 0.9215687, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.92156863, b: 1, a: 0.78431374}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -307,12 +311,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 38f80a1309efbe341ac9d7cee368f479, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 155de46eb2d422f41a7e2c342ec20ce9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.339, y: 0.3815}
+  m_Size: {x: 0.52, y: 0.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

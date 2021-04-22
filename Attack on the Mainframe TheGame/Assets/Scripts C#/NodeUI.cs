@@ -45,9 +45,9 @@ public class NodeUI : MonoBehaviour
 
         title.text = target.turretBlueprint.title;
         description.text = target.turretBlueprint.description;
-        damage.text = "DAMAGE: " + target.turret.GetComponent<Turret>().bulletPrefab.GetComponent<Bullet>().damage + "<b><color=#00FF00> -> " + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().bulletPrefab.GetComponent<Bullet>().damage + "</color></b>";
-        range.text = "RANGE: " + target.turret.GetComponent<Turret>().range + "<b><color=#00FF00> -> " + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().range + "</color></b>";
-        firerate.text = "Firerate: " + target.turret.GetComponent<Turret>().fireRate + "<b><color=#00FF00> -> " + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().fireRate + "</color></b>";
+        damage.text = "DAMAGE: " + target.turret.GetComponent<Turret>().bulletPrefab.GetComponent<Bullet>().damage + " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().bulletPrefab.GetComponent<Bullet>().damage + "</color></b>";
+        range.text = "RANGE: " + target.turret.GetComponent<Turret>().range + " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().range + "</color></b>";
+        firerate.text = "Firerate: " + target.turret.GetComponent<Turret>().fireRate + " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().fireRate + "</color></b>";
 
         sellAmount.text = "SELL: <color=#FFD500>$" + target.turretBlueprint.GetSellAmount() + "</color>";
         
