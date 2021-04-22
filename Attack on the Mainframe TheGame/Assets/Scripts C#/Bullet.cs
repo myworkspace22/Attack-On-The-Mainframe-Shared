@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Transform target;
+    private Vector2 targetsLastPos;
 
     public float speed = 70f;
 
@@ -17,22 +18,35 @@ public class Bullet : MonoBehaviour
     public void Seek (Transform _target)
     {
         target = _target;
+        targetsLastPos = _target.position;
     }
     private void Update()
     {
-        if (target == null)
+        if (target == null && targetsLastPos == null)
         {
+            Debug.LogWarning(gameObject + " had no target");
             Destroy(gameObject);
             return;
         }
-        Vector2 dir = target.position - transform.position;
-        float distanceThisFrame = speed * Time.deltaTime;
 
-        if(dir.magnitude <= distanceThisFrame)
+        Vector2 dir;
+        if(target == null)
+        {
+            dir = targetsLastPos - (Vector2)transform.position;
+        }
+        else
+        {
+            targetsLastPos = target.position;
+            dir = target.position - transform.position;
+        }
+
+        float distanceThisFrame = speed * Time.deltaTime;
+        if (dir.magnitude <= distanceThisFrame)
         {
             HitTarget();
             return;
         }
+
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
     }
     void HitTarget()
@@ -44,13 +58,15 @@ public class Bullet : MonoBehaviour
         {
             Explode();
         }
-        else
+        else if (target != null)
         {
             Damage(target);
         }
 
         Destroy(gameObject);
     }
+
+    
     void Damage (Transform enemy)
     {
         Enemy e = enemy.GetComponent<Enemy>();

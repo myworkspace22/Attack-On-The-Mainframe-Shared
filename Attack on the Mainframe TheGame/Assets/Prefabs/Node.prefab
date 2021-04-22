@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionOffset: {x: 0, y: 0, z: 0}
   towerRange: {fileID: 239047058088243964}
+  spriteToChange: {fileID: 8620048545108702975}
   turret: {fileID: 0}
   turretBlueprint:
     prefab: {fileID: 0}

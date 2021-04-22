@@ -11,6 +11,10 @@ public class Node : MonoBehaviour
     [Header("Tower Properties")]
     public GameObject towerRange;
 
+
+    [Header("Animation Ref.")]
+    public SpriteRenderer spriteToChange;
+
     [HideInInspector]
     public GameObject turret;
     [HideInInspector]
@@ -58,8 +62,11 @@ public class Node : MonoBehaviour
         }
 
         if (!buildManager.CanBuild)
+        {
+            buildManager.DeselectNode();
             return;
-
+        }
+           
         BuildTurret(buildManager.GetTurretToBuild());
     }
     void BuildTurret(TurretBluePrint blueprint)
@@ -93,6 +100,7 @@ public class Node : MonoBehaviour
         turretBlueprint = blueprint;
 
         Debug.Log("Turret build!");
+        anim.SetBool("Place", false);
 
         //move collider forwards to make it easy to select
         Vector3 pos = transform.position;
@@ -175,6 +183,7 @@ public class Node : MonoBehaviour
         }
         if (buildManager.HasMoney)
         {
+            spriteToChange.sprite = buildManager.GetTurretToBuild().prefab.GetComponent<SpriteRenderer>().sprite;
             anim.SetBool("Place", true);
             ChangeRange(true, buildManager.GetTurretToBuild().prefab.GetComponent<Turret>().range);
         }
