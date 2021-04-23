@@ -25,7 +25,7 @@ public class ShopUI : MonoBehaviour
         damage.text = "DAMAGE: <color=#00FF00>" + towerBP.prefab.GetComponent<Turret>().bulletPrefab.GetComponent<Bullet>().damage + "</color>";
         range.text = "RANGE: <color=#00FF00>" + towerBP.prefab.GetComponent<Turret>().range + "</color>";
         firerate.text = "Firerate: <color=#00FF00>" + towerBP.prefab.GetComponent<Turret>().fireRate + "</color>";
-        upgradeDescription.text = "Upgrades: " + towerBP.upgadeDescription1 + " OR " + towerBP.upgadeDescription2;
+        upgradeDescription.text = "Upgrades: " + towerBP.upgadeDescription[0] + " OR " + towerBP.upgadeDescription[1];
 
         ui.SetActive(true);
     }

@@ -16,11 +16,13 @@ public class NodeUI : MonoBehaviour
     public TextMeshProUGUI firerate;
     public TextMeshProUGUI upgradeDescription;
 
-    public TextMeshProUGUI upgradeCost;
+    public TextMeshProUGUI upgradeCost1;
+    public TextMeshProUGUI upgradeCost2;
     public TextMeshProUGUI sellAmount;
 
     private Node target;
-    public Button upgradeButton;
+    public Button upgradeButton1;
+    public Button upgradeButton2;
 
     public void SetTarget(Node _target)
     {
@@ -28,47 +30,84 @@ public class NodeUI : MonoBehaviour
 
         //transform.position = target.GetBuildPosition();
 
-        if (!target.isUpgraded)
+        if (!target.isMaxed)
         {
 
-            upgradeDescription.text = "Upgrades: <color=#00FF00>" + target.turretBlueprint.upgadeDescription1 + " OR " + target.turretBlueprint.upgadeDescription2 + "</color>";
-            upgradeCost.text = "UPGRADE: <color=#FFD500>$" + target.turretBlueprint.upgradeCost + "</color>";
-            upgradeButton.interactable = true;
+            int multiplyer = (target.upgradeNr > 0) ? 2 : 1;
+
+            upgradeDescription.text = "Upgrades: <color=#00FF00>" + target.turretBlueprint.upgadeDescription[target.upgradeNr + 1 * multiplyer - 1] + " OR " + target.turretBlueprint.upgadeDescription[target.upgradeNr + 2 * multiplyer -1] + "</color>";
+            upgradeCost1.text = target.turretBlueprint.upgadeDescription[target.upgradeNr + 1 * multiplyer - 1] + ": <color=#FFD500>$" + target.turretBlueprint.upgradeCost[target.upgradeNr + 1 * multiplyer - 1] + "</color>";
+            upgradeCost2.text = target.turretBlueprint.upgadeDescription[target.upgradeNr + 2 * multiplyer - 1] + ": <color=#FFD500>$" + target.turretBlueprint.upgradeCost[target.upgradeNr + 2 * multiplyer - 1] + "</color>";
+            upgradeButton1.interactable = true;
+            upgradeButton2.interactable = true;
         }
         else
         {
 
             upgradeDescription.text = "<color=#00FF00>UPGRADED</color>";
-            upgradeCost.text = "MAXED";
-            upgradeButton.interactable = false;
+            upgradeCost1.text = "MAXED";
+            upgradeCost2.text = "MAXED";
+            upgradeButton1.interactable = false;
+            upgradeButton2.interactable = false;
         }
 
         title.text = target.turretBlueprint.title;
         description.text = target.turretBlueprint.description;
-        damage.text = "DAMAGE: " + target.turret.GetComponent<Turret>().bulletPrefab.GetComponent<Bullet>().damage + " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().bulletPrefab.GetComponent<Bullet>().damage + "</color></b>";
-        range.text = "RANGE: " + target.turret.GetComponent<Turret>().range + " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().range + "</color></b>";
-        firerate.text = "Firerate: " + target.turret.GetComponent<Turret>().fireRate + " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().fireRate + "</color></b>";
+        damage.text = "DAMAGE: " + target.turret.GetComponent<Turret>().bulletPrefab.GetComponent<Bullet>().damage; //+ " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().bulletPrefab.GetComponent<Bullet>().damage + "</color></b>";
+        range.text = "RANGE: " + target.turret.GetComponent<Turret>().range; //+ " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().range + "</color></b>";
+        firerate.text = "Firerate: " + target.turret.GetComponent<Turret>().fireRate; //+ " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().fireRate + "</color></b>";
 
         sellAmount.text = "SELL: <color=#FFD500>$" + target.turretBlueprint.GetSellAmount() + "</color>";
-        
 
         ui.SetActive(true);
     }
+
+
+    public void ShowUpgradeStats(int upgradeIndex)
+    {
+        if (target.isMaxed)
+            return;
+
+        int multiplyer = (target.upgradeNr > 0) ? 2 : 1;
+        damage.text = "DAMAGE: " + target.turret.GetComponent<Turret>().bulletPrefab.GetComponent<Bullet>().damage + " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab[target.upgradeNr + upgradeIndex * multiplyer - 1].GetComponent<Turret>().bulletPrefab.GetComponent<Bullet>().damage + "</color></b>";
+        range.text = "RANGE: " + target.turret.GetComponent<Turret>().range +" -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab[target.upgradeNr + upgradeIndex * multiplyer - 1].GetComponent<Turret>().range + "</color></b>";
+        firerate.text = "Firerate: " + target.turret.GetComponent<Turret>().fireRate + " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab[target.upgradeNr + upgradeIndex * multiplyer - 1].GetComponent<Turret>().fireRate + "</color></b>";
+    }
+    public void HideUpgradeStats()
+    {
+        if (target.isMaxed)
+            return;
+
+        damage.text = "DAMAGE: " + target.turret.GetComponent<Turret>().bulletPrefab.GetComponent<Bullet>().damage;
+        range.text = "RANGE: " + target.turret.GetComponent<Turret>().range;
+        firerate.text = "Firerate: " + target.turret.GetComponent<Turret>().fireRate;
+    }
+
     public void Hide()
     {
         ui.SetActive(false);
     }
-    public void Upgrade()
+    public void Upgrade(int upgradeIndex)
     {
-        target.UpgradeTurret();
+        target.UpgradeTurret(upgradeIndex);
+        SetTarget(target);
+
         //BuildManager.instance.DeselectNode();
-        upgradeCost.text = "DONE";
-        upgradeButton.interactable = false;
+
+        //upgradeCost1.text = "DONE";
+        //upgradeCost2.text = "DONE";
+        //upgradeButton1.interactable = false;
+        //upgradeButton2.interactable = false;
+    }
+
+    public void LevelUp()
+    {
+        target.levelUpTower();
     }
     public void Sell()
     {
         target.SellTurret();
         BuildManager.instance.DeselectNode();
-        target.isUpgraded = false;
+        target.isMaxed = false;
     }
 }

@@ -10,6 +10,8 @@ public class Node : MonoBehaviour
 
     [Header("Tower Properties")]
     public GameObject towerRange;
+    public GameObject[] towerStars;
+    
 
 
     [Header("Animation Ref.")]
@@ -20,12 +22,24 @@ public class Node : MonoBehaviour
     [HideInInspector]
     public TurretBluePrint turretBlueprint;
     [HideInInspector]
-    public bool isUpgraded = false;
+    public bool isMaxed = false;
+    [HideInInspector]
+    public int upgradeNr;
+    private int towerLevel;
+
+
 
     BuildManager buildManager;
 
+
+
+    
+
     private void Start()
     {
+        upgradeNr = 0;
+        towerLevel = 0;
+
         anim = GetComponent<Animator>();
 
         buildManager = BuildManager.instance;
@@ -114,27 +128,50 @@ public class Node : MonoBehaviour
         //add tag "Tower"
         gameObject.tag = "Tower";
     }
-    public void UpgradeTurret()
+
+    public void levelUpTower()
     {
-        if (PlayerStats.Money < turretBlueprint.upgradeCost)
+        if (towerLevel >= 3)
+        {
+            Debug.LogWarning("trying to level beyound level 3");
+            return;
+        }
+
+        towerLevel++;
+        for (int i = 0; i < 3; i++)
+        {
+            towerStars[i].SetActive(towerLevel > i);
+        }
+    }
+
+
+    public void UpgradeTurret(int index)
+    {
+        int upgradeindex = (upgradeNr > 0) ?  upgradeNr + index * 2: upgradeNr + index;
+
+        if (PlayerStats.Money < turretBlueprint.upgradeCost[upgradeindex - 1])
         {
             Debug.Log("Not enough money to Upgrade!");
             return;
         }
-        PlayerStats.Money -= turretBlueprint.upgradeCost;
+        PlayerStats.Money -= turretBlueprint.upgradeCost[upgradeindex - 1];
 
         //Get rid of the old turret
         Destroy(turret);
 
         //Building a upgraded turret
-        GameObject _turret = (GameObject)Instantiate(turretBlueprint.upgradedPrefab, GetBuildPosition(), Quaternion.identity);
+        GameObject _turret = (GameObject)Instantiate(turretBlueprint.upgradedPrefab[upgradeindex - 1], GetBuildPosition(), Quaternion.identity);
         turret = _turret;
-
-        isUpgraded = true;
+        isMaxed = (upgradeindex > 2);
 
         ChangeRange(true, turret.GetComponent<Turret>().range);
 
+        buildManager.nodeUI.SetTarget(this);
+
+        upgradeNr = upgradeindex;
+
         Debug.Log("Turret Upgraded!");
+        
     }
     public void SellTurret()
     {
@@ -156,6 +193,7 @@ public class Node : MonoBehaviour
 
         Destroy(turret);
         turretBlueprint = null;
+        upgradeNr = 0;
 
         ChangeRange(false);
     }
