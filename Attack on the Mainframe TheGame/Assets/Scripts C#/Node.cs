@@ -49,7 +49,19 @@ public class Node : MonoBehaviour
     }
     [HideInInspector]
     public int towerLevel;
+    [HideInInspector]
+    public int SellAmount
+    {
+        get
+        {
+            return priceLocked / 2;
+        }
+    }
 
+    [HideInInspector]
+    public int priceLocked;
+    [HideInInspector]
+    public int priceUnlocked;
 
 
     BuildManager buildManager;
@@ -131,6 +143,7 @@ public class Node : MonoBehaviour
         
     
         PlayerStats.Money -= blueprint.cost;
+        priceLocked += blueprint.cost; //skal ændres
 
         GameObject _turret = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
         turret = _turret;
@@ -155,6 +168,14 @@ public class Node : MonoBehaviour
 
     public void levelUpTower()
     {
+        if (PlayerStats.Money < turretBlueprint.levelUpCost * UpgradeMultiplier)
+        {
+            Debug.Log("Not enough money to level up!");
+            return;
+        }
+        PlayerStats.Money -= turretBlueprint.levelUpCost * UpgradeMultiplier;
+        priceLocked += turretBlueprint.levelUpCost * UpgradeMultiplier;
+
         if (towerLevel >= 3)
         {
             Debug.LogWarning("trying to level beyound level 3");
@@ -173,6 +194,7 @@ public class Node : MonoBehaviour
 
         ChangeRange(true, turret.GetComponent<Turret>().range);
         buildManager.nodeUI.SetTarget(this);
+        buildManager.nodeUI.ShowUpgradeStats(2);
     }
 
 
@@ -186,6 +208,7 @@ public class Node : MonoBehaviour
             return;
         }
         PlayerStats.Money -= turretBlueprint.upgradeCost[upgradeindex - 1];
+        priceLocked += turretBlueprint.upgradeCost[upgradeindex - 1];
 
         //Get rid of the old turret
         Destroy(turret);
@@ -211,7 +234,8 @@ public class Node : MonoBehaviour
     }
     public void SellTurret()
     {
-        PlayerStats.Money += turretBlueprint.GetSellAmount();
+        PlayerStats.Money += SellAmount;
+        priceLocked = 0;
 
         //Sell effect for later use!
 
@@ -277,5 +301,12 @@ public class Node : MonoBehaviour
             ChangeRange(false);
         anim.SetBool("Place", false);
         anim.SetBool("Decline", false);
+    }
+
+
+    public void LockPrice()
+    {
+        priceLocked += priceUnlocked;
+        priceUnlocked = 0;
     }
 }

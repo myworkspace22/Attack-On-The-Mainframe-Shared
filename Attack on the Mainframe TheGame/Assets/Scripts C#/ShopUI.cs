@@ -15,17 +15,15 @@ public class ShopUI : MonoBehaviour
     public TextMeshProUGUI damage;
     public TextMeshProUGUI range;
     public TextMeshProUGUI firerate;
-    public TextMeshProUGUI upgradeDescription; //måske
 
     public void SelectTower(TurretBluePrint towerBP)
     {
         title.text = towerBP.title;
         description.text = towerBP.description;
         cost.text = "Cost: <b><color=#FFD500>$" + towerBP.cost + "</color></b>";
-        damage.text = "DAMAGE: <color=#00FF00>" + towerBP.prefab.GetComponent<Turret>().bulletDamage+ "</color>";
-        range.text = "RANGE: <color=#00FF00>" + towerBP.prefab.GetComponent<Turret>().range + "</color>";
-        firerate.text = "Firerate: <color=#00FF00>" + towerBP.prefab.GetComponent<Turret>().fireRate + "</color>";
-        upgradeDescription.text = "Upgrades: " + towerBP.upgradeDescription[0] + " OR " + towerBP.upgradeDescription[1];
+        damage.text = "DAMAGE: " + towerBP.prefab.GetComponent<Turret>().bulletDamage;
+        range.text = "RANGE: " + towerBP.prefab.GetComponent<Turret>().range;
+        firerate.text = "Firerate: " + towerBP.prefab.GetComponent<Turret>().fireRate;
 
         ui.SetActive(true);
     }

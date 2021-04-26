@@ -34,8 +34,10 @@ public class Turret : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
+
     private void Start()
     {
+
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
         //towerRange.transform.localScale = new Vector2(range * 2, range * 2);
     }
@@ -144,4 +146,5 @@ public class Turret : MonoBehaviour
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, range);
     }
+    
 }

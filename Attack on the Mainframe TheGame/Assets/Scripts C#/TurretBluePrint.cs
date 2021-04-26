@@ -11,13 +11,14 @@ public class TurretBluePrint
     public int cost;
     public int levelUpCost;
 
+    public string[] upgradeNames;
     public string[] upgradeDescription;
     public GameObject[] upgradedPrefab;
     public int[] upgradeCost;
 
 
-    public int GetSellAmount()
-    {
-        return cost / 2;
-    }
+    //public int GetSellAmount()
+    //{
+    //    return cost / 2;
+    //}
 }
