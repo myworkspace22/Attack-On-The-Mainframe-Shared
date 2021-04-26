@@ -274,6 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 2
   nearestTarget: 0
+  bulletDamage: 25
   fireRate: 1
   useLaser: 0
   damageOverTime: 30

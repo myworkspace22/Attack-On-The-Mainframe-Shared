@@ -13,6 +13,7 @@ public class Turret : MonoBehaviour
     //public GameObject towerRange;
 
     [Header("Use Bullets (defualt)")]
+    public int bulletDamage;
     public float fireRate = 1f;
     private float fireCountdown = 0f;
 
@@ -134,6 +135,7 @@ public class Turret : MonoBehaviour
 
         if (bullet != null)
         {
+            bullet.damage = bulletDamage;
             bullet.Seek(target);
         }
     }

@@ -9,8 +9,9 @@ public class TurretBluePrint
     public string description;
     public GameObject prefab;
     public int cost;
+    public int levelUpCost;
 
-    public string[] upgadeDescription;
+    public string[] upgradeDescription;
     public GameObject[] upgradedPrefab;
     public int[] upgradeCost;
 

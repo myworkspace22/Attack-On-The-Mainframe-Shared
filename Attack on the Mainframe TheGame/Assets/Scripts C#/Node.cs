@@ -25,7 +25,30 @@ public class Node : MonoBehaviour
     public bool isMaxed = false;
     [HideInInspector]
     public int upgradeNr;
-    private int towerLevel;
+    [HideInInspector]
+    public int UpgradeMultiplier 
+    { 
+        get 
+        {
+            if (upgradeNr == 0)
+            {
+                return 1;
+            }
+            else if (upgradeNr > 0 && upgradeNr < 3)
+            {
+                return 2;
+            }
+            else if (upgradeNr >= 3)
+            {
+                return 3;
+            }
+
+            Debug.LogWarning("Wrong Upgarde Nr:" + upgradeNr);
+            return 0;
+        }
+    }
+    [HideInInspector]
+    public int towerLevel;
 
 
 
@@ -39,6 +62,7 @@ public class Node : MonoBehaviour
     {
         upgradeNr = 0;
         towerLevel = 0;
+        
 
         anim = GetComponent<Animator>();
 
@@ -142,6 +166,13 @@ public class Node : MonoBehaviour
         {
             towerStars[i].SetActive(towerLevel > i);
         }
+
+        turret.GetComponent<Turret>().bulletDamage += 5;
+        turret.GetComponent<Turret>().fireRate += 0.2f;
+        turret.GetComponent<Turret>().range += 0.1f;
+
+        ChangeRange(true, turret.GetComponent<Turret>().range);
+        buildManager.nodeUI.SetTarget(this);
     }
 
 
@@ -169,6 +200,11 @@ public class Node : MonoBehaviour
         buildManager.nodeUI.SetTarget(this);
 
         upgradeNr = upgradeindex;
+        towerLevel = 0;
+        foreach (GameObject star in towerStars)
+        {
+            star.SetActive(false);
+        }
 
         Debug.Log("Turret Upgraded!");
         
@@ -194,6 +230,11 @@ public class Node : MonoBehaviour
         Destroy(turret);
         turretBlueprint = null;
         upgradeNr = 0;
+        towerLevel = 0;
+        foreach (GameObject star in towerStars)
+        {
+            star.SetActive(false);
+        }
 
         ChangeRange(false);
     }

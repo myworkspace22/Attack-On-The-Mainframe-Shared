@@ -13647,9 +13647,8 @@ RectTransform:
   - {fileID: 386819820}
   - {fileID: 194062183}
   - {fileID: 1564150934}
-  - {fileID: 1373734417}
-  - {fileID: 892422528}
   - {fileID: 321582944}
+  - {fileID: 957084052}
   m_Father: {fileID: 686278875}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13715,11 +13714,14 @@ MonoBehaviour:
   range: {fileID: 1134656504}
   firerate: {fileID: 1305058163}
   upgradeDescription: {fileID: 894966062}
+  levelUpCost: {fileID: 1076673154}
   upgradeCost1: {fileID: 280170826}
   upgradeCost2: {fileID: 1802349745}
   sellAmount: {fileID: 1347683484}
   upgradeButton1: {fileID: 1373734418}
   upgradeButton2: {fileID: 892422529}
+  levelUpButton: {fileID: 321582943}
+  UpgradeButtons: {fileID: 957084051}
 --- !u!1001 &320942959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13791,7 +13793,7 @@ GameObject:
   - component: {fileID: 321582946}
   - component: {fileID: 321582945}
   m_Layer: 5
-  m_Name: Upgrade Level Button
+  m_Name: LevelUp Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13810,7 +13812,7 @@ RectTransform:
   m_Children:
   - {fileID: 1076673153}
   m_Father: {fileID: 320425716}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -38819,8 +38821,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1802349744}
-  m_Father: {fileID: 320425716}
-  m_RootOrder: 4
+  m_Father: {fileID: 957084052}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -42080,6 +42082,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
+--- !u!1 &957084051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 957084052}
+  m_Layer: 5
+  m_Name: Upgrade Buttons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &957084052
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957084051}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1373734417}
+  - {fileID: 892422528}
+  m_Father: {fileID: 320425716}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &959155870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60296,8 +60335,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 280170825}
-  m_Father: {fileID: 320425716}
-  m_RootOrder: 3
+  m_Father: {fileID: 957084052}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -70154,13 +70193,14 @@ MonoBehaviour:
     description: Basic Tower that fires at a regular speed
     prefab: {fileID: 7916541085778940208, guid: 7771ac83e91ba994ca249dff24c09796, type: 3}
     cost: 100
-    upgadeDescription:
-    - Sniper
-    - Double Barrol
-    - Elite Sniper
-    - Rollemarie
-    - Bomarang
-    - Troppet
+    levelUpCost: 50
+    upgradeDescription:
+    - 6
+    - 6
+    - 6
+    - 6
+    - 6
+    - 6
     upgradedPrefab:
     - {fileID: 7916541085778940208, guid: b8931a0da6aeffa468beceeab355c1e3, type: 3}
     - {fileID: 7916541085778940208, guid: 3c7b63e989636c84fa067ded4913cc92, type: 3}
@@ -70174,13 +70214,14 @@ MonoBehaviour:
     description: Cannon Tower that fires anti malware missiles
     prefab: {fileID: 4133119791020861501, guid: f77f4c037301bcb458924e096a3d3684, type: 3}
     cost: 150
-    upgadeDescription:
-    - Double Blaser
-    - Bomber
-    - Cluster Bomber
-    - Nuke
-    - Flame Thrower
-    - Missile
+    levelUpCost: 0
+    upgradeDescription:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
     upgradedPrefab:
     - {fileID: 4133119791020861501, guid: ad6e739ccabcb4f488132022e4e5b85c, type: 3}
     - {fileID: 4133119791020861501, guid: 881a4b92a59a5a447a45420e9860cdd2, type: 3}
@@ -70194,13 +70235,14 @@ MonoBehaviour:
     description: LASER Tower that mines crypto from its enemies
     prefab: {fileID: 5556433950650397502, guid: f4615c7410a365e428c6f329470011b9, type: 3}
     cost: 200
-    upgadeDescription:
-    - Magnet
-    - Zaper
-    - Beamer
-    - Freezer
-    - Multiplier
-    - Teslacoil
+    levelUpCost: 0
+    upgradeDescription:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
     upgradedPrefab:
     - {fileID: 5556433950650397502, guid: 2517126d7116b9a4bb30c0a1e97979ac, type: 3}
     - {fileID: 5556433950650397502, guid: e63b2928cb181df45bf9a4569b674829, type: 3}
