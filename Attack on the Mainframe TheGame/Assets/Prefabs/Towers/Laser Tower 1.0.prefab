@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 8709025309036245343}
   - component: {fileID: 6920416368136055428}
   m_Layer: 0
-  m_Name: Laser Tower
+  m_Name: Laser Tower 1.0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,8 +80,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfcb0d1778176204cbbaef3bdfd47144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 3
+  range: 1.75
   nearestTarget: 0
+  bulletDamage: 0
   fireRate: 1
   useLaser: 1
   damageOverTime: 30
@@ -132,7 +133,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 4e834f068671c1f4d90660911573f776, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 480c8bd17092f374fb82c5c1ae26ea19, type: 3}
   m_Color: {r: 0, g: 0.92156863, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -312,7 +313,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 4e834f068671c1f4d90660911573f776, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 480c8bd17092f374fb82c5c1ae26ea19, type: 3}
   m_Color: {r: 0.023529414, g: 0.90196085, b: 0.97647065, a: 1}
   m_FlipX: 0
   m_FlipY: 0

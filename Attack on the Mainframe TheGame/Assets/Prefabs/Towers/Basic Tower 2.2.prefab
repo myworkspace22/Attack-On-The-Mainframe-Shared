@@ -103,7 +103,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: ee5de8c3bfe435c4fa75404b297e9a68, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6225661fc20bc4c4082057a0bb78cf47, type: 3}
   m_Color: {r: 0, g: 0.92156863, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -272,9 +272,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfcb0d1778176204cbbaef3bdfd47144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2
+  range: 3.5
   nearestTarget: 0
-  fireRate: 1
+  bulletDamage: 150
+  fireRate: 1.25
   useLaser: 0
   damageOverTime: 30
   slowAmount: 0.5
@@ -324,7 +325,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: ee5de8c3bfe435c4fa75404b297e9a68, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6225661fc20bc4c4082057a0bb78cf47, type: 3}
   m_Color: {r: 0, g: 0.92156863, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

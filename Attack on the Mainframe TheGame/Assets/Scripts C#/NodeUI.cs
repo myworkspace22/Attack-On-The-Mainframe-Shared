@@ -60,13 +60,13 @@ public class NodeUI : MonoBehaviour
 
         title.text = target.turretBlueprint.title;
         description.text = target.turretBlueprint.description;
-        damage.text = "DAMAGE: " + target.turret.GetComponent<Turret>().bulletDamage; //+ " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().bulletPrefab.GetComponent<Bullet>().damage + "</color></b>";
-        range.text = "RANGE: " + target.turret.GetComponent<Turret>().range; //+ " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().range + "</color></b>";
-        firerate.text = "Firerate: " + target.turret.GetComponent<Turret>().fireRate; //+ " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().fireRate + "</color></b>";
+        damage.text = "Damage: " + target.turret.GetComponent<Turret>().bulletDamage; //+ " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().bulletPrefab.GetComponent<Bullet>().damage + "</color></b>";
+        range.text = "Range: " + target.turret.GetComponent<Turret>().range + "00"; //+ " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().range + "</color></b>";
+        firerate.text = "Frequency: " + target.turret.GetComponent<Turret>().fireRate; //+ " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().fireRate + "</color></b>";
 
         int nextLevel = target.towerLevel + 1;
         int nextLevelCost = target.turretBlueprint.levelUpCost * target.UpgradeMultiplier;
-        levelUpCost.text = "level " + nextLevel + ": <color=#FFD500>$" + nextLevelCost + "</color>";
+        levelUpCost.text = "Upgrade: " + "<color=#FFD500>$" + nextLevelCost + "</color>"; //level " + nextLevel
         sellAmount.text = "SELL: <color=#FFD500>$" + target.SellAmount + "</color>";
 
         UpdateUiButtons();
@@ -84,12 +84,11 @@ public class NodeUI : MonoBehaviour
     {
         if (target.towerLevel < 3)
         {
-            damage.text = "DAMAGE: " + target.turret.GetComponent<Turret>().bulletDamage + " <b><color=#00FF00>-> " + (target.turret.GetComponent<Turret>().bulletDamage + 5) + "</color></b>";
-            range.text = "RANGE: " + target.turret.GetComponent<Turret>().range + " <b><color=#00FF00>-> " + (target.turret.GetComponent<Turret>().range + 0.1f) + "</color></b>";
-            firerate.text = "Firerate: " + target.turret.GetComponent<Turret>().fireRate + " <b><color=#00FF00>-> " + (target.turret.GetComponent<Turret>().fireRate + 0.2f) + "</color></b>";
+            damage.text = "Damage: " + target.turret.GetComponent<Turret>().bulletDamage + " <color=#00FF00>-> " + (target.turret.GetComponent<Turret>().bulletDamage + 5) + "</color>";
+            range.text = "Range: " + target.turret.GetComponent<Turret>().range + " <color=#00FF00>-> " + (target.turret.GetComponent<Turret>().range + 0.1f) + "00" + "</color>";
+            firerate.text = "Frequency: " + target.turret.GetComponent<Turret>().fireRate + " <color=#00FF00>-> " + (target.turret.GetComponent<Turret>().fireRate + 0.2f) + "</color>";
             return;
         }
-
 
         if (target.isMaxed)
             return;
@@ -98,18 +97,17 @@ public class NodeUI : MonoBehaviour
 
         upgradeDescription.text = "<color=#00FF00>" + target.turretBlueprint.upgradeDescription[target.upgradeNr + upgradeIndex * multiplyer - 1] + "</color>";
 
-
-        damage.text = "DAMAGE: " + target.turret.GetComponent<Turret>().bulletDamage + " <b><color=#00FF00>-> " + target.turretBlueprint.upgradedPrefab[target.upgradeNr + upgradeIndex * multiplyer - 1].GetComponent<Turret>().bulletDamage + "</color></b>";
-        range.text = "RANGE: " + target.turret.GetComponent<Turret>().range + " <b><color=#00FF00>-> " + target.turretBlueprint.upgradedPrefab[target.upgradeNr + upgradeIndex * multiplyer - 1].GetComponent<Turret>().range + "</color></b>";
-        firerate.text = "Firerate: " + target.turret.GetComponent<Turret>().fireRate + " <b><color=#00FF00>-> " + target.turretBlueprint.upgradedPrefab[target.upgradeNr + upgradeIndex * multiplyer - 1].GetComponent<Turret>().fireRate + "</color></b>";
+        damage.text = "Damage: " + target.turret.GetComponent<Turret>().bulletDamage + " <color=#00FF00>-> " + target.turretBlueprint.upgradedPrefab[target.upgradeNr + upgradeIndex * multiplyer - 1].GetComponent<Turret>().bulletDamage + "</color>";
+        range.text = "Range: " + target.turret.GetComponent<Turret>().range + " <color=#00FF00>-> " + target.turretBlueprint.upgradedPrefab[target.upgradeNr + upgradeIndex * multiplyer - 1].GetComponent<Turret>().range + "00" + "</color>";
+        firerate.text = "Frequency: " + target.turret.GetComponent<Turret>().fireRate + " <color=#00FF00>-> " + target.turretBlueprint.upgradedPrefab[target.upgradeNr + upgradeIndex * multiplyer - 1].GetComponent<Turret>().fireRate + "</color>";
     }
     public void HideUpgradeStats()
     {
         if(target.towerLevel < 3)
         {
-            damage.text = "DAMAGE: " + target.turret.GetComponent<Turret>().bulletDamage;
-            range.text = "RANGE: " + target.turret.GetComponent<Turret>().range;
-            firerate.text = "Firerate: " + target.turret.GetComponent<Turret>().fireRate;
+            damage.text = "Damage: " + target.turret.GetComponent<Turret>().bulletDamage;
+            range.text = "Range: " + target.turret.GetComponent<Turret>().range + "00";
+            firerate.text = "Frequency: " + target.turret.GetComponent<Turret>().fireRate;
             return;
         }
 
@@ -117,9 +115,9 @@ public class NodeUI : MonoBehaviour
             return;
 
         upgradeDescription.text = "";
-        damage.text = "DAMAGE: " + target.turret.GetComponent<Turret>().bulletDamage;
-        range.text = "RANGE: " + target.turret.GetComponent<Turret>().range;
-        firerate.text = "Firerate: " + target.turret.GetComponent<Turret>().fireRate;
+        damage.text = "Damage: " + target.turret.GetComponent<Turret>().bulletDamage;
+        range.text = "Range: " + target.turret.GetComponent<Turret>().range + "00";
+        firerate.text = "Frequency: " + target.turret.GetComponent<Turret>().fireRate;
     }
 
     public void Hide()

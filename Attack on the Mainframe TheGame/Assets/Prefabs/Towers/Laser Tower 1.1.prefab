@@ -80,12 +80,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfcb0d1778176204cbbaef3bdfd47144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 3
+  range: 2
   nearestTarget: 0
+  bulletDamage: 0
   fireRate: 1
   useLaser: 1
-  damageOverTime: 60
-  slowAmount: 0.8
+  damageOverTime: 50
+  slowAmount: 0.75
   lineRenderer: {fileID: 6920416368136055428}
   impactEffect: {fileID: 2872334427099462869}
   enemyTag: Enemy
@@ -132,7 +133,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 3390041ec04b8a04ba5451ea57b95286, type: 3}
+  m_Sprite: {fileID: 21300000, guid: daac7f7273a4d194996467be5c41cc0c, type: 3}
   m_Color: {r: 0, g: 0.92156863, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -312,7 +313,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 3390041ec04b8a04ba5451ea57b95286, type: 3}
+  m_Sprite: {fileID: 21300000, guid: daac7f7273a4d194996467be5c41cc0c, type: 3}
   m_Color: {r: 0.023529414, g: 0.90196085, b: 0.97647065, a: 1}
   m_FlipX: 0
   m_FlipY: 0

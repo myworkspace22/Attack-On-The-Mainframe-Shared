@@ -12,8 +12,6 @@ public class Node : MonoBehaviour
     public GameObject towerRange;
     public GameObject[] towerStars;
     
-
-
     [Header("Animation Ref.")]
     public SpriteRenderer spriteToChange;
 
@@ -63,12 +61,7 @@ public class Node : MonoBehaviour
     [HideInInspector]
     public int priceUnlocked;
 
-
     BuildManager buildManager;
-
-
-
-    
 
     private void Start()
     {
@@ -99,7 +92,6 @@ public class Node : MonoBehaviour
         towerRange.SetActive(rangeStatus);
     }
     
-
     private void OnMouseDown()
     {
         if (EventSystem.current.IsPointerOverGameObject())
@@ -141,7 +133,6 @@ public class Node : MonoBehaviour
             }
         }
         
-    
         PlayerStats.Money -= blueprint.cost;
         priceLocked += blueprint.cost; //skal ændres
 
@@ -197,7 +188,6 @@ public class Node : MonoBehaviour
         buildManager.nodeUI.ShowUpgradeStats(2);
     }
 
-
     public void UpgradeTurret(int index)
     {
         int upgradeindex = (upgradeNr > 0) ?  upgradeNr + index * 2: upgradeNr + index;
@@ -230,7 +220,6 @@ public class Node : MonoBehaviour
         }
 
         Debug.Log("Turret Upgraded!");
-        
     }
     public void SellTurret()
     {
@@ -262,6 +251,7 @@ public class Node : MonoBehaviour
 
         ChangeRange(false);
     }
+
     private void OnMouseEnter()
     {
         if (EventSystem.current.IsPointerOverGameObject())
@@ -295,6 +285,7 @@ public class Node : MonoBehaviour
             anim.SetBool("Decline", true);
         }
     }
+
     private void OnMouseExit()
     {
         if (buildManager.CanBuild)
@@ -302,7 +293,6 @@ public class Node : MonoBehaviour
         anim.SetBool("Place", false);
         anim.SetBool("Decline", false);
     }
-
 
     public void LockPrice()
     {

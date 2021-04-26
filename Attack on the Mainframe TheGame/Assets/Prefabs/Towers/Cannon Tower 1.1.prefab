@@ -183,7 +183,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: a0ebf221ff86f5842aeb1708a4a594eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 06f04b18f852c7f40b8afd29d758e8b6, type: 3}
   m_Color: {r: 0, g: 0.92156863, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -240,8 +240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfcb0d1778176204cbbaef3bdfd47144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 3
+  range: 1.75
   nearestTarget: 0
+  bulletDamage: 75
   fireRate: 1
   useLaser: 0
   damageOverTime: 30
@@ -250,7 +251,7 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   enemyTag: Enemy
   rotationPoint: {fileID: 2766983560153170726}
-  bulletPrefab: {fileID: 2881803708027556478, guid: 61c1976176cd65840bea892c98fbfa9b, type: 3}
+  bulletPrefab: {fileID: 2881803708027556478, guid: 23e6b7c082407484c8a368c9500e548c, type: 3}
   firePoint: {fileID: 6035166715951589729}
 --- !u!212 &1811285495851032897
 SpriteRenderer:
@@ -292,7 +293,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: a0ebf221ff86f5842aeb1708a4a594eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 06f04b18f852c7f40b8afd29d758e8b6, type: 3}
   m_Color: {r: 0, g: 0.92156863, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

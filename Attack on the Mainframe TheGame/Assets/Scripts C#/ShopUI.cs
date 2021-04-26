@@ -20,10 +20,10 @@ public class ShopUI : MonoBehaviour
     {
         title.text = towerBP.title;
         description.text = towerBP.description;
-        cost.text = "Cost: <b><color=#FFD500>$" + towerBP.cost + "</color></b>";
-        damage.text = "DAMAGE: " + towerBP.prefab.GetComponent<Turret>().bulletDamage;
-        range.text = "RANGE: " + towerBP.prefab.GetComponent<Turret>().range;
-        firerate.text = "Firerate: " + towerBP.prefab.GetComponent<Turret>().fireRate;
+        cost.text = "Cost: <color=#FFD500>$" + towerBP.cost + "</color>";
+        damage.text = "Damage: " + towerBP.prefab.GetComponent<Turret>().bulletDamage;
+        range.text = "Range: " + towerBP.prefab.GetComponent<Turret>().range + "00";
+        firerate.text = "Frequency: " + towerBP.prefab.GetComponent<Turret>().fireRate;
 
         ui.SetActive(true);
     }

@@ -9,6 +9,6 @@ public class MoneyUI : MonoBehaviour
     public TextMeshProUGUI moneyText;
     void Update()
     {
-        moneyText.text = "CURRENCY: <color=#FFD500>$" + PlayerStats.Money.ToString() + "</color>";
+        moneyText.text = "CURRENCY: <color=#FFD500>$" + PlayerStats.Money.ToString() + "</color>" + " (+100)";
     }
 }
