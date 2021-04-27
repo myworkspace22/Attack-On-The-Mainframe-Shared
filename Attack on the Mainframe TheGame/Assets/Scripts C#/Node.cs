@@ -155,6 +155,10 @@ public class Node : MonoBehaviour
 
         //add tag "Tower"
         gameObject.tag = "Tower";
+
+        //scan a* path
+        AstarPath.active.Scan();
+
     }
 
     public void levelUpTower()
@@ -250,6 +254,8 @@ public class Node : MonoBehaviour
         }
 
         ChangeRange(false);
+
+        AstarPath.active.Scan();
     }
 
     private void OnMouseEnter()

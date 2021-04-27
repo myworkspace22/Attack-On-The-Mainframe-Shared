@@ -19,13 +19,13 @@ public class EnemyMovement : MonoBehaviour
     private void Update()
     {
         Vector2 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * enemy.speed * Time.deltaTime, Space.World);
+        //transform.Translate(dir.normalized * enemy.speed * Time.deltaTime, Space.World);
 
         if (Vector2.Distance(transform.position, target.position) <= 0.4f)
         {
             GetNextWayPoint();
         }
-        enemy.speed = enemy.startSpeed;
+        //enemy.speed = enemy.startSpeed;
     }
     void GetNextWayPoint()
     {

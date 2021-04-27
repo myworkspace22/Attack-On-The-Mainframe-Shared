@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 7505756682630748051}
   - component: {fileID: 5326030572238994831}
   - component: {fileID: 7479360711761383765}
+  - component: {fileID: 8087798873232545178}
   m_Layer: 5
   m_Name: Enemy HealthBar
   m_TagString: Untagged
@@ -251,6 +252,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8087798873232545178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3929742027188563969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f32e61b8da75d5a41bb73c8c38a05b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalFart: {fileID: 5975281576349636350}
 --- !u!1 &5975281576349636344
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +277,9 @@ GameObject:
   - component: {fileID: 5975281576349636351}
   - component: {fileID: 1895774545520125227}
   - component: {fileID: 1178698430}
-  - component: {fileID: -6302080711024246025}
+  - component: {fileID: 481751948570499937}
+  - component: {fileID: 2396046356456824826}
+  - component: {fileID: -615155906788554392}
   m_Layer: 0
   m_Name: Fast Enemy
   m_TagString: Enemy
@@ -352,7 +368,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.2035
+  m_Radius: 0.08
 --- !u!114 &1178698430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,12 +381,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d74dac3fb455d549bfd69d47fc26ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 1.5
-  speed: 1
-  startHealth: 75
+  aIPath: {fileID: 0}
+  startSpeed: 3
+  startHealth: 750
   worth: 50
   healthBar: {fileID: 2149164614439485724}
---- !u!114 &-6302080711024246025
+--- !u!114 &481751948570499937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -379,6 +395,72 @@ MonoBehaviour:
   m_GameObject: {fileID: 5975281576349636344}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 412956d44b4d26a4b9d974a85089d588, type: 3}
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &2396046356456824826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5975281576349636344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 2
+  radius: 0.2
+  height: 2
+  repathRate: 0.01
+  canSearch: 1
+  canMove: 1
+  maxSpeed: 1
+  gravity: {x: 0, y: 0, z: 0}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
+  targetCompatibility: {fileID: 0}
+  maxAcceleration: 10000000
+  rotationSpeed: 360000
+  slowdownDistance: 0.08
+  pickNextWaypointDist: 0.1
+  endReachedDistance: 0.08
+  alwaysDrawGizmos: 0
+  slowWhenNotFacingTarget: 1
+  whenCloseToDestination: 0
+  constrainInsideGraph: 0
+--- !u!114 &-615155906788554392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5975281576349636344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  target: {fileID: 0}

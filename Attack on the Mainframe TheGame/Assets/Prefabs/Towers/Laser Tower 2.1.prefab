@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5918272327451547685}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RotationPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,8 @@ GameObject:
   - component: {fileID: 6595567104721690625}
   - component: {fileID: 8709025309036245343}
   - component: {fileID: 6920416368136055428}
-  m_Layer: 0
+  - component: {fileID: 3500250610026602458}
+  m_Layer: 6
   m_Name: Laser Tower 2.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,6 +243,32 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!61 &3500250610026602458
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5556433950650397502}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 0.339, y: 0.3815}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0
 --- !u!1 &7955904125729604621
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 262743070122226452}
   - component: {fileID: 2945425439719899954}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Laser Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2848132688497259106}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3702757483748989638}
   - component: {fileID: 2271421092245175882}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tower Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,9 +514,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4609472876526070178, guid: 82f2954dd43510e49af5c6ef1653f4dd, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7920924485072857347, guid: 82f2954dd43510e49af5c6ef1653f4dd, type: 3}
       propertyPath: m_Name
       value: Laser Impact Effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 7920924485072857347, guid: 82f2954dd43510e49af5c6ef1653f4dd, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f2954dd43510e49af5c6ef1653f4dd, type: 3}

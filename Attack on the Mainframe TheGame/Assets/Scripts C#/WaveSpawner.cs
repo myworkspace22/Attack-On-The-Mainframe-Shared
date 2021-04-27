@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Pathfinding;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class WaveSpawner : MonoBehaviour
 
     public Wave[] waves;
 
-    public Transform spawnPoint;
+    public Transform[] spawnPoints;
+    public Transform endPoint;
 
     public float timeBetweenWaves = 5f;
     public float countdown = 10f;
@@ -64,6 +66,7 @@ public class WaveSpawner : MonoBehaviour
     }
     void SpawnEnemy(GameObject enemy)
     {
-        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+        GameObject e = Instantiate(enemy, spawnPoints[Random.Range(0, 6)].position, spawnPoints[Random.Range(0, 6)].rotation);
+        e.GetComponent<AIDestinationSetter>().target = endPoint;
     }
 }

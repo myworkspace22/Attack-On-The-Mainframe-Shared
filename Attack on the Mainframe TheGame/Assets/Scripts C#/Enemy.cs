@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Pathfinding;
 
 public class Enemy : MonoBehaviour
 {
+    public AIPath aIPath;
+
     public float startSpeed = 10f;
 
-    [HideInInspector]
-    public float speed;
+    //[HideInInspector]
+    //public float speed;
 
     public float startHealth = 100;
     private float health;
@@ -24,7 +27,8 @@ public class Enemy : MonoBehaviour
     private bool hasDied;
     private void Start()
     {
-        speed = startSpeed;
+        aIPath = GetComponent<AIPath>();
+        aIPath.maxSpeed = startSpeed;
         health = startHealth;
         hasDied = false;
         //healthUIpct = 165 / startHealth;
@@ -51,7 +55,7 @@ public class Enemy : MonoBehaviour
     }
     public void Slow (float pct)
     {
-        speed = startSpeed * (1f - pct);
+        aIPath.maxSpeed = startSpeed * (1f - pct);
     }
     void Die()
     {

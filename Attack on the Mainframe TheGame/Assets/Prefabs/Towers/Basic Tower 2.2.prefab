@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8277812115738884651}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RotationPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2550212215187231002}
   - component: {fileID: 585784358899228988}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Standard Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 524606163506090092}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1415125622766401736}
   - component: {fileID: 4559026435059489860}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tower Platform
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -237,7 +237,8 @@ GameObject:
   - component: {fileID: 7311249908020888009}
   - component: {fileID: 8883761791121506831}
   - component: {fileID: 2023288362687100980}
-  m_Layer: 0
+  - component: {fileID: 707227085980579242}
+  m_Layer: 6
   m_Name: Basic Tower 2.2
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -336,3 +337,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &707227085980579242
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7916541085778940208}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 0.5, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0
