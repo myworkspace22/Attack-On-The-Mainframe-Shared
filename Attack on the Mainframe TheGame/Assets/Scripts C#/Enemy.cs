@@ -6,7 +6,7 @@ using Pathfinding;
 
 public class Enemy : MonoBehaviour
 {
-    public AIPath aIPath;
+    public AILerp aIPath;
 
     public float startSpeed = 10f;
 
@@ -27,8 +27,8 @@ public class Enemy : MonoBehaviour
     private bool hasDied;
     private void Start()
     {
-        aIPath = GetComponent<AIPath>();
-        aIPath.maxSpeed = startSpeed;
+        aIPath = GetComponent<AILerp>();
+        aIPath.speed = startSpeed;
         health = startHealth;
         hasDied = false;
         //healthUIpct = 165 / startHealth;
@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
     }
     public void Slow (float pct)
     {
-        aIPath.maxSpeed = startSpeed * (1f - pct);
+        aIPath.speed = startSpeed * (1f - pct);
     }
     void Die()
     {

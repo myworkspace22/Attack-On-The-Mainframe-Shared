@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7373373764363036414}
   - component: {fileID: 7203673169436658652}
   m_Layer: 0
-  m_Name: Fast Enemy
+  m_Name: Basic Enemy 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5735045524105564535}
+  - {fileID: 5363995887710498241}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: c96d74368b13b494eba465ec8c61ea15, type: 3}
-  m_Color: {r: 1, g: 0.8923286, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 3e4efa1763a90344aa9a62d594d6fd88, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -118,10 +118,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aIPath: {fileID: 0}
-  startSpeed: 2
-  startHealth: 2000
-  worth: 100
-  healthBar: {fileID: 1744328501158428074}
+  startSpeed: 1
+  startHealth: 1000
+  worth: 50
+  healthBar: {fileID: 2149164614439485724}
 --- !u!114 &-6302080711024246025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,12 +194,12 @@ MonoBehaviour:
   canMove: 1
   speed: 3
   orientation: 1
-  enableRotation: 0
+  enableRotation: 1
   rotationSpeed: 10
   interpolatePathSwitches: 1
   switchPathInterpolationSpeed: 5
   targetCompatibility: {fileID: 0}
---- !u!1001 &1656215963481727906
+--- !u!1001 &1376496160781016852
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -210,6 +210,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy HealthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 6253438001411722195, guid: 080ee08e75037fe4ab934d3337df5f5c, type: 3}
+      propertyPath: originalFart
+      value: 
+      objectReference: {fileID: 5975281576349636350}
     - target: {fileID: 6253438001411722195, guid: 080ee08e75037fe4ab934d3337df5f5c, type: 3}
       propertyPath: originalPosition
       value: 
@@ -284,7 +288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6443232834435510997, guid: 080ee08e75037fe4ab934d3337df5f5c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.3180542
+      value: 0.31802484
       objectReference: {fileID: 0}
     - target: {fileID: 6443232834435510997, guid: 080ee08e75037fe4ab934d3337df5f5c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -304,15 +308,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 080ee08e75037fe4ab934d3337df5f5c, type: 3}
---- !u!224 &5735045524105564535 stripped
+--- !u!224 &5363995887710498241 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6443232834435510997, guid: 080ee08e75037fe4ab934d3337df5f5c, type: 3}
-  m_PrefabInstance: {fileID: 1656215963481727906}
+  m_PrefabInstance: {fileID: 1376496160781016852}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1744328501158428074 stripped
+--- !u!114 &2149164614439485724 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1065407128133164552, guid: 080ee08e75037fe4ab934d3337df5f5c, type: 3}
-  m_PrefabInstance: {fileID: 1656215963481727906}
+  m_PrefabInstance: {fileID: 1376496160781016852}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1

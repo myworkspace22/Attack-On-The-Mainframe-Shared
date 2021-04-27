@@ -41,7 +41,7 @@ public class WaveSpawner : MonoBehaviour
 
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
 
-        waveCountdownText.text = string.Format("Next Wave ({0:00})", countdown);
+        waveCountdownText.text = string.Format("Next Wave: {0:00.00}", countdown);
     }
     IEnumerator SpawnWave()
     {
@@ -66,7 +66,7 @@ public class WaveSpawner : MonoBehaviour
     }
     void SpawnEnemy(GameObject enemy)
     {
-        GameObject e = Instantiate(enemy, spawnPoints[Random.Range(0, 6)].position, spawnPoints[Random.Range(0, 6)].rotation);
+        GameObject e = Instantiate(enemy, spawnPoints[Random.Range(0, 4)].position, spawnPoints[Random.Range(0, 4)].rotation);
         e.GetComponent<AIDestinationSetter>().target = endPoint;
     }
 }

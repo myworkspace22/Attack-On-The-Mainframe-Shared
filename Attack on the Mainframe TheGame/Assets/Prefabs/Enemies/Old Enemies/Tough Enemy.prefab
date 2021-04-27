@@ -384,6 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aIPath: {fileID: 0}
   startSpeed: 3
+  endPathingPoint: {fileID: 4291476749361961938, guid: 090216f49b943284c88a3e3dd2720569, type: 3}
   startHealth: 3000
   worth: 50
   healthBar: {fileID: 2149164614439485724}
