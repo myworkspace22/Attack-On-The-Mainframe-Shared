@@ -113,6 +113,9 @@ public class Node : MonoBehaviour
     }
     void BuildTurret(TurretBluePrint blueprint)
     {
+        if (!buildManager.GetComponent<WaveSpawner>().BuildMode)
+            return;
+
         if (PlayerStats.Money < blueprint.cost)
         {
             Debug.Log("Not enough money to Build!");
@@ -143,6 +146,13 @@ public class Node : MonoBehaviour
 
         Debug.Log("Turret build!");
         anim.SetBool("Place", false);
+        if (!Input.GetButton("KeepBuilding"))
+        {
+            buildManager.SelectNode(this);
+        }
+        
+        //buildManager.DeselectTower();
+        //ChangeRange(false);
 
         //move collider forwards to make it easy to select
         Vector3 pos = transform.position;
@@ -163,6 +173,9 @@ public class Node : MonoBehaviour
 
     public void levelUpTower()
     {
+        if (!buildManager.GetComponent<WaveSpawner>().BuildMode)
+            return;
+
         if (PlayerStats.Money < turretBlueprint.levelUpCost * UpgradeMultiplier)
         {
             Debug.Log("Not enough money to level up!");
@@ -194,6 +207,9 @@ public class Node : MonoBehaviour
 
     public void UpgradeTurret(int index)
     {
+        if (!buildManager.GetComponent<WaveSpawner>().BuildMode)
+            return;
+
         int upgradeindex = (upgradeNr > 0) ?  upgradeNr + index * 2: upgradeNr + index;
 
         if (PlayerStats.Money < turretBlueprint.upgradeCost[upgradeindex - 1])
@@ -227,6 +243,9 @@ public class Node : MonoBehaviour
     }
     public void SellTurret()
     {
+        if (!buildManager.GetComponent<WaveSpawner>().BuildMode)
+            return;
+
         PlayerStats.Money += SellAmount;
         priceLocked = 0;
 
@@ -260,6 +279,9 @@ public class Node : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if (!buildManager.GetComponent<WaveSpawner>().BuildMode)
+            return;
+
         if (EventSystem.current.IsPointerOverGameObject())
         {
             return;

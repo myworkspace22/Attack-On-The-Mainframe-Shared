@@ -16,6 +16,8 @@ public class ShopUI : MonoBehaviour
     public TextMeshProUGUI range;
     public TextMeshProUGUI firerate;
 
+    //public Shop shop;
+
     public void SelectTower(TurretBluePrint towerBP)
     {
         title.text = towerBP.title;
@@ -30,6 +32,34 @@ public class ShopUI : MonoBehaviour
 
     public void DeselectTower()
     {
+        //if (BuildManager.instance.CanBuild)
+        //    return;
+
         ui.SetActive(false);
     }
+
+    //public void Select(int index)
+    //{
+    //    if (BuildManager.instance.CanBuild)
+    //        return;
+
+    //    switch (index)
+    //    {
+    //        case 1:
+    //            SelectTower(shop.standardTurret);
+    //            return;
+
+    //        case 2:
+    //            SelectTower(shop.missileTurret);
+    //            return;
+
+    //        case 3:
+    //            SelectTower(shop.laserTurret);
+    //            return;
+
+    //        default:
+    //            break;
+    //    }
+
+    //}
 }

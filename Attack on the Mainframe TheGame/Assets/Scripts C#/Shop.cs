@@ -1,17 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
-{
+{   
+    [Header("Buttons")]
+    public Button shopItem;
+    public Button shopItem2;
+    public Button shopItem3;
+    [Header("Towers")]
     public TurretBluePrint standardTurret;
     public TurretBluePrint missileTurret;
     public TurretBluePrint laserTurret;
+    
 
     BuildManager buildManager;
     private void Start()
     {
         buildManager = BuildManager.instance;
+    }
+    private void Update()
+    {
+        shopItem.interactable = PlayerStats.Money >= standardTurret.cost;
+        shopItem2.interactable = PlayerStats.Money >= missileTurret.cost;
+        shopItem3.interactable = PlayerStats.Money >= laserTurret.cost;
     }
     public void SelectStandardTurret()
     {

@@ -9,6 +9,16 @@ public class MoneyUI : MonoBehaviour
     public TextMeshProUGUI moneyText;
     void Update()
     {
-        moneyText.text = "CURRENCY: <color=#FFD500>$" + PlayerStats.Money.ToString() + "</color>" + " (+100)";
+        int income = (PlayerStats.Money - PlayerStats.Money % 100) / 5; 
+
+        if (BuildManager.instance.GetComponent<WaveSpawner>().BuildMode)
+        {
+            moneyText.text = "CURRENCY: <color=#FFD500>$" + PlayerStats.Money.ToString() + "</color>" + " (+" + income + ")";
+        }
+        else
+        {
+            moneyText.text = "CURRENCY: <color=#FFD500>$" + PlayerStats.Money.ToString() + "</color>";
+        }
+        
     }
 }

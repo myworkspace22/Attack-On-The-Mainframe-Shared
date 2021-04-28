@@ -23,6 +23,8 @@ public class WaveSpawner : MonoBehaviour
 
     private int waveIndex = 0;
 
+    public bool BuildMode { get { return EnemiesAlive <= 0; } }
+
     private void Update()
     {
         //enCount = EnemiesAlive; //til at kunne se hvor mange enemies der er i banen
@@ -35,13 +37,21 @@ public class WaveSpawner : MonoBehaviour
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
+            PlayerStats.Money += (PlayerStats.Money - PlayerStats.Money % 100) / 5;
             return;
         }
         countdown -= Time.deltaTime;
 
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
 
-        waveCountdownText.text = string.Format("Next Wave: {0:00.00}", countdown);
+        if (countdown > 5)
+        {
+            waveCountdownText.text = string.Format("Start ({0:00})", countdown);
+        }
+        if (countdown <= 5)
+        {
+            waveCountdownText.text = string.Format("Start ({0:00.00})", countdown);
+        }
     }
     IEnumerator SpawnWave()
     {
@@ -68,5 +78,15 @@ public class WaveSpawner : MonoBehaviour
     {
         GameObject e = Instantiate(enemy, spawnPoints[Random.Range(0, 4)].position, spawnPoints[Random.Range(0, 4)].rotation);
         e.GetComponent<AIDestinationSetter>().target = endPoint;
+    }
+
+    public void ReadyUp()
+    {
+        if (!BuildMode)
+        {
+            return;
+        }
+        countdown = 0;
+        waveCountdownText.text = "Ready";
     }
 }

@@ -15,7 +15,6 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
-
     private TurretBluePrint turretToBuild;
     private Node selectedNode;
 
@@ -66,4 +65,9 @@ public class BuildManager : MonoBehaviour
     {
         return turretToBuild;
     }
+    //public void DeselectTower()
+    //{
+    //    turretToBuild = null;
+    //    shopUI.DeselectTower();
+    //}
 }

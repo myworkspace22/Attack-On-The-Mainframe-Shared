@@ -436,7 +436,8 @@ namespace Pathfinding {
 		/// You can also create a new script which inherits from this one
 		/// and override the function in that script.
 		/// </summary>
-		public virtual void OnTargetReached () {
+		public virtual void OnTargetReached () 
+		{
 		}
 
 		/// <summary>

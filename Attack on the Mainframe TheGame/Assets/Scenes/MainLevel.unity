@@ -13503,6 +13503,7 @@ MonoBehaviour:
   sellAmount: {fileID: 1347683484}
   upgradeButton1: {fileID: 1373734418}
   upgradeButton2: {fileID: 892422529}
+  sellButton: {fileID: 1564150935}
   levelUpButton: {fileID: 321582943}
   UpgradeButtons: {fileID: 957084051}
 --- !u!1001 &320942959
@@ -27646,7 +27647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIexOzHWopQIAAJMFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VNtu2kAQ/RW0zwUZh0voWwuEtFISFFrloeRhsMd4xXrX2kuARPx7Z9cGO1RFSF7P9Zwzs/5gXJoSE6v0QvP0QaXIvnaYP7MvncZ5jwfYKrni73iOeeGpzX0QhJhnsFyRve/TjCrQap58k1vhgyMyOskzpYt5usWpMtaQOQNhkFxaWZ8tyfTRYQd6dCc+5UineOxP73SaRJ0THROUFnUr9KY3Hkb0G8d1yjmhOwwJTiYCihJTj77Jm/SGdTydQqAkZnVM1Iu9N1FCcFMjY/ZYBuZTKI0jXhSQciCmAU4U6uXIt7n1uNvpT1lm0NbQNBxnXJNkVV32XVU6FmB2Fbw3EM53Gg0Crqrmwz/ubj+4M62K+3PbfuRb2Jwnu2c4JmBsS+e2edYg7weR9iB2sBH4kqN8VAutnEzJabXzqc5gPGteL8ymOSa7xl5BvTK6slE9up4RcTgF8oep4MUmCDmoDCuhguBhF1DTdH4Q4LAppi5BVo/it8FfsG2vVO2449pYctUspYe3UU77UDYPmnk2zk6VlqjbFUqUIOxxSXXs9QivfP/PugN/e+rute98Ka5SgvkSP4yiK9dS7cO0hr3JpBrIT1eUS8WlXSHoJG+VNLnaP6DJn5wVXGIzCu94JCGnSspqA81np89aOZ1B0oZo8WCdxhlYCDeBYNGmpO2OJGpIkU4Iv5SBiC/+h4j4/6sXOgfqK4KZPSoZ7tCn56tfhq3j6edVZ/HoNrq5GcWjAUB2Oxl3bwewwWwIo35/g3ESsXAXuCTZQSwr3epp0RbJhqWkvT9/4zoLDWW4fKmG/YK/F6qlB5eZWiUaUT5VFS5kUVMT+lKk85QTzRVay2XYP/axZkIlO0zXl0LroOz8YDWsmyprVvI3Zb1lzabho7ZmJ3b6C1BLAwQUAAAICAAACCHsEs7KuG0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNVRUEovSizIKAaKGII4pZkpIHa0kpGZhYGxsZmRmUliYpqFpbmuhUliUmqaaaKZoWFSqlGygVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAACCHsTsx1qKUCAACTBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHsEs7KuG0AAAB4AAAACQAkAAAAAAAAAAAAAADyAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAKoDAAAAAA==
+    dataString: UEsDBBQAAAgIAAAIIeyPFeh8owIAAJIFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VNtu2kAQ/RW0zw0yDpfQtxYIaaUkKLTKQ8nDYI/xivWutZcAifj3zq4NNlRFSF7P9Zwzs/5kXJoSE6v0XPP0UaXIvnaYP7Mvncb5gHvYKLnkH3iKeeWpzX0QhJgXsFyRvefTjCrQap58kxvhgyMyOskzpYtZusGJMtaQOQNhkFxaWZ8tyfTZYXt63Ix9yoFO8cifPug0jjpHOiYoLepW6G13NIjoN4rrlFNCFe9kIqAoMfXgm7Rxd1CH0ykESiJWx0Td2HsTJQQ3NTBmD2UgPoHSOKJFASkHIhrQRKFejnyTWw+7nf6cZQZtjUzDYco1KVbVZd9VJWMBZlvBewfhfKdhP+Cqaj7+477pBXemVfFwatuLfAub82T7AocEjG3J3DZPG+S9INIOxBbWAl9zlE9qrpWTKTmtdj7VGYynzeuZ2STHZNvYK6hXRlc2qkdXI/IcjoH8fiJ4sQ5C9ivDUqggeFgF1DSdHwQ4LIqpS5DVo/ht8Bds2htVO+65NpZcNUvp4a2V0z6UzYJmno2zE6Ul6naFEiUIe1hQHXs9wivf/7PuwV+eunvtO92Jq5RgPscPoujKtVC7MK1BdzyuBvLTFeVCcWmXCDrJWyVNrnaPaPJnZwWX2IzCO55IyImSstpAc+n0WUunM0jaEC3urdM4BQvhJhAs2pS03ZFEDSnSCeGXMhDxxf8QEf9/80LnQH1FMLMnJcMduni++WXYOJ5erjqLh3fR7e0wHvYBsrvx6OauD2vMBjDs9dYYJxELd4FLkh3EotKtnhZtkWxYStr70yeuM9dQhsuXatjN+UehWnpwmallohHlc1XhTBY1NaEvRTpLOdFcorVchv1jnysmVLLFdHUutArKzvZWw6qpsmIlf1fWW1ZsEr5pK3Zkx79QSwMEFAAACAgAAAgh7BLOyrhtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTVUVBKL0osyCgGihiCOKWZKSB2tJKRmYWBsbGZkZlJYmKahaW5roVJYlJqmmmimaFhUqpRsoFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7I8V6HyjAgAAkgUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7BLOyrhtAAAAeAAAAAkAJAAAAAAAAAAAAAAA8AIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAACoAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -37029,7 +37030,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 864869347}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1589514349}
+        m_TargetAssemblyTypeName: WaveSpawner, Assembly-CSharp
+        m_MethodName: ReadyUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &864869347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40471,6 +40484,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 125817254177808949, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
   m_PrefabInstance: {fileID: 680809907}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &928916362 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6422599841047624149, guid: 55c74c0b329cd214da36fab6614f37ca, type: 3}
+  m_PrefabInstance: {fileID: 6422599839412302403}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &929913710 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 125817254177808949, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
@@ -67969,6 +67993,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 125817254177808949, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
   m_PrefabInstance: {fileID: 1522870022}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1541149783 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2722541029534176104, guid: e938c591bc8567e4394e8e239b181d61, type: 3}
+  m_PrefabInstance: {fileID: 9000936584842641731}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1541312013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69556,7 +69591,7 @@ MonoBehaviour:
   - {fileID: 1117820867}
   - {fileID: 711639872}
   endPoint: {fileID: 966734377}
-  timeBetweenWaves: 2
+  timeBetweenWaves: 10
   countdown: 10
   waveCountdownText: {fileID: 1598428958}
 --- !u!4 &1589514350
@@ -69599,7 +69634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e4347b1b39eb3a43b3adc8cb0847706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 5000
+  startMoney: 1000
   startLives: 20
 --- !u!114 &1589514353
 MonoBehaviour:
@@ -69931,11 +69966,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efcd2981f3ea2a54997814b82c7b2535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopItem: {fileID: 928916362}
+  shopItem2: {fileID: 1541149783}
+  shopItem3: {fileID: 1893653417}
   standardTurret:
     title: Firewall (level 1)
     description: Walls off incoming threats for a more secure network
     prefab: {fileID: 7916541085778940208, guid: 7771ac83e91ba994ca249dff24c09796, type: 3}
-    cost: 100
+    cost: 50
     levelUpCost: 50
     upgradeNames:
     - Minigun
@@ -69964,7 +70002,7 @@ MonoBehaviour:
     description: Prevents intruders from accessing secure information
     prefab: {fileID: 4133119791020861501, guid: f77f4c037301bcb458924e096a3d3684, type: 3}
     cost: 150
-    levelUpCost: 0
+    levelUpCost: 75
     upgradeNames:
     - Carronade
     - Cannon
@@ -69992,7 +70030,7 @@ MonoBehaviour:
     description: Detects and prevent incoming malware from spreading
     prefab: {fileID: 5556433950650397502, guid: f4615c7410a365e428c6f329470011b9, type: 3}
     cost: 200
-    levelUpCost: 0
+    levelUpCost: 125
     upgradeNames:
     - Beamer
     - Zapper
@@ -82897,6 +82935,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
+--- !u!114 &1893653417 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3551499995372298696, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
+  m_PrefabInstance: {fileID: 2760179059412533917}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1894079089 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 125817254177808949, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}

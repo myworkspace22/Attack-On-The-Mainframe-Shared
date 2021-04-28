@@ -6,7 +6,7 @@ using Pathfinding;
 
 public class Enemy : MonoBehaviour
 {
-    public AILerp aIPath;
+    private AILerp aIPath;
 
     public float startSpeed = 10f;
 
@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     [Header("Unity Stuff")]
     public Image healthBar;
 
+    private bool slowed;
     private bool hasDied;
     private void Start()
     {
@@ -34,6 +35,20 @@ public class Enemy : MonoBehaviour
         //healthUIpct = 165 / startHealth;
         //spriteRenderer = GetComponent<SpriteRenderer>();
     }
+
+    private void Update()
+    {
+        if (!slowed)
+            aIPath.speed = startSpeed;
+
+        slowed = false;
+
+        if (Vector2.Distance(transform.position, GetComponent<AIDestinationSetter>().target.position) <= 0.25f)
+        {
+            EndReached();
+        }
+    }
+
     public void TakeDamage (float amount)
     {
         health -= amount;
@@ -56,6 +71,7 @@ public class Enemy : MonoBehaviour
     public void Slow (float pct)
     {
         aIPath.speed = startSpeed * (1f - pct);
+        slowed = true;
     }
     void Die()
     {
@@ -66,5 +82,12 @@ public class Enemy : MonoBehaviour
         PlayerStats.Money += worth;
         Destroy(gameObject);
         WaveSpawner.EnemiesAlive--;
+    }
+
+    private void EndReached()
+    {
+        PlayerStats.Lives--;
+        WaveSpawner.EnemiesAlive--;
+        Destroy(gameObject);
     }
 }
