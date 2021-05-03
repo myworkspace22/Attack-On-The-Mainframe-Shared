@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class Node : MonoBehaviour
 {
     private Animator anim;
+    public PathChecker pathChecker;
     public Vector3 positionOffset;
 
     [Header("Tower Properties")]
@@ -136,6 +137,11 @@ public class Node : MonoBehaviour
             }
         }
         
+
+        //path check
+        //if (!CheckPathWPC())
+            //return;
+
         PlayerStats.Money -= blueprint.cost;
         priceLocked += blueprint.cost; //skal ændres
 
@@ -144,7 +150,7 @@ public class Node : MonoBehaviour
 
         turretBlueprint = blueprint;
 
-        Debug.Log("Turret build!");
+        //Debug.Log("Turret build!");
         anim.SetBool("Place", false);
         if (!Input.GetButton("KeepBuilding"))
         {
@@ -168,7 +174,11 @@ public class Node : MonoBehaviour
 
         //scan a* path
         AstarPath.active.Scan();
-
+        if (!pathChecker.PathCheck())
+        {
+            BuildManager.instance.DeselectNode();
+            SellTurret();
+        }
     }
 
     public void levelUpTower()
@@ -326,5 +336,54 @@ public class Node : MonoBehaviour
     {
         priceLocked += priceUnlocked;
         priceUnlocked = 0;
+    }
+
+
+    private bool CheckPathWPC()
+    {
+        //Create fake block
+
+        //move collider forwards to make it easy to select
+        //Vector3 pos = transform.position;
+        //pos.z = -0.1f;
+        //transform.position = pos;
+
+        //make the collider as big as the tower
+        BoxCollider2D collider = GetComponent<BoxCollider2D>();
+        collider.size = new Vector2(0.5f, 0.5f);
+
+        //add tag "Tower"
+        gameObject.tag = "Tower";
+
+        //scan a* path
+        AstarPath.active.Scan();
+        Debug.Log("PathCheck 1101 = " + pathChecker.PathCheck());
+
+
+
+
+
+        //Chek for path
+        bool path = pathChecker.PathCheck();
+
+
+
+        //Clean UP
+
+        //move collider back again
+        //pos.z = 0.0f;
+        //transform.position = pos;
+
+        //make the collider as small again
+        collider.size = new Vector2(0.25f, 0.25f);
+
+        //remove tag "Tower"
+        gameObject.tag = "Untagged";
+
+        //scan a* path
+        AstarPath.active.Scan();
+        Debug.Log("PathCheck 2202 = " + pathChecker.PathCheck());
+
+        return path;
     }
 }
