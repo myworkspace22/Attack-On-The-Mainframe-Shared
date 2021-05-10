@@ -35,11 +35,12 @@ public class ChatBehavior : NetworkBehaviour
     }
 
     [Client]
-    public void Send(string message)
+    public void Send()//string message)
     {
+        string message = inputField.text;
         if(Input.GetKeyDown(KeyCode.Return) && !string.IsNullOrWhiteSpace(message))
         {
-            CmdSendMessage(message);
+            CmdSendMessage(inputField.text);
             inputField.text = string.Empty;
         }
     }
