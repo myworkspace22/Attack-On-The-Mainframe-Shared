@@ -2009,7 +2009,7 @@ MonoBehaviour:
   serverBatching: 1
   serverBatchInterval: 0
   offlineScene: 
-  onlineScene: Assets/MirrorTEST!/Scenes/LobbyLab.unity
+  onlineScene: 
   transport: {fileID: 1102136758}
   networkAddress: localhost
   maxConnections: 2
@@ -2020,7 +2020,8 @@ MonoBehaviour:
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs: []
-  menuScene: Assets/MirrorTEST!/Scenes/LobbyLab.unity
+  minPlayers: 2
+  menuScene: Assets/MirrorTEST/Scenes/LobbyLab.unity
   roomPlayerPrefab: {fileID: 402746772832865601, guid: e605eaf9464f42c40a299847cdc2b186, type: 3}
 --- !u!4 &1102136761
 Transform:

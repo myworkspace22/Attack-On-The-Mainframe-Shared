@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/MirrorTEST!/Scenes/LobbyLab.unity
+    path: Assets/MirrorTEST/Scenes/LobbyLab.unity
     guid: 384ec2cb71a03da469e2e63b153843eb
   m_configObjects: {}
