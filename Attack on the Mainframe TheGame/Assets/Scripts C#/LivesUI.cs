@@ -10,6 +10,6 @@ public class LivesUI : MonoBehaviour
 
     private void Update()
     {
-        livesText.text = "Lives: " + PlayerStats.Lives.ToString(); //alternativ "Remaining Lives: "
+        livesText.text = "RIBBOW (<color=#00FF00>" + PlayerStats.Lives.ToString() + "</color>)"; //alternativ "Remaining Lives: "
     }
 }

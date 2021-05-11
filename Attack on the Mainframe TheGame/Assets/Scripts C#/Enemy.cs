@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
 {
     private AILerp aIPath;
 
+    private CameraShake shake;
+
     public float startSpeed = 10f;
 
     //[HideInInspector]
@@ -32,6 +34,7 @@ public class Enemy : MonoBehaviour
         aIPath.speed = startSpeed;
         health = startHealth;
         hasDied = false;
+        shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<CameraShake>();
         //healthUIpct = 165 / startHealth;
         //spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -88,6 +91,7 @@ public class Enemy : MonoBehaviour
     {
         PlayerStats.Lives--;
         WaveSpawner.EnemiesAlive--;
+        shake.CamShake();
         Destroy(gameObject);
     }
 }
