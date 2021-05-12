@@ -10,8 +10,8 @@ public class NetworkRoomPlayer : NetworkBehaviour
 {
     [Header("UI")]
     [SerializeField] private GameObject lobbyUI; //= null;
-    [SerializeField] private TMP_Text[] playerNameText = new TMP_Text[4];
-    [SerializeField] private TMP_Text[] playerReadyText = new TMP_Text[4];
+    [SerializeField] private TMP_Text[] playerNameText = new TMP_Text[2];
+    [SerializeField] private TMP_Text[] playerReadyText = new TMP_Text[2];
     [SerializeField] private Button startGameButton;
 
     [SyncVar(hook = nameof(HandleDisplayNameChanged))]
@@ -31,7 +31,6 @@ public class NetworkRoomPlayer : NetworkBehaviour
     }
 
     private NetworkManagerLobby room;
-
     private NetworkManagerLobby Room 
     { 
         get 
@@ -60,6 +59,7 @@ public class NetworkRoomPlayer : NetworkBehaviour
 
     public override void OnStopClient()
     {
+
         Room.RoomPlayers.Remove(this);
 
         UpdateDisplay();
@@ -72,7 +72,7 @@ public class NetworkRoomPlayer : NetworkBehaviour
     {
         if (!hasAuthority)
         {
-            foreach(NetworkRoomPlayer player in Room.RoomPlayers)
+            foreach (NetworkRoomPlayer player in Room.RoomPlayers)
             {
                 if (player.hasAuthority)
                 {
@@ -89,10 +89,10 @@ public class NetworkRoomPlayer : NetworkBehaviour
             playerReadyText[i].text = string.Empty;
         }
 
-        for (int i = 0; i < playerReadyText.Length; i++)
+        for (int i = 0; i < Room.RoomPlayers.Count; i++)
         {
             playerNameText[i].text = Room.RoomPlayers[i].DisplayName;
-            playerReadyText[i].text = Room.RoomPlayers[i].IsReady ? "<color=green>Ready</color>" : "<color=red>Not Ready</color>" ;
+            playerReadyText[i].text = Room.RoomPlayers[i].IsReady ? "<color=green>Ready</color>" : "<color=red>Not Ready</color>";
         }
     }
 
@@ -122,7 +122,10 @@ public class NetworkRoomPlayer : NetworkBehaviour
     public void CmdStartGame()
     {
         if (Room.RoomPlayers[0].connectionToClient != connectionToClient) { return; };
-        Debug.LogWarning("Stat game not implemented!");
+
+
+        Room.StartGame();
+
     }
 }
 

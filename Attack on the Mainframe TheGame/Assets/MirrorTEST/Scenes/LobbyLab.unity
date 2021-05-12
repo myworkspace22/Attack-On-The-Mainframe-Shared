@@ -2023,6 +2023,7 @@ MonoBehaviour:
   minPlayers: 2
   menuScene: Assets/MirrorTEST/Scenes/LobbyLab.unity
   roomPlayerPrefab: {fileID: 402746772832865601, guid: e605eaf9464f42c40a299847cdc2b186, type: 3}
+  gamePlayerPrefab: {fileID: 4735801359820670574, guid: 228ddcb3895748949a4bdf44e9791cef, type: 3}
 --- !u!4 &1102136761
 Transform:
   m_ObjectHideFlags: 0
