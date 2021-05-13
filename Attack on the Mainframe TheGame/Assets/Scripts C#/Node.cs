@@ -137,7 +137,6 @@ public class Node : MonoBehaviour
             }
         }
         
-
         //path check
         //if (!CheckPathWPC())
             //return;

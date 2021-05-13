@@ -38,7 +38,7 @@ public class Turret : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        InvokeRepeating("UpdateTarget", 0f, 0.2f); //Update Target Delay
         //towerRange.transform.localScale = new Vector2(range * 2, range * 2);
     }
     void UpdateTarget()
