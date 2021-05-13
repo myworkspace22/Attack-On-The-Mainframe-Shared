@@ -2012,7 +2012,7 @@ MonoBehaviour:
   onlineScene: 
   transport: {fileID: 1102136758}
   networkAddress: localhost
-  maxConnections: 2
+  maxConnections: 3
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
@@ -2024,6 +2024,7 @@ MonoBehaviour:
   menuScene: Assets/MirrorTEST/Scenes/LobbyLab.unity
   roomPlayerPrefab: {fileID: 402746772832865601, guid: e605eaf9464f42c40a299847cdc2b186, type: 3}
   gamePlayerPrefab: {fileID: 4735801359820670574, guid: 228ddcb3895748949a4bdf44e9791cef, type: 3}
+  playerSpawnSystem: {fileID: 4986349224377613830, guid: e03af446382891a4b841d7fde51a3f6c, type: 3}
 --- !u!4 &1102136761
 Transform:
   m_ObjectHideFlags: 0
