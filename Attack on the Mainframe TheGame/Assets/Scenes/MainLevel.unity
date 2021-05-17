@@ -11562,8 +11562,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.2
-  m_fontSizeBase: 0.2
+  m_fontSize: 0.18
+  m_fontSizeBase: 0.18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -15354,7 +15354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 336762564}
   m_Layer: 5
-  m_Name: Upgrade Button (delete)
+  m_Name: Upgrade Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26405,7 +26405,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596453863}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 519420032}
@@ -38759,7 +38759,7 @@ GameObject:
   m_Component:
   - component: {fileID: 897842626}
   m_Layer: 5
-  m_Name: Sell Button (delete)
+  m_Name: Sell Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40857,8 +40857,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1.08, y: -0.135}
-  m_SizeDelta: {x: 2.16, y: 0.27}
+  m_AnchoredPosition: {x: 0.93, y: -0.119999886}
+  m_SizeDelta: {x: 1.86, y: 0.24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &933645545
 MonoBehaviour:
@@ -40882,8 +40882,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Firewall (level 1)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5279ed6902c1a7c45a723f8bf2bfc49c, type: 2}
-  m_sharedMaterial: {fileID: 3124942555912503447, guid: 5279ed6902c1a7c45a723f8bf2bfc49c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: eed1337de96c4ae44b57555829dca901, type: 2}
+  m_sharedMaterial: {fileID: -5727580498085426146, guid: eed1337de96c4ae44b57555829dca901, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -42080,12 +42080,12 @@ GameObject:
   m_Component:
   - component: {fileID: 957084052}
   m_Layer: 5
-  m_Name: Upgrade Buttons (delete)
+  m_Name: Upgrade Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &957084052
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46822,7 +46822,7 @@ GameObject:
   - component: {fileID: 1069130609}
   - component: {fileID: 1069130608}
   m_Layer: 5
-  m_Name: Upgrade Cost
+  m_Name: Upgrade Cost (delete)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52456,7 +52456,7 @@ GameObject:
   - component: {fileID: 1199377818}
   - component: {fileID: 1199377817}
   m_Layer: 5
-  m_Name: Upgrade Choice Cost (1)
+  m_Name: Upgrade Choice Cost (1) (delete)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55253,7 +55253,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.51, y: -1.245}
+  m_AnchoredPosition: {x: 0.51, y: -1.215}
   m_SizeDelta: {x: 1.02, y: 0.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1269996203
@@ -57192,7 +57192,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.54, y: -2.0049999}
+  m_AnchoredPosition: {x: 0.54, y: -1.975}
   m_SizeDelta: {x: 1.08, y: 0.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1308726310
@@ -57712,7 +57712,7 @@ GameObject:
   - component: {fileID: 1325184638}
   - component: {fileID: 1325184637}
   m_Layer: 5
-  m_Name: Upgrade Choise Cost (2)
+  m_Name: Upgrade Choise Cost (2) (delete)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68697,33 +68697,30 @@ MonoBehaviour:
   - enemy: {fileID: 5975281576349636344, guid: 940fad39164ca9141802a89e070abe6b, type: 3}
     count: 3
     rate: 1
-  - enemy: {fileID: 5975281576349636344, guid: c1ec320caae9b1945b1a43fe1ffefa9c, type: 3}
-    count: 5
-    rate: 1
   - enemy: {fileID: 5975281576349636344, guid: 146cc806fe0558b48b5e5a601967e8f6, type: 3}
-    count: 8
-    rate: 0.5
+    count: 3
+    rate: 1
   - enemy: {fileID: 5975281576349636344, guid: 8958b854c78210340a188cbf1486f413, type: 3}
-    count: 8
-    rate: 0.5
-  - enemy: {fileID: 5975281576349636344, guid: 1a0b2a4b5af53dc4a861f5f614ebeed9, type: 3}
-    count: 8
-    rate: 0.5
-  - enemy: {fileID: 5975281576349636344, guid: ac1d181b837f7db4480073c8c13dba67, type: 3}
-    count: 8
-    rate: 0.5
-  - enemy: {fileID: 5975281576349636344, guid: ac1d181b837f7db4480073c8c13dba67, type: 3}
-    count: 8
-    rate: 0.5
-  - enemy: {fileID: 5975281576349636344, guid: ac1d181b837f7db4480073c8c13dba67, type: 3}
-    count: 8
-    rate: 0.5
-  - enemy: {fileID: 5975281576349636344, guid: ac1d181b837f7db4480073c8c13dba67, type: 3}
-    count: 8
-    rate: 0.5
-  - enemy: {fileID: 5975281576349636344, guid: ac1d181b837f7db4480073c8c13dba67, type: 3}
-    count: 8
-    rate: 0.5
+    count: 3
+    rate: 1
+  - enemy: {fileID: 5975281576349636344, guid: 79e8f0fd8e5eae948a1c83fb61448f6b, type: 3}
+    count: 3
+    rate: 1
+  - enemy: {fileID: 5975281576349636344, guid: 200ff43de03edb04cb2307742554007c, type: 3}
+    count: 3
+    rate: 1
+  - enemy: {fileID: 5975281576349636344, guid: 412c18acb6ba6094cb401667efd44c15, type: 3}
+    count: 3
+    rate: 1
+  - enemy: {fileID: 5975281576349636344, guid: b6bccc99c1f55f1499dde41448f77e30, type: 3}
+    count: 3
+    rate: 1
+  - enemy: {fileID: 5975281576349636344, guid: d9838802746c6ab4e8c488e67a38cdde, type: 3}
+    count: 3
+    rate: 1
+  - enemy: {fileID: 5975281576349636344, guid: 26a61e608276caf41b9e75fc2f68c0bc, type: 3}
+    count: 3
+    rate: 1
   spawnPoints:
   - {fileID: 1426203089}
   - {fileID: 2124893548}
@@ -70888,7 +70885,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Firewall (level 1)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5279ed6902c1a7c45a723f8bf2bfc49c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: eed1337de96c4ae44b57555829dca901, type: 2}
   m_sharedMaterial: {fileID: -5727580498085426146, guid: eed1337de96c4ae44b57555829dca901, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -74416,7 +74413,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1.8151498, y: -0.70000005}
+  m_AnchoredPosition: {x: 1.8151498, y: -0.66999996}
   m_SizeDelta: {x: 3.6302996, y: 0.56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1706809262
@@ -78177,7 +78174,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.475, y: -1.625}
+  m_AnchoredPosition: {x: 0.475, y: -1.595}
   m_SizeDelta: {x: 0.95, y: 0.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1789609382
@@ -78937,8 +78934,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.19
-  m_fontSizeBase: 0.19
+  m_fontSize: 0.18
+  m_fontSizeBase: 0.18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -90807,7 +90804,7 @@ GameObject:
   - component: {fileID: 2131358517}
   - component: {fileID: 2131358516}
   m_Layer: 5
-  m_Name: Sell Amount
+  m_Name: Sell Amount (delete)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

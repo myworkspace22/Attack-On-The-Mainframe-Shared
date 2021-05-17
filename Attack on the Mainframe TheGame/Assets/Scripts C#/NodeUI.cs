@@ -41,9 +41,9 @@ public class NodeUI : MonoBehaviour
         }
         else
         {
-            levelUpButton.GetComponent<Button>().interactable = false;
-            upgradeButton1.interactable = false;
-            upgradeButton2.interactable = false;
+            //levelUpButton.GetComponent<Button>().interactable = false;
+            //upgradeButton1.interactable = false;
+            //upgradeButton2.interactable = false;
             sellButton.interactable = false;
         }
     }

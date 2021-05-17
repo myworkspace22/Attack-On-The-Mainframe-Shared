@@ -182,8 +182,8 @@ public class Node : MonoBehaviour
 
     public void levelUpTower()
     {
-        if (!buildManager.GetComponent<WaveSpawner>().BuildMode)
-            return;
+        //if (!buildManager.GetComponent<WaveSpawner>().BuildMode)
+        //    return;
 
         if (PlayerStats.Money < turretBlueprint.levelUpCost * UpgradeMultiplier)
         {
@@ -216,8 +216,8 @@ public class Node : MonoBehaviour
 
     public void UpgradeTurret(int index)
     {
-        if (!buildManager.GetComponent<WaveSpawner>().BuildMode)
-            return;
+        //if (!buildManager.GetComponent<WaveSpawner>().BuildMode)
+        //    return;
 
         int upgradeindex = (upgradeNr > 0) ?  upgradeNr + index * 2: upgradeNr + index;
 
@@ -337,7 +337,6 @@ public class Node : MonoBehaviour
         priceUnlocked = 0;
     }
 
-
     private bool CheckPathWPC()
     {
         //Create fake block
@@ -358,14 +357,8 @@ public class Node : MonoBehaviour
         AstarPath.active.Scan();
         Debug.Log("PathCheck 1101 = " + pathChecker.PathCheck());
 
-
-
-
-
-        //Chek for path
+        //Check for path
         bool path = pathChecker.PathCheck();
-
-
 
         //Clean UP
 
