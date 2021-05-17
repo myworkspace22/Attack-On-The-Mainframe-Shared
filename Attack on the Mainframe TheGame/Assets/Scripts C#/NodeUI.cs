@@ -29,8 +29,6 @@ public class NodeUI : MonoBehaviour
     public GameObject levelUpButton;
     public GameObject UpgradeButtons;
 
-
-
     private void Update()
     {
         if (BuildManager.instance.GetComponent<WaveSpawner>().BuildMode) 
@@ -48,7 +46,6 @@ public class NodeUI : MonoBehaviour
             upgradeButton2.interactable = false;
             sellButton.interactable = false;
         }
-
     }
     public void SetTarget(Node _target)
     {
@@ -58,12 +55,11 @@ public class NodeUI : MonoBehaviour
 
         if (!target.isMaxed)
         {
-
             int multiplyer = (target.upgradeNr > 0) ? 2 : 1;
 
             upgradeDescription.text = "";//"Upgrades: <color=#00FF00>" + target.turretBlueprint.upgradeDescription[target.upgradeNr + 1 * multiplyer - 1] + " OR " + target.turretBlueprint.upgradeDescription[target.upgradeNr + 2 * multiplyer - 1] + "</color>";
-            upgradeCost1.text = target.turretBlueprint.upgradeNames[target.upgradeNr + 1 * multiplyer - 1] + ": <color=#FFD500>$" + target.turretBlueprint.upgradeCost[target.upgradeNr + 1 * multiplyer - 1] + "</color>";
-            upgradeCost2.text = target.turretBlueprint.upgradeNames[target.upgradeNr + 2 * multiplyer - 1] + ": <color=#FFD500>$" + target.turretBlueprint.upgradeCost[target.upgradeNr + 2 * multiplyer - 1] + "</color>";
+            upgradeCost1.text = target.turretBlueprint.upgradeNames[target.upgradeNr + 1 * multiplyer - 1] + ": $" + target.turretBlueprint.upgradeCost[target.upgradeNr + 1 * multiplyer - 1];
+            upgradeCost2.text = target.turretBlueprint.upgradeNames[target.upgradeNr + 2 * multiplyer - 1] + ": $" + target.turretBlueprint.upgradeCost[target.upgradeNr + 2 * multiplyer - 1];
             upgradeButton1.interactable = PlayerStats.Money >= target.turretBlueprint.upgradeCost[target.upgradeNr + 1 * multiplyer - 1];
             upgradeButton2.interactable = PlayerStats.Money >= target.turretBlueprint.upgradeCost[target.upgradeNr + 2 * multiplyer - 1];
 
@@ -71,7 +67,6 @@ public class NodeUI : MonoBehaviour
         }
         else
         {
-
             upgradeDescription.text = "<color=#00FF00>UPGRADED</color>";
             upgradeCost1.text = "MAXED";
             upgradeCost2.text = "MAXED";
@@ -89,8 +84,8 @@ public class NodeUI : MonoBehaviour
 
         int nextLevel = target.towerLevel + 1;
         int nextLevelCost = target.turretBlueprint.levelUpCost * target.UpgradeMultiplier;
-        levelUpCost.text = "Upgrade: " + "<color=#FFD500>$" + nextLevelCost + "</color>"; //level " + nextLevel
-        sellAmount.text = "SELL: <color=#FFD500>$" + target.SellAmount + "</color>";
+        levelUpCost.text = "Upgrade: <color=#FFD500>$" + nextLevelCost + "</color>"; //level " + nextLevel
+        sellAmount.text = "Sell: <color=#FFD500>$" + target.SellAmount + "</color>";
 
         UpdateUiButtons();
 
