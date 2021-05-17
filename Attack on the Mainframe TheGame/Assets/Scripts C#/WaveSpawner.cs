@@ -44,13 +44,13 @@ public class WaveSpawner : MonoBehaviour
 
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
 
-        if (countdown > 5)
+        if (countdown > 10)
         {
-            waveCountdownText.text = string.Format("Start ({0:00})", countdown);
+            waveCountdownText.text = string.Format("START ({0:00})", countdown);
         }
-        if (countdown <= 5)
+        if (countdown <= 10)
         {
-            waveCountdownText.text = string.Format("Start ({0:00.00})", countdown);
+            waveCountdownText.text = string.Format("START ({0:0})", countdown);
         }
     }
     IEnumerator SpawnWave()

@@ -52,17 +52,19 @@ public class Bullet : MonoBehaviour
     void HitTarget()
     {
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(effectIns, 2f);
 
         if (explosionRadius > 0f)
         {
+            effectIns.GetComponent<ExplosionRadius>().explosionRange = explosionRadius;
             Explode();
         }
         else if (target != null)
         {
+            Destroy(effectIns, 2f);
             Damage(target);
         }
 
+        Destroy(effectIns, 2f);
         Destroy(gameObject);
     }
 
@@ -83,9 +85,9 @@ public class Bullet : MonoBehaviour
         {
             if (collider.tag == "Enemy")
             {
-                GameObject effectIns = (GameObject)Instantiate(impactMissile, collider.transform.position, collider.transform.rotation);
-                Destroy(effectIns, 2f);
-
+                //GameObject effectIns = (GameObject)Instantiate(impactMissile, collider.transform.position, collider.transform.rotation);
+                //Destroy(effectIns, 2f);
+                
                 Damage(collider.transform);
             }
         }

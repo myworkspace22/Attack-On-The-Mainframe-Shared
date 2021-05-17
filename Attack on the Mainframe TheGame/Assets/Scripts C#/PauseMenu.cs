@@ -38,4 +38,8 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Go to menu");
     }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

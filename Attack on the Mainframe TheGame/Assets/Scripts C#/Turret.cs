@@ -26,6 +26,8 @@ public class Turret : MonoBehaviour
     public LineRenderer lineRenderer;
     public ParticleSystem impactEffect;
 
+    public float laserWidth;
+
     [Header("Unity Setup Fields M.I.S")]
     public string enemyTag = "Enemy";
 
@@ -34,10 +36,9 @@ public class Turret : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
-
     private void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        InvokeRepeating("UpdateTarget", 0f, 0.2f); //Update Target Delay
         //towerRange.transform.localScale = new Vector2(range * 2, range * 2);
     }
     void UpdateTarget()
@@ -119,6 +120,7 @@ public class Turret : MonoBehaviour
 
         if (!lineRenderer.enabled)
         {
+            lineRenderer.startWidth = laserWidth;
             lineRenderer.enabled = true;
             impactEffect.Play();
         }
