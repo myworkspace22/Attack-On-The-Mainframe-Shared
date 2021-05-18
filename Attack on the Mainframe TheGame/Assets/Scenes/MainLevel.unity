@@ -14699,7 +14699,7 @@ MonoBehaviour:
   damage: {fileID: 1269996203}
   range: {fileID: 1789609382}
   firerate: {fileID: 1308726310}
-  upgradeDescription: {fileID: 2031225668}
+  upgradeDescription: {fileID: 1706809262}
   levelUpCost: {fileID: 1076673154}
   upgradeCost1: {fileID: 280170826}
   upgradeCost2: {fileID: 1802349745}
@@ -88028,7 +88028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2031225667
 RectTransform:
   m_ObjectHideFlags: 0
