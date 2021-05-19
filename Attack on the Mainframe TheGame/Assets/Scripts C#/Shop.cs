@@ -13,7 +13,8 @@ public class Shop : MonoBehaviour
     public TurretBluePrint standardTurret;
     public TurretBluePrint missileTurret;
     public TurretBluePrint laserTurret;
-    
+
+    public PlayerStats playerStats;
 
     BuildManager buildManager;
     private void Start()
@@ -22,9 +23,9 @@ public class Shop : MonoBehaviour
     }
     private void Update()
     {
-        shopItem.interactable = PlayerStats.Money >= standardTurret.cost;
-        shopItem2.interactable = PlayerStats.Money >= missileTurret.cost;
-        shopItem3.interactable = PlayerStats.Money >= laserTurret.cost;
+        shopItem.interactable = playerStats.Money >= standardTurret.cost;
+        shopItem2.interactable = playerStats.Money >= missileTurret.cost;
+        shopItem3.interactable = playerStats.Money >= laserTurret.cost;
     }
     public void SelectStandardTurret()
     {

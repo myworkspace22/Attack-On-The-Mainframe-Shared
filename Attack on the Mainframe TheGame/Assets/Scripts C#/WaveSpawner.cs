@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Pathfinding;
+using Mirror;
 
-public class WaveSpawner : MonoBehaviour
+public class WaveSpawner : NetworkBehaviour
 {
     public static int EnemiesAlive = 0;
 
@@ -25,6 +26,8 @@ public class WaveSpawner : MonoBehaviour
 
     public bool BuildMode { get { return EnemiesAlive <= 0; } }
 
+    public PlayerStats playerStats;
+
     private void Update()
     {
         //enCount = EnemiesAlive; //til at kunne se hvor mange enemies der er i banen
@@ -37,7 +40,9 @@ public class WaveSpawner : MonoBehaviour
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
-            PlayerStats.Money += (PlayerStats.Money - PlayerStats.Money % 100) / 5;
+            //PlayerStats.Money += (PlayerStats.Money - PlayerStats.Money % 100) / 5;
+            int income = (playerStats.Money - playerStats.Money % 100) / 5;
+            playerStats.changeMoney(income);
             return;
         }
         countdown -= Time.deltaTime;
@@ -63,7 +68,7 @@ public class WaveSpawner : MonoBehaviour
 
         for (int i = 0; i < wave.count; i++)
         {
-            SpawnEnemy(wave.enemy);
+            CmdSpawnEnemy(wave.enemy);
             yield return new WaitForSeconds(1f / wave.rate);
         }
 
@@ -74,10 +79,18 @@ public class WaveSpawner : MonoBehaviour
             this.enabled = false;
         }
     }
-    void SpawnEnemy(GameObject enemy)
+    [Command]
+    void CmdSpawnEnemy(GameObject enemy)
     {
+        Debug.Log("Has auhority" + hasAuthority);
+        if (!hasAuthority)
+        {
+            
+            return;
+        }
         GameObject e = Instantiate(enemy, spawnPoints[Random.Range(0, 4)].position, spawnPoints[Random.Range(0, 4)].rotation);
         e.GetComponent<AIDestinationSetter>().target = endPoint;
+        NetworkServer.Spawn(e);
     }
 
     public void ReadyUp()

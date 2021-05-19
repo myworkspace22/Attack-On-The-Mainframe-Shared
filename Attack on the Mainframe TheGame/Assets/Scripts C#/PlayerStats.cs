@@ -4,20 +4,29 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public static int Money;
     public int startMoney = 400;
-
-    public static int Lives;
     public int startLives = 20;
 
     public static int Rounds;
 
+    private int lives;
+    private int money;
+
+    public int Lives { get { return lives; } }
+    public int Money { get { return money; } }
 
     private void Start()
     {
-        Money = startMoney;
-        Lives = startLives;
-
         Rounds = 0;
+
+        lives = startLives;
+    }
+    public void takeDamage()
+    {
+        lives--;
+    }
+    public void changeMoney(int amount)
+    {
+        money += amount;
     }
 }

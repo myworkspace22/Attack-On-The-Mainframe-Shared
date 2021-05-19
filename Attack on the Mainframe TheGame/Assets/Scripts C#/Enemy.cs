@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
 
     public float startSpeed = 10f;
 
+    public PlayerStats playerStats;
+
     //[HideInInspector]
     //public float speed;
 
@@ -71,25 +73,29 @@ public class Enemy : MonoBehaviour
             Die();
         }
     }
+
     public void Slow (float pct)
     {
         aIPath.speed = startSpeed * (1f - pct);
         slowed = true;
     }
+
     void Die()
     {
         if (hasDied)
             return;
 
         hasDied = true;
-        PlayerStats.Money += worth;
+        //PlayerStats.Money += worth;
+        playerStats.changeMoney(worth);
         Destroy(gameObject);
         WaveSpawner.EnemiesAlive--;
     }
 
     private void EndReached()
     {
-        PlayerStats.Lives--;
+        //PlayerStats.Lives--;
+        playerStats.takeDamage();
         WaveSpawner.EnemiesAlive--;
         shake.CamShake();
         Destroy(gameObject);

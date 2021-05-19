@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverUI;
 
+    public PlayerStats playerStats;
+
     private void Start()
     {
         GameIsOver = false;
@@ -18,11 +20,7 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-        if (Input.GetKeyDown("o"))
-        {
-            EndGame();
-        }
-        if (PlayerStats.Lives <= 0)
+        if (playerStats.Lives <= 0)
         {
             EndGame();
         }

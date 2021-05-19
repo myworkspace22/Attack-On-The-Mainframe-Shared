@@ -17,11 +17,11 @@ public class NetworkManagerLobby : NetworkManager
     [Header("Game")]
     [SerializeField] private NetworkGamePlayer gamePlayerPrefab;
     [SerializeField] private GameObject playerSpawnSystem;
+    public string gameScene;
 
     public static event Action OnClientConnected;
     public static event Action OnClientDisconnected;
     public static event Action<NetworkConnection> OnServerReadied;
-
 
     public List<NetworkRoomPlayer> RoomPlayers { get; } = new List<NetworkRoomPlayer>();
     public List<NetworkGamePlayer> GamePlayers { get; } = new List<NetworkGamePlayer>();
@@ -119,7 +119,7 @@ public class NetworkManagerLobby : NetworkManager
         {
             if (IsReadyToStart())
             {
-                ServerChangeScene("GameScene");
+                ServerChangeScene(gameScene);
             }
         }
     }

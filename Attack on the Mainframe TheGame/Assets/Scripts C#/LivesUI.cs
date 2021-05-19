@@ -8,8 +8,10 @@ public class LivesUI : MonoBehaviour
 {
     public TextMeshProUGUI livesText;
 
+    public PlayerStats playerStats;
+
     private void Update()
     {
-        livesText.text = "RIBBOW (" + PlayerStats.Lives.ToString() + ")"; //alternativ "Remaining Lives: "
+        livesText.text = "RIBBOW (" + playerStats.Lives.ToString() + ")"; //alternativ "Remaining Lives: "
     }
 }

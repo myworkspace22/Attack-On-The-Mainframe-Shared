@@ -29,14 +29,16 @@ public class NodeUI : MonoBehaviour
     public GameObject levelUpButton;
     public GameObject UpgradeButtons;
 
+    public PlayerStats playerStats;
+
     private void Update()
     {
         if (BuildManager.instance.GetComponent<WaveSpawner>().BuildMode) 
         {
-            levelUpButton.GetComponent<Button>().interactable = PlayerStats.Money >= target.turretBlueprint.levelUpCost * target.UpgradeMultiplier;
+            levelUpButton.GetComponent<Button>().interactable = playerStats.Money >= target.turretBlueprint.levelUpCost * target.UpgradeMultiplier;
             int multiplyer = (target.upgradeNr > 0) ? 2 : 1;
-            upgradeButton1.interactable = PlayerStats.Money >= target.turretBlueprint.upgradeCost[target.upgradeNr + 1 * multiplyer - 1];
-            upgradeButton2.interactable = PlayerStats.Money >= target.turretBlueprint.upgradeCost[target.upgradeNr + 2 * multiplyer - 1];
+            upgradeButton1.interactable = playerStats.Money >= target.turretBlueprint.upgradeCost[target.upgradeNr + 1 * multiplyer - 1];
+            upgradeButton2.interactable = playerStats.Money >= target.turretBlueprint.upgradeCost[target.upgradeNr + 2 * multiplyer - 1];
             sellButton.interactable = true;
         }
         else
@@ -60,8 +62,8 @@ public class NodeUI : MonoBehaviour
             upgradeDescription.text = "";//"Upgrades: <color=#00FF00>" + target.turretBlueprint.upgradeDescription[target.upgradeNr + 1 * multiplyer - 1] + " OR " + target.turretBlueprint.upgradeDescription[target.upgradeNr + 2 * multiplyer - 1] + "</color>";
             upgradeCost1.text = target.turretBlueprint.upgradeNames[target.upgradeNr + 1 * multiplyer - 1] + ": <color=#FFD500>$" + target.turretBlueprint.upgradeCost[target.upgradeNr + 1 * multiplyer - 1] + "</color>";
             upgradeCost2.text = target.turretBlueprint.upgradeNames[target.upgradeNr + 2 * multiplyer - 1] + ": <color=#FFD500>$" + target.turretBlueprint.upgradeCost[target.upgradeNr + 2 * multiplyer - 1] + "</color>";
-            upgradeButton1.interactable = PlayerStats.Money >= target.turretBlueprint.upgradeCost[target.upgradeNr + 1 * multiplyer - 1];
-            upgradeButton2.interactable = PlayerStats.Money >= target.turretBlueprint.upgradeCost[target.upgradeNr + 2 * multiplyer - 1];
+            upgradeButton1.interactable = playerStats.Money >= target.turretBlueprint.upgradeCost[target.upgradeNr + 1 * multiplyer - 1];
+            upgradeButton2.interactable = playerStats.Money >= target.turretBlueprint.upgradeCost[target.upgradeNr + 2 * multiplyer - 1];
 
             upgradeButton1.gameObject.SetActive(true);
         }

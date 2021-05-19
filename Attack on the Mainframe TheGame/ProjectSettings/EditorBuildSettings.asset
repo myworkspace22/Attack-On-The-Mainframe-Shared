@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainLevel.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/MirrorTEST/Scenes/LobbyLab.unity
+    guid: 384ec2cb71a03da469e2e63b153843eb
+  - enabled: 1
+    path: Assets/Scenes/Game Multiplayer++.unity
+    guid: 6ded808f92100b84992806b1b8b31ddf
   m_configObjects: {}

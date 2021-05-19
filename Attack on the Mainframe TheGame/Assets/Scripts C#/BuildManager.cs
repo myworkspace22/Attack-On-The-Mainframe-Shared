@@ -21,8 +21,10 @@ public class BuildManager : MonoBehaviour
     public NodeUI nodeUI;
     public ShopUI shopUI;
 
+    public PlayerStats playerstats;
+
     public bool CanBuild { get { return turretToBuild != null; } }
-    public bool HasMoney { get { return PlayerStats.Money >= turretToBuild.cost; } }
+    public bool HasMoney { get { return playerstats.Money >= turretToBuild.cost; } }
 
     public void SelectNode (Node node)
     {

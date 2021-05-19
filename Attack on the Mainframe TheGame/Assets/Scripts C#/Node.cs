@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class Node : MonoBehaviour
 {
     private Animator anim;
-    public PathChecker pathChecker;
+    private PathChecker pathChecker;
     public Vector3 positionOffset;
 
     [Header("Tower Properties")]
@@ -15,6 +15,8 @@ public class Node : MonoBehaviour
     
     [Header("Animation Ref.")]
     public SpriteRenderer spriteToChange;
+
+    public PlayerStats playerStats;
 
     [HideInInspector]
     public GameObject turret;
@@ -68,7 +70,8 @@ public class Node : MonoBehaviour
     {
         upgradeNr = 0;
         towerLevel = 0;
-        
+
+        pathChecker = GameObject.FindGameObjectWithTag("Pathchecker").GetComponent<PathChecker>();
 
         anim = GetComponent<Animator>();
 
@@ -117,7 +120,7 @@ public class Node : MonoBehaviour
         if (!buildManager.GetComponent<WaveSpawner>().BuildMode)
             return;
 
-        if (PlayerStats.Money < blueprint.cost)
+        if (playerStats.Money < blueprint.cost)
         {
             Debug.Log("Not enough money to Build!");
             return;
@@ -141,7 +144,7 @@ public class Node : MonoBehaviour
         //if (!CheckPathWPC())
             //return;
 
-        PlayerStats.Money -= blueprint.cost;
+        playerStats.changeMoney(-blueprint.cost);
         priceLocked += blueprint.cost; //skal ændres
 
         GameObject _turret = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
@@ -185,12 +188,12 @@ public class Node : MonoBehaviour
         //if (!buildManager.GetComponent<WaveSpawner>().BuildMode)
         //    return;
 
-        if (PlayerStats.Money < turretBlueprint.levelUpCost * UpgradeMultiplier)
+        if (playerStats.Money < turretBlueprint.levelUpCost * UpgradeMultiplier)
         {
             Debug.Log("Not enough money to level up!");
             return;
         }
-        PlayerStats.Money -= turretBlueprint.levelUpCost * UpgradeMultiplier;
+        playerStats.changeMoney(-turretBlueprint.levelUpCost * UpgradeMultiplier);
         priceLocked += turretBlueprint.levelUpCost * UpgradeMultiplier;
 
         if (towerLevel >= 3)
@@ -221,12 +224,12 @@ public class Node : MonoBehaviour
 
         int upgradeindex = (upgradeNr > 0) ?  upgradeNr + index * 2: upgradeNr + index;
 
-        if (PlayerStats.Money < turretBlueprint.upgradeCost[upgradeindex - 1])
+        if (playerStats.Money < turretBlueprint.upgradeCost[upgradeindex - 1])
         {
             Debug.Log("Not enough money to Upgrade!");
             return;
         }
-        PlayerStats.Money -= turretBlueprint.upgradeCost[upgradeindex - 1];
+        playerStats.changeMoney(-turretBlueprint.upgradeCost[upgradeindex - 1]);
         priceLocked += turretBlueprint.upgradeCost[upgradeindex - 1];
 
         //Get rid of the old turret
@@ -255,7 +258,7 @@ public class Node : MonoBehaviour
         if (!buildManager.GetComponent<WaveSpawner>().BuildMode)
             return;
 
-        PlayerStats.Money += SellAmount;
+        playerStats.changeMoney(SellAmount);
         priceLocked = 0;
 
         //Sell effect for later use!

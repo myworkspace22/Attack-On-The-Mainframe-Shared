@@ -8,6 +8,11 @@ using System;
 
 public class NetworkGamePlayer : NetworkBehaviour
 {
+    public GameObject uI;
+    public GameObject playerCamera;
+    public GameObject nodes;
+    public GameObject overlay;
+    public GameObject gameMaster;
 
     [SyncVar]
     private string displayName = "Loading...";
@@ -38,7 +43,15 @@ public class NetworkGamePlayer : NetworkBehaviour
             return room = NetworkManager.singleton as NetworkManagerLobby; 
         } 
     }
-
+    public override void OnStartAuthority()
+    {
+        Debug.Log("Nu starter vi med erfority");
+        uI.SetActive(true);
+        playerCamera.SetActive(true);
+        nodes.SetActive(true);
+        overlay.SetActive(true);
+        gameMaster.SetActive(true);
+    }
 
     public override void OnStartClient()
     {

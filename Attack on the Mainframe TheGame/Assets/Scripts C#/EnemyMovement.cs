@@ -10,6 +10,8 @@ public class EnemyMovement : MonoBehaviour
 
     private Enemy enemy;
 
+    public PlayerStats playerStats;
+
     private void Start()
     {
         enemy = GetComponent<Enemy>();
@@ -39,7 +41,8 @@ public class EnemyMovement : MonoBehaviour
     }
     void EndPath()
     {
-        PlayerStats.Lives--;
+        //playerStats.Lives--;
+        playerStats.takeDamage();
         WaveSpawner.EnemiesAlive--;
         Destroy(gameObject);
     }
