@@ -53,7 +53,7 @@ public class Node : MonoBehaviour
     {
         get
         {
-            return priceLocked / 2;
+            return priceUnlocked + (priceLocked / 2);
         }
     }
 
@@ -68,14 +68,20 @@ public class Node : MonoBehaviour
     {
         upgradeNr = 0;
         towerLevel = 0;
-        
 
         anim = GetComponent<Animator>();
 
         buildManager = BuildManager.instance;
 
+        buildManager.GetComponent<WaveSpawner>().OnWavePriceLocked += LockPrice;
+
         towerRange.SetActive(false);
     }
+
+    //private void OnDestroy()
+    //{
+    //    buildManager.GetComponent<WaveSpawner>().OnWavePriceLocked -= LockPrice;
+    //}
 
     public Vector2 GetBuildPosition()
     {
@@ -141,21 +147,12 @@ public class Node : MonoBehaviour
         //if (!CheckPathWPC())
             //return;
 
-        PlayerStats.Money -= blueprint.cost;
-        priceLocked += blueprint.cost; //skal ændres
 
         GameObject _turret = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
         turret = _turret;
 
         turretBlueprint = blueprint;
 
-        //Debug.Log("Turret build!");
-        anim.SetBool("Place", false);
-        if (!Input.GetButton("KeepBuilding"))
-        {
-            buildManager.SelectNode(this);
-        }
-        
         //buildManager.DeselectTower();
         //ChangeRange(false);
 
@@ -173,11 +170,25 @@ public class Node : MonoBehaviour
 
         //scan a* path
         AstarPath.active.Scan();
+
         if (!pathChecker.PathCheck())
         {
             BuildManager.instance.DeselectNode();
             SellTurret();
+            return;
         }
+
+        PlayerStats.Money -= blueprint.cost;
+        priceUnlocked += blueprint.cost; //skal ændres
+        
+        //Debug.Log("Turret build!");
+        anim.SetBool("Place", false);
+        if (!Input.GetButton("KeepBuilding"))
+        {
+            buildManager.SelectNode(this);
+        }
+
+        buildManager.newTowers.Push(this);
     }
 
     public void levelUpTower()
@@ -185,33 +196,67 @@ public class Node : MonoBehaviour
         //if (!buildManager.GetComponent<WaveSpawner>().BuildMode)
         //    return;
 
-        if (PlayerStats.Money < turretBlueprint.levelUpCost * UpgradeMultiplier)
+
+
+        //if (PlayerStats.Money < turretBlueprint.levelUpCost * UpgradeMultiplier)
+        //{
+        //    Debug.Log("Not enough money to level up!");
+        //    return;
+        //}
+        //PlayerStats.Money -= turretBlueprint.levelUpCost * UpgradeMultiplier;
+
+        //if (buildManager.GetComponent<WaveSpawner>().BuildMode)
+        //{
+        //    priceUnlocked += turretBlueprint.levelUpCost * UpgradeMultiplier;
+        //}
+        //else
+        //{
+        //    priceLocked += turretBlueprint.levelUpCost * UpgradeMultiplier;
+        //}
+
+        if (PlayerStats.Money < turretBlueprint.levelUpCost * (towerLevel + 1))
         {
             Debug.Log("Not enough money to level up!");
             return;
         }
-        PlayerStats.Money -= turretBlueprint.levelUpCost * UpgradeMultiplier;
-        priceLocked += turretBlueprint.levelUpCost * UpgradeMultiplier;
+        PlayerStats.Money -= turretBlueprint.levelUpCost * (towerLevel + 1);
 
-        if (towerLevel >= 3)
+        if (buildManager.GetComponent<WaveSpawner>().BuildMode)
         {
-            Debug.LogWarning("trying to level beyound level 3");
+            priceUnlocked += turretBlueprint.levelUpCost * (towerLevel + 1);
+        }
+        else
+        {
+            priceLocked += turretBlueprint.levelUpCost * (towerLevel + 1);
+        }
+
+
+        if (towerLevel >= 6)
+        {
+            Debug.LogWarning("trying to level beyound level 6");
             return;
         }
 
-        towerLevel++;
-        for (int i = 0; i < 3; i++)
-        {
-            towerStars[i].SetActive(towerLevel > i);
-        }
+        Turret turretToUpgrade = turret.GetComponent<Turret>();
+        turretToUpgrade.bulletDamage += turretToUpgrade.upgradeDamage * (towerLevel + 1);
+        turretToUpgrade.fireRate += turretToUpgrade.upgradeFrenquency * (towerLevel + 1);
+        turretToUpgrade.range += turretToUpgrade.upgradeRange * (towerLevel + 1);
+        turretToUpgrade.damageOverTime += turretToUpgrade.upgradeLaserDoT * (towerLevel + 1);
 
-        turret.GetComponent<Turret>().bulletDamage += 5;
-        turret.GetComponent<Turret>().fireRate += 0.2f;
-        turret.GetComponent<Turret>().range += 0.1f;
+        towerLevel++;
+        StarUI();
 
         ChangeRange(true, turret.GetComponent<Turret>().range);
         buildManager.nodeUI.SetTarget(this);
         buildManager.nodeUI.ShowUpgradeStats(2);
+    }
+
+    private void StarUI()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            towerStars[i].SetActive(towerLevel > i);
+        }
     }
 
     public void UpgradeTurret(int index)
@@ -226,8 +271,17 @@ public class Node : MonoBehaviour
             Debug.Log("Not enough money to Upgrade!");
             return;
         }
+
         PlayerStats.Money -= turretBlueprint.upgradeCost[upgradeindex - 1];
-        priceLocked += turretBlueprint.upgradeCost[upgradeindex - 1];
+
+        if (buildManager.GetComponent<WaveSpawner>().BuildMode)
+        {
+            priceUnlocked += turretBlueprint.upgradeCost[upgradeindex - 1];
+        }
+        else
+        {
+            priceLocked += turretBlueprint.upgradeCost[upgradeindex - 1];
+        }
 
         //Get rid of the old turret
         Destroy(turret);
@@ -241,12 +295,12 @@ public class Node : MonoBehaviour
 
         buildManager.nodeUI.SetTarget(this);
 
+        //turret.GetComponent<Turret>().towerPlatform.color = Color.white;
+        turret.GetComponent<Animator>().SetBool("selected", true);
+
         upgradeNr = upgradeindex;
-        towerLevel = 0;
-        foreach (GameObject star in towerStars)
-        {
-            star.SetActive(false);
-        }
+        towerLevel ++;
+        StarUI();
 
         Debug.Log("Turret Upgraded!");
     }
@@ -306,7 +360,9 @@ public class Node : MonoBehaviour
             {
                 if (canPlaceChecks[i].gameObject.tag == "Tower")
                 {
+                    spriteToChange.sprite = buildManager.GetTurretToBuild().prefab.GetComponent<SpriteRenderer>().sprite;
                     anim.SetBool("Decline", true);
+                    ChangeRange(true, buildManager.GetTurretToBuild().prefab.GetComponent<Turret>().range);
                     return;
                 }
             }
@@ -319,7 +375,9 @@ public class Node : MonoBehaviour
         }
         else
         {
+            spriteToChange.sprite = buildManager.GetTurretToBuild().prefab.GetComponent<SpriteRenderer>().sprite;
             anim.SetBool("Decline", true);
+            ChangeRange(true, buildManager.GetTurretToBuild().prefab.GetComponent<Turret>().range);
         }
     }
 

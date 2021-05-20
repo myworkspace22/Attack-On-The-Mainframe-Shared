@@ -4,12 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Pathfinding;
+using System;
 
 public class WaveSpawner : MonoBehaviour
 {
     public static int EnemiesAlive = 0;
 
+    public TextMeshProUGUI enemyName;
+    public Image enemyImage;
+
     //public int enCount; //til at kunne se hvor mange enemies der er i banen
+
+    
 
     public Wave[] waves;
 
@@ -23,6 +29,11 @@ public class WaveSpawner : MonoBehaviour
 
     private int waveIndex = 0;
 
+    private bool waveEnded;
+
+    public event Action OnWavePriceLocked;
+    public event Action OnWaveEnded;
+
     public bool BuildMode { get { return EnemiesAlive <= 0; } }
 
     private void Update()
@@ -31,7 +42,13 @@ public class WaveSpawner : MonoBehaviour
 
         if (EnemiesAlive > 0)
         {
+            waveEnded = false;
             return;
+        }
+        else if (!waveEnded)
+        {
+            waveEnded = true;
+            OnWaveEnded?.Invoke();
         }
         if (countdown <= 0f)
         {
@@ -43,6 +60,10 @@ public class WaveSpawner : MonoBehaviour
         countdown -= Time.deltaTime;
 
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
+
+        enemyName.text = "Next wave: <color=#00FF00>" + waves[waveIndex].enemy.GetComponent<Enemy>().startHealth + " HP</color>";
+
+        enemyImage.sprite = waves[waveIndex].enemy.GetComponentInChildren<SpriteRenderer>().sprite;
 
         if (countdown > 10)
         {
@@ -57,9 +78,17 @@ public class WaveSpawner : MonoBehaviour
     {
         PlayerStats.Rounds++;
 
+        OnWavePriceLocked?.Invoke();
+
+        BuildManager.instance.ClearStack();
+
         Wave wave = waves[waveIndex];
 
         EnemiesAlive += wave.count;
+
+        enemyName.text = "Incoming: <color=#00FF00>" + wave.enemy.GetComponent<Enemy>().startHealth + " HP</color>";
+
+        enemyImage.sprite = wave.enemy.GetComponentInChildren<SpriteRenderer>().sprite;
 
         for (int i = 0; i < wave.count; i++)
         {
@@ -76,7 +105,7 @@ public class WaveSpawner : MonoBehaviour
     }
     void SpawnEnemy(GameObject enemy)
     {
-        GameObject e = Instantiate(enemy, spawnPoints[Random.Range(0, 4)].position, spawnPoints[Random.Range(0, 4)].rotation);
+        GameObject e = Instantiate(enemy, spawnPoints[UnityEngine.Random.Range(0, 4)].position, spawnPoints[UnityEngine.Random.Range(0, 4)].rotation);
         e.GetComponent<AIDestinationSetter>().target = endPoint;
     }
 

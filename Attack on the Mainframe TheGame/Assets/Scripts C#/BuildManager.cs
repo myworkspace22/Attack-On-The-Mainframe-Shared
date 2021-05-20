@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
+    [HideInInspector]
+    public Stack<Node> newTowers;
+
     public static BuildManager instance;
     private void Awake()
     {
@@ -13,6 +16,8 @@ public class BuildManager : MonoBehaviour
             return;
         }
         instance = this;
+
+        newTowers = new Stack<Node>();
     }
 
     private TurretBluePrint turretToBuild;
@@ -24,8 +29,27 @@ public class BuildManager : MonoBehaviour
     public bool CanBuild { get { return turretToBuild != null; } }
     public bool HasMoney { get { return PlayerStats.Money >= turretToBuild.cost; } }
 
+    private void Update()
+    {
+        if((Input.GetButton("UndoX") || Input.GetButtonDown("UndoCTRL")) && Input.GetButtonDown("UndoZ") && newTowers.Count > 0)
+        {
+            Node towerToRemove = newTowers.Pop();
+            towerToRemove.SellTurret();
+            if(selectedNode == towerToRemove)
+            {
+                DeselectNode();
+            }
+        }
+    }
+
+    //private Color platformColor;
     public void SelectNode (Node node)
     {
+        if (Input.GetButton("KeepBuilding"))
+        {
+            return;
+        }
+        
         if (selectedNode == node)
         {
             DeselectNode();
@@ -33,11 +57,23 @@ public class BuildManager : MonoBehaviour
         }
 
         if (selectedNode != null)
+        {
             selectedNode.ChangeRange(false);
+            if (selectedNode.turret != null)
+            {
+                Debug.Log("Selected");
+                //selectedNode.turret.GetComponent<Turret>().towerPlatform.color = platformColor;
+                selectedNode.turret.GetComponent<Animator>().SetBool("selected", false);
+            }
+        }
 
         if (node.turret != null)
+        {
             node.ChangeRange(true, node.turret.GetComponent<Turret>().range);
-
+            //platformColor = node.turret.GetComponent<Turret>().towerPlatform.color;
+            //node.turret.GetComponent<Turret>().towerPlatform.color = Color.white;
+            node.turret.GetComponent<Animator>().SetBool("selected", true);
+        }
         selectedNode = node;
         shopUI.DeselectTower();
         turretToBuild = null;
@@ -47,7 +83,15 @@ public class BuildManager : MonoBehaviour
     public void DeselectNode()
     {
         if (selectedNode != null)
+        {
             selectedNode.ChangeRange(false);
+            if (selectedNode.turret != null)
+            {
+                Debug.Log("Deselected");
+                //selectedNode.turret.GetComponent<Turret>().towerPlatform.color = platformColor;
+                selectedNode.turret.GetComponent<Animator>().SetBool("selected", false);
+            }
+        }
         selectedNode = null;
         nodeUI.Hide();
     }
@@ -63,6 +107,11 @@ public class BuildManager : MonoBehaviour
     {
         return turretToBuild;
     }
+    public void ClearStack()
+    {
+        newTowers.Clear();
+    }
+
     //public void DeselectTower()
     //{
     //    turretToBuild = null;

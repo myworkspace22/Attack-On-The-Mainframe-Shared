@@ -12,6 +12,12 @@ public class Turret : MonoBehaviour
     public bool nearestTarget = false;
     //public GameObject towerRange;
 
+    [Header("Upgrades")]
+    public int upgradeDamage;
+    public float upgradeRange;
+    public float upgradeFrenquency;
+    public int upgradeLaserDoT;
+
     [Header("Use Bullets (defualt)")]
     public int bulletDamage;
     public float fireRate = 1f;
@@ -35,11 +41,20 @@ public class Turret : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform firePoint;
+    public SpriteRenderer towerPlatform;
 
     private void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.2f); //Update Target Delay
+        BuildManager.instance.GetComponent<WaveSpawner>().OnWaveEnded += ResetRotation;
         //towerRange.transform.localScale = new Vector2(range * 2, range * 2);
+    }
+    private void OnDestroy()
+    {
+        if(BuildManager.instance != null)
+        {
+            BuildManager.instance.GetComponent<WaveSpawner>().OnWaveEnded -= ResetRotation;
+        }
     }
     void UpdateTarget()
     {
@@ -147,5 +162,8 @@ public class Turret : MonoBehaviour
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, range);
     }
-    
+    private void ResetRotation()
+    {
+        rotationPoint.rotation = Quaternion.Euler(0, 0, 0);
+    }
 }
