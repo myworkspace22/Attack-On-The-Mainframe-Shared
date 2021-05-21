@@ -357,9 +357,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfcb0d1778176204cbbaef3bdfd47144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 3
+  range: 3.5
   nearestTarget: 0
-  bulletDamage: 125
+  upgradeDamage: 0
+  upgradeRange: 0
+  upgradeFrenquency: 0
+  upgradeLaserDoT: 0
+  bulletDamage: 200
   fireRate: 2
   useLaser: 0
   damageOverTime: 30

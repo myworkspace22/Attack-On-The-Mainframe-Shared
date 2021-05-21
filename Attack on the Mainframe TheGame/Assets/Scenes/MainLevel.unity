@@ -69444,19 +69444,19 @@ MonoBehaviour:
     cost: 50
     levelUpCost: 50
     upgradeNames:
-    - Minigun
+    - 'Machinegun '
     - Blaster
+    - Minigun
+    - Magnifier
     - Heavy
     - Sniper
-    - Machinegun
-    - Magnifier
     upgradeDescription:
-    - 1
-    - 2
-    - 3
-    - 4
-    - 5
-    - 6
+    - Mac. has a high frenquency
+    - Blaster deals more damage and has longer range
+    - Minigus has an extreme frenquency
+    - Mag. glitches enemyes to deal damage over time
+    - Heavy fires bursts of powerful bullets
+    - Sniper has a very long range and charges up powerfull shots
     upgradedPrefab:
     - {fileID: 7916541085778940208, guid: b8931a0da6aeffa468beceeab355c1e3, type: 3}
     - {fileID: 7916541085778940208, guid: 3c7b63e989636c84fa067ded4913cc92, type: 3}
@@ -69464,7 +69464,7 @@ MonoBehaviour:
     - {fileID: 7916541085778940208, guid: 4dc36c88a1310214fb953f2d4815af58, type: 3}
     - {fileID: 7916541085778940208, guid: 093eb98c45785424eb3b622a5544c031, type: 3}
     - {fileID: 7916541085778940208, guid: a479a156e3581be4789abc961d554ff2, type: 3}
-    upgradeCost: af000000960000002c0100002602000045010000f4010000
+    upgradeCost: 77010000fa000000b0040000bc020000580200000e060000
     upgradeEffect:
     - 
     - 
