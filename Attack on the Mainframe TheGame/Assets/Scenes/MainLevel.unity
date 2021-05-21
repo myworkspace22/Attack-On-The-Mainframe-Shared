@@ -69477,7 +69477,7 @@ MonoBehaviour:
     description: Prevents intruders from accessing secure information
     prefab: {fileID: 4133119791020861501, guid: f77f4c037301bcb458924e096a3d3684, type: 3}
     cost: 150
-    levelUpCost: 75
+    levelUpCost: 200
     upgradeNames:
     - Carronade
     - Cannon
@@ -69499,7 +69499,7 @@ MonoBehaviour:
     - {fileID: 4133119791020861501, guid: 4b9c0971086cf9e47b7245ebc8a09d74, type: 3}
     - {fileID: 4133119791020861501, guid: 1cebbfd33c00c0d4d841dc095abe806f, type: 3}
     - {fileID: 4133119791020861501, guid: 7f476895eb870ae499c55a93cc088723, type: 3}
-    upgradeCost: c8000000e10000005e010000580200005e01000058020000
+    upgradeCost: 20030000e803000008070000ac0d000068100000ca080000
     upgradeEffect:
     - 'Effect: deals damage in an area'
     - 'Effect: deals damage in an area'
@@ -69512,7 +69512,7 @@ MonoBehaviour:
     description: Detects and prevent incoming malware from spreading
     prefab: {fileID: 5556433950650397502, guid: f4615c7410a365e428c6f329470011b9, type: 3}
     cost: 200
-    levelUpCost: 125
+    levelUpCost: 300
     upgradeNames:
     - Beamer
     - Zapper
@@ -69534,7 +69534,7 @@ MonoBehaviour:
     - {fileID: 5556433950650397502, guid: a75464de6e0979e4e8bf041fefb5fa78, type: 3}
     - {fileID: 5556433950650397502, guid: d32e43a5d71a3824ca49113c94cf7b18, type: 3}
     - {fileID: 5556433950650397502, guid: 4ef270e71c19edc46a68d2772230cb94, type: 3}
-    upgradeCost: fa0000002c010000a90100008a02000090010000bc020000
+    upgradeCost: 84030000aa050000fc08000072060000fe1000000c170000
     upgradeEffect:
     - 'Effect: slow'
     - 'Effect: stun'
