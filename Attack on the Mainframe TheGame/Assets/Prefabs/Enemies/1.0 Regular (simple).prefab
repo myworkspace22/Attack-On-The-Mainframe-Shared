@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 5975281576349636351}
   - component: {fileID: 1895774545520125227}
   - component: {fileID: 1178698430}
-  - component: {fileID: -2006979737844182656}
-  - component: {fileID: 7373373764363036414}
-  - component: {fileID: 7203673169436658652}
+  - component: {fileID: -4534812920273776988}
+  - component: {fileID: -8091043518590745029}
+  - component: {fileID: 8109400275763236503}
   m_Layer: 0
   m_Name: 1.0 Regular (simple)
   m_TagString: Enemy
@@ -120,7 +120,7 @@ MonoBehaviour:
   startHealth: 750
   worth: 50
   healthBar: {fileID: 4417366439022705190}
---- !u!114 &-2006979737844182656
+--- !u!114 &-4534812920273776988
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
---- !u!114 &7373373764363036414
+--- !u!114 &-8091043518590745029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,7 +162,7 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &7203673169436658652
+--- !u!114 &8109400275763236503
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  repathRate: 0.5
+  repathRate: Infinity
   canSearch: 1
   canMove: 1
   speed: 3
@@ -183,7 +183,7 @@ MonoBehaviour:
   enableRotation: 0
   rotationSpeed: 10
   interpolatePathSwitches: 1
-  switchPathInterpolationSpeed: 5
+  switchPathInterpolationSpeed: 10
   targetCompatibility: {fileID: 0}
 --- !u!1001 &3712291537663943726
 PrefabInstance:

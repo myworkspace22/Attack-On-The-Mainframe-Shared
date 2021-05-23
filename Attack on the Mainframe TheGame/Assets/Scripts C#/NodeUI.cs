@@ -63,8 +63,8 @@ public class NodeUI : MonoBehaviour
             int multiplyer = (target.upgradeNr > 0) ? 2 : 1;
 
            /* upgradeDescription.text = "";*///"Upgrades: <color=#00FF00>" + target.turretBlueprint.upgradeDescription[target.upgradeNr + 1 * multiplyer - 1] + " OR " + target.turretBlueprint.upgradeDescription[target.upgradeNr + 2 * multiplyer - 1] + "</color>";
-            upgradeCost1.text = target.turretBlueprint.upgradeNames[target.upgradeNr + 1 * multiplyer - 1] + ": $" + target.turretBlueprint.upgradeCost[target.upgradeNr + 1 * multiplyer - 1];
-            upgradeCost2.text = target.turretBlueprint.upgradeNames[target.upgradeNr + 2 * multiplyer - 1] + ": $" + target.turretBlueprint.upgradeCost[target.upgradeNr + 2 * multiplyer - 1];
+            upgradeCost1.text = target.turretBlueprint.upgradeNames[target.upgradeNr + 1 * multiplyer - 1] + ": <color=#FFD500>$" + target.turretBlueprint.upgradeCost[target.upgradeNr + 1 * multiplyer - 1] + "</color>";
+            upgradeCost2.text = target.turretBlueprint.upgradeNames[target.upgradeNr + 2 * multiplyer - 1] + ": <color=#FFD500>$" + target.turretBlueprint.upgradeCost[target.upgradeNr + 2 * multiplyer - 1] + "</color>";
             upgradeButton1.interactable = PlayerStats.Money >= target.turretBlueprint.upgradeCost[target.upgradeNr + 1 * multiplyer - 1];
             upgradeButton2.interactable = PlayerStats.Money >= target.turretBlueprint.upgradeCost[target.upgradeNr + 2 * multiplyer - 1];
 
@@ -83,7 +83,7 @@ public class NodeUI : MonoBehaviour
             upgradeButton1.gameObject.SetActive(false);
         }
 
-        title.text = (target.upgradeNr > 0) ? target.turretBlueprint.upgradeNames[target.upgradeNr - 1]: target.turretBlueprint.title;
+        title.text = (target.upgradeNr > 0) ? "<color=#FFD500>" + target.turretBlueprint.upgradeNames[target.upgradeNr - 1] + "</color>" : target.turretBlueprint.title;
         description.text = (target.upgradeNr > 0) ? target.turretBlueprint.upgradeDescription[target.upgradeNr - 1] : target.turretBlueprint.description;
         damage.text = "Damage: " + target.turret.GetComponent<Turret>().bulletDamage; //+ " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().bulletPrefab.GetComponent<Bullet>().damage + "</color></b>";
         range.text = "Range: " + target.turret.GetComponent<Turret>().range * 100; //+ " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().range + "</color></b>";

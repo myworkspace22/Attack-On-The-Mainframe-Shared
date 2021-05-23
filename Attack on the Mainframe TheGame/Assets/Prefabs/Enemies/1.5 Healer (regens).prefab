@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  repathRate: 0.5
+  repathRate: Infinity
   canSearch: 1
   canMove: 1
   speed: 3
@@ -132,7 +132,7 @@ MonoBehaviour:
   enableRotation: 0
   rotationSpeed: 10
   interpolatePathSwitches: 1
-  switchPathInterpolationSpeed: 5
+  switchPathInterpolationSpeed: 10
   targetCompatibility: {fileID: 0}
 --- !u!1 &6174820809236425994
 GameObject:

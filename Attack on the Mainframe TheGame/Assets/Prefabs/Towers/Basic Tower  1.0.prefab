@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 702589005994453674}
   - component: {fileID: 7602680157003660983}
   m_Layer: 6
-  m_Name: Basic Tower 1.0
+  m_Name: Basic Tower  1.0
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -411,6 +411,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 2
   nearestTarget: 0
+  upgradeDamage: 0
+  upgradeRange: 0
+  upgradeFrenquency: 0
+  upgradeLaserDoT: 0
   bulletDamage: 25
   fireRate: 1
   useLaser: 0

@@ -360,9 +360,7 @@ public class Node : MonoBehaviour
             {
                 if (canPlaceChecks[i].gameObject.tag == "Tower")
                 {
-                    spriteToChange.sprite = buildManager.GetTurretToBuild().prefab.GetComponent<SpriteRenderer>().sprite;
-                    anim.SetBool("Decline", true);
-                    ChangeRange(true, buildManager.GetTurretToBuild().prefab.GetComponent<Turret>().range);
+                    InDecline();
                     return;
                 }
             }
@@ -375,9 +373,7 @@ public class Node : MonoBehaviour
         }
         else
         {
-            spriteToChange.sprite = buildManager.GetTurretToBuild().prefab.GetComponent<SpriteRenderer>().sprite;
-            anim.SetBool("Decline", true);
-            ChangeRange(true, buildManager.GetTurretToBuild().prefab.GetComponent<Turret>().range);
+            InDecline();
         }
     }
 
@@ -435,5 +431,11 @@ public class Node : MonoBehaviour
         Debug.Log("PathCheck 2202 = " + pathChecker.PathCheck());
 
         return path;
+    }
+    public void InDecline()
+    {
+        spriteToChange.sprite = buildManager.GetTurretToBuild().prefab.GetComponent<SpriteRenderer>().sprite;
+        anim.SetBool("Decline", true);
+        ChangeRange(true, buildManager.GetTurretToBuild().prefab.GetComponent<Turret>().range);
     }
 }
