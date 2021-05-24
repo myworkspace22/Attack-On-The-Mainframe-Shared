@@ -82,8 +82,8 @@ public class NodeUI : MonoBehaviour
 
             upgradeButton1.gameObject.SetActive(false);
         }
-
-        title.text = (target.upgradeNr > 0) ? "<color=#FFD500>" + target.turretBlueprint.upgradeNames[target.upgradeNr - 1] + "</color>" : target.turretBlueprint.title;
+        string titleToDisplay = (target.upgradeNr > 0) ? target.turretBlueprint.upgradeNames[target.upgradeNr - 1] : target.turretBlueprint.title;
+        title.text = (target.UpgradeMultiplier >= 3) ? "<color=#FFD500>" + titleToDisplay + " (" + target.UpgradeMultiplier + ")</color>" : titleToDisplay + " (" + target.UpgradeMultiplier + ")";
         description.text = (target.upgradeNr > 0) ? target.turretBlueprint.upgradeDescription[target.upgradeNr - 1] : target.turretBlueprint.description;
         damage.text = "Damage: " + target.turret.GetComponent<Turret>().bulletDamage; //+ " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().bulletPrefab.GetComponent<Bullet>().damage + "</color></b>";
         range.text = "Range: " + target.turret.GetComponent<Turret>().range * 100; //+ " -> <b><color=#00FF00>" + target.turretBlueprint.upgradedPrefab.GetComponent<Turret>().range + "</color></b>";
@@ -150,7 +150,8 @@ public class NodeUI : MonoBehaviour
         if (target.isMaxed)
             return;
 
-        title.text = (target.upgradeNr > 0) ? target.turretBlueprint.upgradeNames[target.upgradeNr - 1] : target.turretBlueprint.title;
+        string titleToDisplay = (target.upgradeNr > 0) ? target.turretBlueprint.upgradeNames[target.upgradeNr - 1] : target.turretBlueprint.title;
+        title.text = (target.UpgradeMultiplier >= 3) ? "<color=#FFD500>" + titleToDisplay + " (" + target.UpgradeMultiplier + ")</color>" : titleToDisplay + " (" + target.UpgradeMultiplier + ")";
         description.text = (target.upgradeNr > 0) ? target.turretBlueprint.upgradeDescription[target.upgradeNr - 1] : target.turretBlueprint.description;
         damage.text = "Damage: " + target.turret.GetComponent<Turret>().bulletDamage;
         range.text = "Range: " + target.turret.GetComponent<Turret>().range * 100;
@@ -184,5 +185,9 @@ public class NodeUI : MonoBehaviour
         target.SellTurret();
         BuildManager.instance.DeselectNode();
         target.isMaxed = false;
+    }
+    public void InDecline(bool active)
+    {
+        target.OnHoverSell(active);
     }
 }

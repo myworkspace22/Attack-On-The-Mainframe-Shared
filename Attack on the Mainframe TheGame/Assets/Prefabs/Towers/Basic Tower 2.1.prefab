@@ -359,7 +359,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 2.75
   nearestTarget: 0
-  bulletDamage: 75
+  upgradeDamage: 5
+  upgradeRange: 0.1
+  upgradeFrenquency: 0.05
+  upgradeLaserDoT: 0
+  bulletDamage: 100
   fireRate: 1.25
   useLaser: 0
   damageOverTime: 30

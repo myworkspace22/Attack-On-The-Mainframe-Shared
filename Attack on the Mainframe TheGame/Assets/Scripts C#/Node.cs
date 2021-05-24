@@ -338,6 +338,8 @@ public class Node : MonoBehaviour
         ChangeRange(false);
 
         AstarPath.active.Scan();
+
+        anim.SetBool("Decline", false);
     }
 
     private void OnMouseEnter()
@@ -437,5 +439,9 @@ public class Node : MonoBehaviour
         spriteToChange.sprite = buildManager.GetTurretToBuild().prefab.GetComponent<SpriteRenderer>().sprite;
         anim.SetBool("Decline", true);
         ChangeRange(true, buildManager.GetTurretToBuild().prefab.GetComponent<Turret>().range);
+    }
+    public void OnHoverSell(bool active)
+    {
+        anim.SetBool("Decline", active);
     }
 }

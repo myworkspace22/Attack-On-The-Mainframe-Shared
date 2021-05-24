@@ -25,6 +25,19 @@ public class Shop : MonoBehaviour
         shopItem.interactable = PlayerStats.Money >= standardTurret.cost;
         shopItem2.interactable = PlayerStats.Money >= missileTurret.cost;
         shopItem3.interactable = PlayerStats.Money >= laserTurret.cost;
+
+        if (Input.GetKeyDown("q") && PlayerStats.Money >= standardTurret.cost)
+        {
+            SelectStandardTurret();
+        }
+        else if (Input.GetKeyDown("w") && PlayerStats.Money >= missileTurret.cost)
+        {
+            SelectMissileTurret();
+        }
+        else if (Input.GetKeyDown("e") && PlayerStats.Money >= laserTurret.cost)
+        {
+            SelectLaserTurret();
+        }
     }
     public void SelectStandardTurret()
     {

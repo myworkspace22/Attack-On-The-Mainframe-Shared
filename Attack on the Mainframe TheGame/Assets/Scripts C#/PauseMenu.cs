@@ -6,11 +6,23 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject ui;
+
+    public string menuSceneName = "StartMenu";
+
+    public Screenfader sceneFader;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
-            Toggle();
+            if(BuildManager.instance.selectedNode != null)
+            {
+                BuildManager.instance.DeselectNode();
+            }
+            else
+            {
+                Toggle();
+            }
         }
     }
     public void Toggle()
@@ -32,11 +44,12 @@ public class PauseMenu : MonoBehaviour
     public void Retry()
     {
         Toggle();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        sceneFader.FadeTo(SceneManager.GetActiveScene().name);
     }
     public void Menu()
     {
-        Debug.Log("Go to menu");
+        Toggle();
+        sceneFader.FadeTo(menuSceneName);
     }
     public void QuitGame()
     {

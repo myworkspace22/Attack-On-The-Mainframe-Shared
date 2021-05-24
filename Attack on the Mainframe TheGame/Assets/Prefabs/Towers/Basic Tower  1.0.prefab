@@ -409,11 +409,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfcb0d1778176204cbbaef3bdfd47144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2
+  range: 1.4
   nearestTarget: 0
-  upgradeDamage: 0
-  upgradeRange: 0
-  upgradeFrenquency: 0
+  upgradeDamage: 15
+  upgradeRange: 0.1
+  upgradeFrenquency: 0.2
   upgradeLaserDoT: 0
   bulletDamage: 25
   fireRate: 1

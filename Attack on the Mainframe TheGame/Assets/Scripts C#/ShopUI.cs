@@ -27,6 +27,11 @@ public class ShopUI : MonoBehaviour
         range.text = "Range: " + towerBP.prefab.GetComponent<Turret>().range * 100;
         firerate.text = "Frequency: " + towerBP.prefab.GetComponent<Turret>().fireRate;
 
+        if(PlayerStats.Money < towerBP.cost)
+        {
+            cost.color = Color.grey;
+        }
+
         ui.SetActive(true);
     }
 

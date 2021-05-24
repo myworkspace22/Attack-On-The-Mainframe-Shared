@@ -15,7 +15,7 @@ public class WaveSpawner : MonoBehaviour
 
     //public int enCount; //til at kunne se hvor mange enemies der er i banen
 
-    
+    public GameManager gameManager;
 
     public Wave[] waves;
 
@@ -34,7 +34,15 @@ public class WaveSpawner : MonoBehaviour
     public event Action OnWavePriceLocked;
     public event Action OnWaveEnded;
 
+    public string nameOfLevel;
+    public TextMeshProUGUI nameOfLevelUI;
+
     public bool BuildMode { get { return EnemiesAlive <= 0; } }
+
+    private void Start()
+    {
+        nameOfLevelUI.text = nameOfLevel + " (wave: " + waveIndex + ")";
+    }
 
     private void Update()
     {
@@ -50,6 +58,12 @@ public class WaveSpawner : MonoBehaviour
             waveEnded = true;
             OnWaveEnded?.Invoke();
         }
+        if (waveIndex == waves.Length)
+        {
+            gameManager.WinLevel();
+            this.enabled = false;
+            return;
+        }
         if (countdown <= 0f)
         {
             StartCoroutine(SpawnWave());
@@ -57,25 +71,33 @@ public class WaveSpawner : MonoBehaviour
             PlayerStats.Money += (PlayerStats.Money - PlayerStats.Money % 100) / 5;
             return;
         }
-        countdown -= Time.deltaTime;
+        if (waveIndex > 0)
+        {
+            countdown -= Time.deltaTime;
 
-        countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
+            countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
+
+            if (countdown > 10)
+            {
+                waveCountdownText.text = string.Format("START ({0:00})", countdown);
+            }
+            if (countdown <= 10)
+            {
+                waveCountdownText.text = string.Format("START ({0:0})", countdown);
+            }
+        } else
+        {
+            waveCountdownText.text = "START";
+        }
 
         enemyName.text = "Next wave: <color=#00FF00>" + waves[waveIndex].enemy.GetComponent<Enemy>().startHealth + " HP</color>";
 
         enemyImage.sprite = waves[waveIndex].enemy.GetComponentInChildren<SpriteRenderer>().sprite;
-
-        if (countdown > 10)
-        {
-            waveCountdownText.text = string.Format("START ({0:00})", countdown);
-        }
-        if (countdown <= 10)
-        {
-            waveCountdownText.text = string.Format("START ({0:0})", countdown);
-        }
     }
     IEnumerator SpawnWave()
     {
+        nameOfLevelUI.text = nameOfLevel + " (wave: " + (waveIndex + 1) + ")";
+
         PlayerStats.Rounds++;
 
         OnWavePriceLocked?.Invoke();
@@ -97,11 +119,6 @@ public class WaveSpawner : MonoBehaviour
         }
 
         waveIndex++;
-        if (waveIndex == waves.Length)
-        {
-            Debug.Log("Level Won!");
-            this.enabled = false;
-        }
     }
     void SpawnEnemy(GameObject enemy)
     {

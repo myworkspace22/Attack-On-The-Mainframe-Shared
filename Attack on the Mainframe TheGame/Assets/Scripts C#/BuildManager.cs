@@ -21,7 +21,8 @@ public class BuildManager : MonoBehaviour
     }
 
     private TurretBluePrint turretToBuild;
-    private Node selectedNode;
+    [HideInInspector]
+    public Node selectedNode;
 
     public NodeUI nodeUI;
     public ShopUI shopUI;
