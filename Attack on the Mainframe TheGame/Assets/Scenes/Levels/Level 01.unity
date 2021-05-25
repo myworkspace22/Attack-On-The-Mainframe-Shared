@@ -35691,56 +35691,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 125817254177808949, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
   m_PrefabInstance: {fileID: 857191219}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &858989421 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6384963628414739770, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-  m_PrefabInstance: {fileID: 6384963627604451744}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &858989427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858989421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 320425719}
-          m_TargetAssemblyTypeName: NodeUI, Assembly-CSharp
-          m_MethodName: InDecline
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 320425719}
-          m_TargetAssemblyTypeName: NodeUI, Assembly-CSharp
-          m_MethodName: InDecline
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1001 &862610852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63475,7 +63425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e4347b1b39eb3a43b3adc8cb0847706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 10000
+  startMoney: 200
   startLives: 10
 --- !u!114 &1589514353
 MonoBehaviour:
@@ -64309,7 +64259,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1605059275
 RectTransform:
@@ -84525,38 +84475,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 124510972285399944, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 124510972285399944, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 124510972285399944, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 124510972285399944, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5736641177488261878, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5736641177488261878, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5736641177488261878, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5736641177488261878, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6384963628017183095, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
       propertyPath: m_Name
       value: Canvas (interface)
@@ -84649,109 +84567,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: laserTurret.upgradeCost.Array.data[0]
-      value: 700
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: laserTurret.upgradeCost.Array.data[1]
-      value: 1200
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: laserTurret.upgradeCost.Array.data[2]
-      value: 2500
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: laserTurret.upgradeCost.Array.data[3]
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: laserTurret.upgradeCost.Array.data[4]
-      value: 4000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: laserTurret.upgradeCost.Array.data[5]
-      value: 5500
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: laserTurret.upgradeEffect.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: laserTurret.upgradeEffect.Array.data[1]
-      value: 'Effect: slowing'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: laserTurret.upgradeEffect.Array.data[2]
-      value: 'Effect: slowing'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: laserTurret.upgradeEffect.Array.data[4]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: laserTurret.upgradeEffect.Array.data[5]
-      value: 'Effect: slowing'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: missileTurret.upgradeCost.Array.data[0]
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: missileTurret.upgradeCost.Array.data[1]
-      value: 750
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: missileTurret.upgradeCost.Array.data[2]
-      value: 1500
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: missileTurret.upgradeCost.Array.data[3]
-      value: 2250
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: missileTurret.upgradeCost.Array.data[4]
-      value: 3200
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: missileTurret.upgradeCost.Array.data[5]
-      value: 1750
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: standardTurret.upgradeCost.Array.data[0]
-      value: 375
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: standardTurret.upgradeCost.Array.data[1]
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: standardTurret.upgradeCost.Array.data[2]
-      value: 1200
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: standardTurret.upgradeCost.Array.data[3]
-      value: 700
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: standardTurret.upgradeCost.Array.data[4]
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963628156394198, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: standardTurret.upgradeCost.Array.data[5]
-      value: 1500
-      objectReference: {fileID: 0}
     - target: {fileID: 6384963628161906304, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1589514349}
-    - target: {fileID: 6384963628287021803, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: m_text
-      value: "HOW TO PLAY:\n\r\n1. Select a tower underneath your currency\r\n\n2.
-        Place the tower on the level grid\n\n4. Upgrade your towers on selection\n\n5.
-        Continue until your ready to start the next wave\n\n6. Survive the incoming
-        waves before losing all your lives\r"
-      objectReference: {fileID: 0}
     - target: {fileID: 6384963628313081383, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -84760,37 +84579,5 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1589514351}
-    - target: {fileID: 6384963629122202165, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963629122202165, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963629122202165, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384963629122202165, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7625303332474175195, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7625303332474175195, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7625303332474175195, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7625303332474175195, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}

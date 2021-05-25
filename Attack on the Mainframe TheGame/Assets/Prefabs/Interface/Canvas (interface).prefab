@@ -4722,7 +4722,7 @@ MonoBehaviour:
     - {fileID: 7916541085778940208, guid: 4dc36c88a1310214fb953f2d4815af58, type: 3}
     - {fileID: 7916541085778940208, guid: 093eb98c45785424eb3b622a5544c031, type: 3}
     - {fileID: 7916541085778940208, guid: a479a156e3581be4789abc961d554ff2, type: 3}
-    upgradeCost: af000000960000002c0100002602000045010000f4010000
+    upgradeCost: 77010000fa000000b0040000bc02000058020000dc050000
     upgradeEffect:
     - 
     - 
@@ -4757,7 +4757,7 @@ MonoBehaviour:
     - {fileID: 4133119791020861501, guid: 4b9c0971086cf9e47b7245ebc8a09d74, type: 3}
     - {fileID: 4133119791020861501, guid: 1cebbfd33c00c0d4d841dc095abe806f, type: 3}
     - {fileID: 4133119791020861501, guid: 7f476895eb870ae499c55a93cc088723, type: 3}
-    upgradeCost: c8000000e10000005e010000580200005e01000058020000
+    upgradeCost: 58020000ee020000dc050000ca080000800c0000d6060000
     upgradeEffect:
     - 
     - 
@@ -4792,14 +4792,14 @@ MonoBehaviour:
     - {fileID: 5556433950650397502, guid: a75464de6e0979e4e8bf041fefb5fa78, type: 3}
     - {fileID: 5556433950650397502, guid: d32e43a5d71a3824ca49113c94cf7b18, type: 3}
     - {fileID: 5556433950650397502, guid: 4ef270e71c19edc46a68d2772230cb94, type: 3}
-    upgradeCost: fa0000002c010000a90100008a02000090010000bc020000
+    upgradeCost: bc020000b0040000c4090000d0070000a00f00007c150000
     upgradeEffect:
-    - 'Effect: slowing'
     - 
-    - 'Effect: AoE slow'
+    - 'Effect: slowing'
+    - 'Effect: slowing'
     - 'Effect: stunning'
-    - 'Effect: slowing'
     - 
+    - 'Effect: slowing'
 --- !u!1 &6384963628161906364
 GameObject:
   m_ObjectHideFlags: 0
@@ -5459,8 +5459,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.24997222, y: 1.3125}
-  m_SizeDelta: {x: 3.6153, y: 4.358}
+  m_AnchoredPosition: {x: 0.24997222, y: 0.68751}
+  m_SizeDelta: {x: 3.6153, y: 5.48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6384963628287021804
 CanvasRenderer:
@@ -5490,10 +5490,35 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "HOW TO PLAY:\n\r\n1. Select a tower underneath your currency\r\n\n2. Place
-    the tower on the playing field\n\n4. Upgrade your towers by selecting em\n\n5.
-    Continue until your ready to start the next wave\n\n6. Survive the incoming waves
-    before losing all your lives\r"
+  m_text: 'HOW TO PLAY:
+
+
+    Select a tower underneath your currency
+
+
+    Place
+    the tower on the playing field
+
+
+    Upgrade your towers on selection
+
+
+    Continue
+    until your ready to START
+
+
+    Try not to lose all of your lives
+
+
+    <i>Multiple
+    towers can be build with (SHIFT)
+
+
+    Reset or exit the level with (ESC)
+
+
+    Your
+    last tower can be sold with (CTRL-Z)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8e5e6ee5dac741408435bd90d2b5349, type: 2}
   m_sharedMaterial: {fileID: 6871096538463531599, guid: b8e5e6ee5dac741408435bd90d2b5349, type: 2}
@@ -5502,8 +5527,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 3791650815
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.88235295}
+    rgba: 3355443199
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.78039217}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5920,7 +5945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6384963628315685583
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6589,6 +6614,7 @@ GameObject:
   - component: {fileID: 6384963628414739772}
   - component: {fileID: 6384963628414739774}
   - component: {fileID: 6384963628414739775}
+  - component: {fileID: 858989427}
   m_Layer: 5
   m_Name: Sell Amount
   m_TagString: Untagged
@@ -6792,6 +6818,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee280da5f021dc428d28d43920509a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &858989427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6384963628414739770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6384963627287211863}
+          m_TargetAssemblyTypeName: NodeUI, Assembly-CSharp
+          m_MethodName: InDecline
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6384963627287211863}
+          m_TargetAssemblyTypeName: NodeUI, Assembly-CSharp
+          m_MethodName: InDecline
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6384963628424617034
 GameObject:
   m_ObjectHideFlags: 0
@@ -11160,6 +11231,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55c74c0b329cd214da36fab6614f37ca, type: 3}
+--- !u!224 &6384963629122202165 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6422599841047624150, guid: 55c74c0b329cd214da36fab6614f37ca, type: 3}
+  m_PrefabInstance: {fileID: 124510971275351011}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6384963629122202166 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6422599841047624149, guid: 55c74c0b329cd214da36fab6614f37ca, type: 3}
@@ -11171,11 +11247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &6384963629122202165 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6422599841047624150, guid: 55c74c0b329cd214da36fab6614f37ca, type: 3}
-  m_PrefabInstance: {fileID: 124510971275351011}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2626217288205476067
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11720,6 +11791,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
+--- !u!224 &5736641177488261878 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
+  m_PrefabInstance: {fileID: 9139442655529706301}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5736641177488261877 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3551499995372298696, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
@@ -11731,8 +11807,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &5736641177488261878 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-  m_PrefabInstance: {fileID: 9139442655529706301}
-  m_PrefabAsset: {fileID: 0}

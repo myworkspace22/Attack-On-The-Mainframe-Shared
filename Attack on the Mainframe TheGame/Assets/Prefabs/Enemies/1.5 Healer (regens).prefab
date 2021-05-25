@@ -70,11 +70,17 @@ MonoBehaviour:
   damage: 1
   worth: 150
   speed: 0
+  deathEffect: {fileID: 1787491968115139843, guid: 72ae324c15b9e6d43895e32d4fc3c2c3, type: 3}
   canFly: 0
   healAmt: 0
   slowResistence: 0
   increaseSpeed: 0
-  deathSpawn: {fileID: 0}
+  stealthTime: 0
+  deathSpawnAmt: 0
+  timedSpawnAmt: 0
+  timedSpawnDelay: 0
+  spawn: {fileID: 0}
+  spawnPoints: []
   healthBar: {fileID: 762023206198715834}
 --- !u!114 &-2006979737844182656
 MonoBehaviour:

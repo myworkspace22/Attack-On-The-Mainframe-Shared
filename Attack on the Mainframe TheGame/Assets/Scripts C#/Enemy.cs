@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public float speed;
 
+    public GameObject deathEffect;
+
     [Header("Special Stats:")]
     public bool canFly;
     public float healAmt;
@@ -26,12 +28,8 @@ public class Enemy : MonoBehaviour
     public GameObject spawn;
     public Transform[] spawnPoints;
     
-
-   
-
     [Header("Unity Stuff")]
     public Image healthBar;
-
 
     //Privates
     
@@ -185,6 +183,8 @@ public class Enemy : MonoBehaviour
             Spawn(deathSpawnAmt);
         }
 
+        GameObject effectIns = (GameObject)Instantiate(deathEffect, transform.position, transform.rotation);
+        Destroy(effectIns, 2f);
 
         hasDied = true;
         PlayerStats.Money += worth;
