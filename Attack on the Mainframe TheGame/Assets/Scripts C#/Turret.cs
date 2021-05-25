@@ -90,6 +90,14 @@ public class Turret : MonoBehaviour
     }
     private void Update()
     {
+        if (target != null)
+        {
+            if (target.GetComponent<Enemy>().StealthMode)
+            {
+                target = null;
+            }
+        }
+
         if (target == null)
         {
             if(target == null)

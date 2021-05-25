@@ -161,9 +161,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d74dac3fb455d549bfd69d47fc26ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 2
   startHealth: 750
+  maxSpeed: 1
+  damage: 1
   worth: 100
+  speed: 0
+  canFly: 0
+  healAmt: 0
+  slowResistence: 0
+  increaseSpeed: 0
+  deathSpawn: {fileID: 0}
   healthBar: {fileID: 1744328501158428074}
 --- !u!114 &-2006979737844182656
 MonoBehaviour:
