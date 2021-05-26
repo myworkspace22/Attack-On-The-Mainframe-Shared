@@ -4607,7 +4607,6 @@ RectTransform:
   - {fileID: 6384963629122202165}
   - {fileID: 124510972285399944}
   - {fileID: 5736641177488261878}
-  - {fileID: 7625303332474175195}
   m_Father: {fileID: 6384963628049494861}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4700,7 +4699,7 @@ MonoBehaviour:
     description: Shoots a single bullet at nearby enemies
     prefab: {fileID: 7916541085778940208, guid: 7771ac83e91ba994ca249dff24c09796, type: 3}
     cost: 50
-    levelUpCost: 75
+    levelUpCost: 50
     upgradeNames:
     - Machinegun
     - Blaster
@@ -4722,7 +4721,7 @@ MonoBehaviour:
     - {fileID: 7916541085778940208, guid: 4dc36c88a1310214fb953f2d4815af58, type: 3}
     - {fileID: 7916541085778940208, guid: 093eb98c45785424eb3b622a5544c031, type: 3}
     - {fileID: 7916541085778940208, guid: a479a156e3581be4789abc961d554ff2, type: 3}
-    upgradeCost: 77010000fa000000b0040000bc02000058020000dc050000
+    upgradeCost: af000000960000005e0100002c010000450100005e010000
     upgradeEffect:
     - 
     - 
@@ -4735,7 +4734,7 @@ MonoBehaviour:
     description: Launches a missile that explodes in a radius on impact
     prefab: {fileID: 4133119791020861501, guid: f77f4c037301bcb458924e096a3d3684, type: 3}
     cost: 100
-    levelUpCost: 125
+    levelUpCost: 100
     upgradeNames:
     - Cannonade
     - Cannon
@@ -4744,7 +4743,7 @@ MonoBehaviour:
     - Cluster
     - Timbersaw
     upgradeDescription:
-    - Can shoot two missiles at a time that explodes on impact
+    - Can shoot two missiles at a time that no longer explodes
     - Throws out a powerful explosion causing high damage
     - Scans for nearby enemies and sends out seeking missiles
     - Throws out a high impact explosion causing damage to multiple enemies
@@ -4757,7 +4756,7 @@ MonoBehaviour:
     - {fileID: 4133119791020861501, guid: 4b9c0971086cf9e47b7245ebc8a09d74, type: 3}
     - {fileID: 4133119791020861501, guid: 1cebbfd33c00c0d4d841dc095abe806f, type: 3}
     - {fileID: 4133119791020861501, guid: 7f476895eb870ae499c55a93cc088723, type: 3}
-    upgradeCost: 58020000ee020000dc050000ca080000800c0000d6060000
+    upgradeCost: 2c0100005e01000058020000bc0200008a02000058020000
     upgradeEffect:
     - 
     - 
@@ -4769,8 +4768,8 @@ MonoBehaviour:
     title: Laser
     description: Fires lasers at a high frequency
     prefab: {fileID: 5556433950650397502, guid: f4615c7410a365e428c6f329470011b9, type: 3}
-    cost: 175
-    levelUpCost: 200
+    cost: 150
+    levelUpCost: 150
     upgradeNames:
     - Beamer
     - Zapper
@@ -4780,11 +4779,11 @@ MonoBehaviour:
     - Telsa
     upgradeDescription:
     - Fires a laser that slows down enemies
-    - Shoots lasers at a extremely high speed
+    - Shoots laser beams at enemies
     - Fires a strong laser that slows down enemies around the impact
-    - Shoots out a strong beam of laser stunning a enemies for a long time
-    - Fires out multiple beams slowing down multiple enemies
-    - Shoots out a chain of laser damaging multiple enemies
+    - Shoots stronger laser beams that stuns enemies
+    - Fires out multiple beams that damages enemies
+    - Shoots out a chain of laser slowing multiple enemies
     upgradedPrefab:
     - {fileID: 5556433950650397502, guid: 2517126d7116b9a4bb30c0a1e97979ac, type: 3}
     - {fileID: 5556433950650397502, guid: e63b2928cb181df45bf9a4569b674829, type: 3}
@@ -4792,10 +4791,10 @@ MonoBehaviour:
     - {fileID: 5556433950650397502, guid: a75464de6e0979e4e8bf041fefb5fa78, type: 3}
     - {fileID: 5556433950650397502, guid: d32e43a5d71a3824ca49113c94cf7b18, type: 3}
     - {fileID: 5556433950650397502, guid: 4ef270e71c19edc46a68d2772230cb94, type: 3}
-    upgradeCost: bc020000b0040000c4090000d0070000a00f00007c150000
+    upgradeCost: c201000090010000b603000084030000e8030000b6030000
     upgradeEffect:
-    - 
     - 'Effect: slowing'
+    - 
     - 'Effect: slowing'
     - 'Effect: stunning'
     - 
@@ -5510,15 +5509,15 @@ MonoBehaviour:
     Try not to lose all of your lives
 
 
-    <i>Multiple
-    towers can be build with (SHIFT)
+    <color=#C1C1C1>Multiple
+    towers can be build (SHIFT)
 
 
-    Reset or exit the level with (ESC)
+    Reset or exit the level (ESC)
 
 
-    Your
-    last tower can be sold with (CTRL-Z)'
+    Your last
+    tower can be sold (CTRL-Z)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8e5e6ee5dac741408435bd90d2b5349, type: 2}
   m_sharedMaterial: {fileID: 6871096538463531599, guid: b8e5e6ee5dac741408435bd90d2b5349, type: 2}
@@ -5527,8 +5526,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 3355443199
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.78039217}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5545,8 +5544,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.19
-  m_fontSizeBase: 0.19
+  m_fontSize: 0.18
+  m_fontSizeBase: 0.18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8779,7 +8778,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Currency: <color=#FFD500>$250 </color>(+25)'
+  m_text: 'Currency: <color=#FFD500>$250 </color>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8e5e6ee5dac741408435bd90d2b5349, type: 2}
   m_sharedMaterial: {fileID: 6871096538463531599, guid: b8e5e6ee5dac741408435bd90d2b5349, type: 2}
@@ -11231,11 +11230,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55c74c0b329cd214da36fab6614f37ca, type: 3}
---- !u!224 &6384963629122202165 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6422599841047624150, guid: 55c74c0b329cd214da36fab6614f37ca, type: 3}
-  m_PrefabInstance: {fileID: 124510971275351011}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6384963629122202166 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6422599841047624149, guid: 55c74c0b329cd214da36fab6614f37ca, type: 3}
@@ -11247,6 +11241,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &6384963629122202165 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6422599841047624150, guid: 55c74c0b329cd214da36fab6614f37ca, type: 3}
+  m_PrefabInstance: {fileID: 124510971275351011}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2626217288205476067
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11440,184 +11439,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2722541029534176107, guid: e938c591bc8567e4394e8e239b181d61, type: 3}
   m_PrefabInstance: {fileID: 2626217288205476067}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &6384963627875442448
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 6384963628156394194}
-    m_Modifications:
-    - target: {fileID: 3551499995372298696, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Colors.m_NormalColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298696, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Colors.m_NormalColor.b
-      value: 0.6981132
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298696, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Colors.m_NormalColor.g
-      value: 0.6981132
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298696, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Colors.m_NormalColor.r
-      value: 0.6981132
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298696, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Colors.m_PressedColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298696, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Colors.m_PressedColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298696, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Colors.m_PressedColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298696, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Colors.m_SelectedColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298696, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Colors.m_SelectedColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298696, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Colors.m_SelectedColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298696, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298696, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298696, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298696, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 6384963628156394198}
-    - target: {fileID: 3551499995372298697, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: cb41c431ab7abec42bed4d3f2f3a9aa5, type: 3}
-    - target: {fileID: 3551499995372298697, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298697, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298697, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298697, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298698, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Name
-      value: Laser Tower Item (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
---- !u!224 &7625303332474175195 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-  m_PrefabInstance: {fileID: 6384963627875442448}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9139442655529706301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11791,11 +11612,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
---- !u!224 &5736641177488261878 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
-  m_PrefabInstance: {fileID: 9139442655529706301}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5736641177488261877 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3551499995372298696, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
@@ -11807,3 +11623,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &5736641177488261878 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3551499995372298699, guid: 44917e6698ee52248a6f675d782ea473, type: 3}
+  m_PrefabInstance: {fileID: 9139442655529706301}
+  m_PrefabAsset: {fileID: 0}

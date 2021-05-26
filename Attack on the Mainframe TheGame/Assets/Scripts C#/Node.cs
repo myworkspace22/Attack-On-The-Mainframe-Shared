@@ -238,9 +238,10 @@ public class Node : MonoBehaviour
         }
 
         Turret turretToUpgrade = turret.GetComponent<Turret>();
+
         turretToUpgrade.bulletDamage += turretToUpgrade.upgradeDamage * (towerLevel + 1);
-        turretToUpgrade.fireRate += turretToUpgrade.upgradeFrenquency * (towerLevel + 1);
-        turretToUpgrade.range += turretToUpgrade.upgradeRange * (towerLevel + 1);
+        turretToUpgrade.fireRate += turretToUpgrade.upgradeFrenquency;
+        turretToUpgrade.range += turretToUpgrade.upgradeRange;
         turretToUpgrade.damageOverTime += turretToUpgrade.upgradeLaserDoT * (towerLevel + 1);
 
         towerLevel++;

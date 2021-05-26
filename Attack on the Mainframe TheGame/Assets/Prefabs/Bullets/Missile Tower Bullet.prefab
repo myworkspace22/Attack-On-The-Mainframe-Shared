@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1025918297137935733}
   - component: {fileID: 7309773034793669996}
   m_Layer: 0
-  m_Name: Cannon Tower Bullet
+  m_Name: Missile Tower Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   damage: 0
-  explosionRadius: 1
+  explosionRadius: 1.1
   impactEffect: {fileID: 6340635527937755175, guid: 1876738b051d2aa4bac328fc71e8db45, type: 3}
   impactMissile: {fileID: 6235844836480323252, guid: 320c754f1526b87499d8e5f7f677733e, type: 3}
 --- !u!1 &4516139076667343306

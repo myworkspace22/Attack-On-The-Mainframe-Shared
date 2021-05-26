@@ -165,19 +165,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfcb0d1778176204cbbaef3bdfd47144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2.25
+  range: 1.9
   nearestTarget: 0
-  bulletDamage: 0
-  fireRate: 1
-  useLaser: 1
-  damageOverTime: 40
-  slowAmount: 0.65
-  lineRenderer: {fileID: 6920416368136055428}
-  impactEffect: {fileID: 2872334427099462869}
+  upgradeDamage: 40
+  upgradeRange: 0.1
+  upgradeFrenquency: 0.1
+  upgradeLaserDoT: 0
+  bulletDamage: 290
+  fireRate: 1.8
+  useLaser: 0
+  damageOverTime: 30
+  slowAmount: 0.5
+  lineRenderer: {fileID: 6920416368136055428, guid: f4615c7410a365e428c6f329470011b9, type: 3}
+  impactEffect: {fileID: 0}
   laserWidth: 0
   enemyTag: Enemy
   rotationPoint: {fileID: 5918272327451547685}
-  bulletPrefab: {fileID: 4238579209898551604, guid: 7f98077fe9376f04baa4166b7ddbe507, type: 3}
+  bulletPrefab: {fileID: 4238579209898551604, guid: bd10bbc7e7174d242858a6debcf8fb9c, type: 3}
   firePoint: {fileID: 2848132688497259106}
   towerPlatform: {fileID: 2271421092245175882}
 --- !u!212 &8709025309036245343
@@ -631,15 +635,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7920924485072857347, guid: 82f2954dd43510e49af5c6ef1653f4dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f2954dd43510e49af5c6ef1653f4dd, type: 3}
 --- !u!4 &5553128085456063208 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2126108194832435241, guid: 82f2954dd43510e49af5c6ef1653f4dd, type: 3}
-  m_PrefabInstance: {fileID: 5805659649760969409}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &2872334427099462869 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8596611103187877396, guid: 82f2954dd43510e49af5c6ef1653f4dd, type: 3}
   m_PrefabInstance: {fileID: 5805659649760969409}
   m_PrefabAsset: {fileID: 0}

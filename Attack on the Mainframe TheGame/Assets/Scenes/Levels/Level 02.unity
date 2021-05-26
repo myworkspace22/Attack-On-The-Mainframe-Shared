@@ -58947,15 +58947,23 @@ PrefabInstance:
         Try not to lose all of your lives
 
 
-        <i>Multiple
-        towers can be build with (SHIFT)
+        <color=#C1C1C1>Multiple
+        towers can be build (SHIFT)
 
 
-        Reset or exit the level with (ESC)
+        Reset or exit the level (ESC)
 
 
         Your
-        last tower can be sold with (CTRL-Z)'
+        last tower can be sold (CTRL-Z)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6384963628287021803, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
+      propertyPath: m_fontColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6384963628287021803, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6384963628313081383, guid: 010c02fcfea6d3b48a53e614429f89a2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

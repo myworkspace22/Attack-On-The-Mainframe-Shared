@@ -119,8 +119,8 @@ public class NodeUI : MonoBehaviour
         if (!readyToUpgrade)
         {
             damage.text = "Damage: " + turretToUpgrade.bulletDamage + " <color=#00FF00>-> " + (turretToUpgrade.bulletDamage + turretToUpgrade.upgradeDamage * (target.towerLevel + 1)) + "</color>";
-            range.text = "Range: " + turretToUpgrade.range * 100 + " <color=#00FF00>-> " + (turretToUpgrade.range + turretToUpgrade.upgradeRange * (target.towerLevel + 1)) * 100 + "</color>";
-            firerate.text = "Frequency: " + turretToUpgrade.fireRate + " <color=#00FF00>-> " + (turretToUpgrade.fireRate + turretToUpgrade.upgradeFrenquency * (target.towerLevel + 1)) + "</color>";
+            range.text = "Range: " + turretToUpgrade.range * 100 + " <color=#00FF00>-> " + (turretToUpgrade.range + turretToUpgrade.upgradeRange) * 100 + "</color>";
+            firerate.text = "Frequency: " + turretToUpgrade.fireRate + " <color=#00FF00>-> " + (turretToUpgrade.fireRate + turretToUpgrade.upgradeFrenquency) + "</color>";
             return;
         }
 
@@ -132,7 +132,6 @@ public class NodeUI : MonoBehaviour
         damage.text = "Damage: " + turretToUpgrade.bulletDamage + " <color=#00FF00>-> " + target.turretBlueprint.upgradedPrefab[target.upgradeNr + upgradeIndex * multiplyer - 1].GetComponent<Turret>().bulletDamage + "</color>";
         range.text = "Range: " + turretToUpgrade.range * 100 + " <color=#00FF00>-> " + target.turretBlueprint.upgradedPrefab[target.upgradeNr + upgradeIndex * multiplyer - 1].GetComponent<Turret>().range * 100 + "</color>";
         firerate.text = "Frequency: " + turretToUpgrade.fireRate + " <color=#00FF00>-> " + target.turretBlueprint.upgradedPrefab[target.upgradeNr + upgradeIndex * multiplyer - 1].GetComponent<Turret>().fireRate + "</color>";
-
         effect.text = "<color=#00FF00>" + target.turretBlueprint.upgradeEffect[target.upgradeNr + upgradeIndex * multiplyer - 1] + "</color>";
     }
     public void HideUpgradeStats()

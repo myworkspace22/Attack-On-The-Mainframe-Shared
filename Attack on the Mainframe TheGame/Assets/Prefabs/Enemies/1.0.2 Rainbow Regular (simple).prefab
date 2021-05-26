@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -4534812920273776988}
   - component: {fileID: -8091043518590745029}
   - component: {fileID: 8109400275763236503}
+  - component: {fileID: 4500161047141856597}
   m_Layer: 0
   m_Name: 1.0.2 Rainbow Regular (simple)
   m_TagString: Enemy
@@ -202,6 +203,25 @@ MonoBehaviour:
   interpolatePathSwitches: 1
   switchPathInterpolationSpeed: 10
   targetCompatibility: {fileID: 0}
+--- !u!95 &4500161047141856597
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5975281576349636344}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e316b0214247bc3448d5a1bd0f645036, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &3712291537663943726
 PrefabInstance:
   m_ObjectHideFlags: 0
