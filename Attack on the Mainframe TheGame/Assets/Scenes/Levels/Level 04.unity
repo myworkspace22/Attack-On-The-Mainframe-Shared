@@ -63715,18 +63715,6 @@ MonoBehaviour:
   - enemy: {fileID: 5975281576349636344, guid: 940fad39164ca9141802a89e070abe6b, type: 3}
     count: 3
     rate: 1
-  - enemy: {fileID: 5975281576349636344, guid: 940fad39164ca9141802a89e070abe6b, type: 3}
-    count: 5
-    rate: 1
-  - enemy: {fileID: 5975281576349636344, guid: 146cc806fe0558b48b5e5a601967e8f6, type: 3}
-    count: 3
-    rate: 1
-  - enemy: {fileID: 5975281576349636344, guid: 940fad39164ca9141802a89e070abe6b, type: 3}
-    count: 8
-    rate: 1
-  - enemy: {fileID: 5975281576349636344, guid: 8958b854c78210340a188cbf1486f413, type: 3}
-    count: 5
-    rate: 1
   spawnPoints:
   - {fileID: 1426203089}
   - {fileID: 2124893548}
@@ -63795,6 +63783,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 1445669547}
   completeLevelUI: {fileID: 1201777146}
+  levelToUnlock: 5
+  sceneFader: {fileID: 1886546918}
 --- !u!114 &1589514354
 MonoBehaviour:
   m_ObjectHideFlags: 0

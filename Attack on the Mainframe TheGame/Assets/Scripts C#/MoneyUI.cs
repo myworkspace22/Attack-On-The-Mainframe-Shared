@@ -13,7 +13,7 @@ public class MoneyUI : MonoBehaviour
 
         if (BuildManager.instance.GetComponent<WaveSpawner>().BuildMode)
         {
-            moneyText.text = "CURRENCY: <color=#FFD500>$" + PlayerStats.Money.ToString() + "</color>" + " (+" + income + ")";
+            moneyText.text = "CURRENCY: <color=#FFD500>$" + PlayerStats.Money.ToString() + "</color>"; // + " (+" + income + ")"
         }
         else
         {

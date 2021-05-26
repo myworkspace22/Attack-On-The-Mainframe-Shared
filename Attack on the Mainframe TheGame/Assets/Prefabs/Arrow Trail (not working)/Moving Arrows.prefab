@@ -144,7 +144,7 @@ MonoBehaviour:
   repathRate: Infinity
   canSearch: 1
   canMove: 1
-  speed: 2
+  speed: 1
   orientation: 1
   enableRotation: 1
   rotationSpeed: 999
@@ -163,5 +163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba6d15b3bc8d54499f76c279f5a042c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTimeBtwSpawns: 0.5
+  startTimeBtwSpawns: 0.2
+  spawnPoint: {fileID: 0}
   echo: {fileID: 8125418098304324298, guid: b087223a00ae9b44087291623b737787, type: 3}

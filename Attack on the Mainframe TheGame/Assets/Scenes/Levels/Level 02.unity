@@ -21494,7 +21494,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711639871}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.625, y: -5.125, z: 0}
+  m_LocalPosition: {x: -5.375, y: -5.125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1778445499}
@@ -32338,7 +32338,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117820866}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.125, y: -5.125, z: 0}
+  m_LocalPosition: {x: -5.375, y: -5.125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1778445499}
@@ -43510,34 +43510,7 @@ MonoBehaviour:
   gameManager: {fileID: 1589514353}
   waves:
   - enemy: {fileID: 5975281576349636344, guid: 940fad39164ca9141802a89e070abe6b, type: 3}
-    count: 8
-    rate: 1
-  - enemy: {fileID: 5975281576349636344, guid: 146cc806fe0558b48b5e5a601967e8f6, type: 3}
-    count: 6
-    rate: 1
-  - enemy: {fileID: 5975281576349636344, guid: 940fad39164ca9141802a89e070abe6b, type: 3}
-    count: 14
-    rate: 1
-  - enemy: {fileID: 5975281576349636344, guid: 412c18acb6ba6094cb401667efd44c15, type: 3}
-    count: 8
-    rate: 1
-  - enemy: {fileID: 5975281576349636344, guid: 8958b854c78210340a188cbf1486f413, type: 3}
-    count: 10
-    rate: 1
-  - enemy: {fileID: 5975281576349636344, guid: 146cc806fe0558b48b5e5a601967e8f6, type: 3}
-    count: 12
-    rate: 1
-  - enemy: {fileID: 5975281576349636344, guid: d9838802746c6ab4e8c488e67a38cdde, type: 3}
-    count: 6
-    rate: 1
-  - enemy: {fileID: 5975281576349636344, guid: 412c18acb6ba6094cb401667efd44c15, type: 3}
-    count: 12
-    rate: 1
-  - enemy: {fileID: 5975281576349636344, guid: 8958b854c78210340a188cbf1486f413, type: 3}
-    count: 14
-    rate: 1
-  - enemy: {fileID: 5975281576349636344, guid: d9838802746c6ab4e8c488e67a38cdde, type: 3}
-    count: 10
+    count: 1
     rate: 1
   spawnPoints:
   - {fileID: 1426203089}
@@ -43607,6 +43580,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 1445669547}
   completeLevelUI: {fileID: 1201777146}
+  levelToUnlock: 3
+  sceneFader: {fileID: 1886546918}
 --- !u!114 &1589514354
 MonoBehaviour:
   m_ObjectHideFlags: 0
