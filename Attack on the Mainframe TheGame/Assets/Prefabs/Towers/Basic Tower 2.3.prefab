@@ -357,14 +357,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfcb0d1778176204cbbaef3bdfd47144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 3.5
+  range: 3
   nearestTarget: 0
   upgradeDamage: 0
   upgradeRange: 0
   upgradeFrenquency: 0
   upgradeLaserDoT: 0
-  bulletDamage: 200
-  fireRate: 2
+  bulletDamage: 500
+  fireRate: 1
   useLaser: 0
   damageOverTime: 30
   slowAmount: 0.5
@@ -373,7 +373,7 @@ MonoBehaviour:
   laserWidth: 0
   enemyTag: Enemy
   rotationPoint: {fileID: 8277812115738884651}
-  bulletPrefab: {fileID: 4238579209898551604, guid: 7f98077fe9376f04baa4166b7ddbe507, type: 3}
+  bulletPrefab: {fileID: 4238579209898551604, guid: a77f4f42e2d32cc4d96dbc27d1facbc6, type: 3}
   firePoint: {fileID: 524606163506090092}
   towerPlatform: {fileID: 4559026435059489860}
 --- !u!212 &2023288362687100980

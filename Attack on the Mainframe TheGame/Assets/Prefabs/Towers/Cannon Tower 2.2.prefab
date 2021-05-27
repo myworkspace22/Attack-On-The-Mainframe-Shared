@@ -327,7 +327,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 2
   nearestTarget: 0
-  bulletDamage: 175
+  upgradeDamage: 0
+  upgradeRange: 0
+  upgradeFrenquency: 0
+  upgradeLaserDoT: 0
+  bulletDamage: 600
   fireRate: 0.9
   useLaser: 0
   damageOverTime: 30
@@ -337,7 +341,7 @@ MonoBehaviour:
   laserWidth: 0
   enemyTag: Enemy
   rotationPoint: {fileID: 2766983560153170726}
-  bulletPrefab: {fileID: 2881803708027556478, guid: 23e6b7c082407484c8a368c9500e548c, type: 3}
+  bulletPrefab: {fileID: 2881803708027556478, guid: 65dfcc42dd4fb9b4f80a2d0400d3df42, type: 3}
   firePoint: {fileID: 6035166715951589729}
   towerPlatform: {fileID: 7764791535041439049}
 --- !u!212 &1811285495851032897

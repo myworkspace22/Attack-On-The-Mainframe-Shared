@@ -54693,6 +54693,22 @@ PrefabInstance:
       propertyPath: waves.Array.data[14].enemy
       value: 
       objectReference: {fileID: 5975281576349636344, guid: 55b8ae3d3afae6345b8f6fe29a3abcff, type: 3}
+    - target: {fileID: 4024176748519706819, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024176748895004369, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024176748961873022, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024176749074835493, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: m_text
+      value: 'Currency: <color=#FFD500>$300</color>'
+      objectReference: {fileID: 0}
     - target: {fileID: 4024176749366246023, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -54708,6 +54724,10 @@ PrefabInstance:
     - target: {fileID: 4024176749366246023, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024176750376235602, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 6044543590985865809, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: m_RootOrder

@@ -51,7 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startHealth: 17500
   maxSpeed: 0.8
-  damage: 3
+  damage: 10
   worth: 100
   speed: 0
   deathEffect: {fileID: 1787491968115139843, guid: 72ae324c15b9e6d43895e32d4fc3c2c3, type: 3}

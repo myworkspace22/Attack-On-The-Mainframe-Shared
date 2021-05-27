@@ -124,7 +124,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Time: 1
+  m_Time: 0.1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.08037796
@@ -154,7 +154,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 0.49019608}
+      key0: {r: 0, g: 0.8313726, b: 0.97647065, a: 0.49019608}
       key1: {r: 0, g: 0.8313726, b: 0.97647065, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 1373746461384363583}
   - component: {fileID: 8673312452825460262}
   m_Layer: 0
-  m_Name: Sniper Tower Bullet 1
+  m_Name: Electro Tower Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f5245ff6fc94bb4c9f5197d57702516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 4
   damage: 0
   explosionRadius: 0
   impactEffect: {fileID: 6235844836480323252, guid: 320c754f1526b87499d8e5f7f677733e, type: 3}

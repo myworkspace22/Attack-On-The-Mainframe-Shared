@@ -86,14 +86,14 @@ MonoBehaviour:
   range: 2
   nearestTarget: 0
   upgradeDamage: 40
-  upgradeRange: 0
+  upgradeRange: 0.1
   upgradeFrenquency: 0
   upgradeLaserDoT: 40
-  bulletDamage: 80
+  bulletDamage: 300
   fireRate: 1.7
   useLaser: 1
-  damageOverTime: 130
-  slowAmount: 0.75
+  damageOverTime: 300
+  slowAmount: 0.5
   lineRenderer: {fileID: 6920416368136055428}
   impactEffect: {fileID: 2872334427099462869}
   laserWidth: 0.03
