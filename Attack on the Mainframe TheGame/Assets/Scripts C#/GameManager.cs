@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("levelReached", levelToUnlock);
         }
         Debug.Log("Level Won!");
-        sceneFader.FadeTo("LevelSelection");
-        //completeLevelUI.SetActive(true);
+        //sceneFader.FadeTo("LevelSelection");
+        completeLevelUI.SetActive(true);
     }
 }
