@@ -12,6 +12,11 @@ public class WaveSpawner : MonoBehaviour
 
     public TextMeshProUGUI enemyName;
     public Image enemyImage;
+    public GameObject arrowPath;
+    private GameObject currentArrow;
+    public bool arrowPathDeactive;
+    private int gameSpeed;
+    public bool isPaused;
 
     //public int enCount; //til at kunne se hvor mange enemies der er i banen
 
@@ -27,7 +32,7 @@ public class WaveSpawner : MonoBehaviour
 
     public TextMeshProUGUI waveCountdownText;
 
-    private int waveIndex = 0;
+    public int waveIndex = 0;
 
     private bool waveEnded;
 
@@ -41,12 +46,21 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-        nameOfLevelUI.text = nameOfLevel + " (wave: " + waveIndex + ")";
+        nameOfLevelUI.text = nameOfLevel + " (wave: " + (waveIndex) + " - " + waves.Length + ")";
+        currentArrow = null;
+        gameSpeed = 1;
+        isPaused = false;
     }
 
     private void Update()
     {
         //enCount = EnemiesAlive; //til at kunne se hvor mange enemies der er i banen
+
+        if (BuildMode && currentArrow == null && !arrowPathDeactive)
+        {
+            currentArrow = Instantiate(arrowPath, spawnPoints[UnityEngine.Random.Range(0, 4)].position, spawnPoints[UnityEngine.Random.Range(0, 4)].rotation);
+            currentArrow.GetComponent<AIDestinationSetter>().target = endPoint;
+        }
 
         if (EnemiesAlive > 0)
         {
@@ -55,12 +69,16 @@ public class WaveSpawner : MonoBehaviour
         }
         else if (!waveEnded)
         {
+            Time.timeScale = 1;
             waveEnded = true;
             OnWaveEnded?.Invoke();
         }
         if (waveIndex == waves.Length)
         {
-            gameManager.WinLevel();
+            if(PlayerStats.Lives > 0)
+            {
+                gameManager.WinLevel();
+            }
             this.enabled = false;
             return;
         }
@@ -71,7 +89,7 @@ public class WaveSpawner : MonoBehaviour
             PlayerStats.Money += (PlayerStats.Money - PlayerStats.Money % 100) / 5;
             return;
         }
-        if (waveIndex > 0)
+        if (waveIndex > 0 && !isPaused)
         {
             countdown -= Time.deltaTime;
 
@@ -93,10 +111,17 @@ public class WaveSpawner : MonoBehaviour
         enemyName.text = "Next wave: <color=#00FF00>" + waves[waveIndex].enemy.GetComponent<Enemy>().startHealth + " HP</color>";
 
         enemyImage.sprite = waves[waveIndex].enemy.GetComponentInChildren<SpriteRenderer>().sprite;
+
+        enemyImage.color = waves[waveIndex].enemy.GetComponentInChildren<SpriteRenderer>().color;
+
+        if(waveIndex == waves.Length - 1)
+        {
+            enemyName.text = "Final Boss: <color=#00FF00>" + waves[waveIndex].enemy.GetComponent<Enemy>().startHealth + " HP</color>";
+        }
     }
     IEnumerator SpawnWave()
     {
-        nameOfLevelUI.text = nameOfLevel + " (wave: " + (waveIndex + 1) + ")";
+        nameOfLevelUI.text = nameOfLevel + " (wave: " + (waveIndex + 1) + " - " + waves.Length + ")";
 
         PlayerStats.Rounds++;
 
@@ -130,9 +155,25 @@ public class WaveSpawner : MonoBehaviour
     {
         if (!BuildMode)
         {
+            SpeedUp();
             return;
         }
         countdown = 0;
-        waveCountdownText.text = "Ready";
+        Time.timeScale = gameSpeed;
+        waveCountdownText.text = "SPEED (" + Time.timeScale + ")";
+    }
+    public void SpeedUp()
+    {
+        if(gameSpeed >= 3)
+        {
+            gameSpeed = 1;
+        }
+        else
+        {
+            gameSpeed += 1;
+        }
+
+        Time.timeScale = gameSpeed;
+        waveCountdownText.text = "SPEED (" + Time.timeScale + ")";
     }
 }

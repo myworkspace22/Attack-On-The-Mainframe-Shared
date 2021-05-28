@@ -7,7 +7,6 @@ public class EchoEffect : MonoBehaviour
 {
     private float timeBtwSpawns;
     public float startTimeBtwSpawns;
-    public GameObject spawnPoint;
 
     public GameObject echo;
 
@@ -16,7 +15,7 @@ public class EchoEffect : MonoBehaviour
         if(timeBtwSpawns <= 0)
         {
             GameObject instance = (GameObject)Instantiate(echo, transform.position, transform.rotation);
-            Destroy(instance, 8f);
+            Destroy(instance, 1.5f);
             timeBtwSpawns = startTimeBtwSpawns;
         }
         else
@@ -25,7 +24,6 @@ public class EchoEffect : MonoBehaviour
         }
         if(Vector2.Distance(transform.position, GetComponent<AIDestinationSetter>().target.position) <= 0.25f)
         {
-            //Instantiate(echo, spawnPoint.transform.position, spawnPoint.transform.rotation);
             Destroy(gameObject);
         }
     }

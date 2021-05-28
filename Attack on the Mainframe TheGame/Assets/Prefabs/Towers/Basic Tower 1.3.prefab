@@ -363,8 +363,8 @@ MonoBehaviour:
   upgradeRange: 0
   upgradeFrenquency: 0
   upgradeLaserDoT: 0
-  bulletDamage: 400
-  fireRate: 3
+  bulletDamage: 200
+  fireRate: 6
   useLaser: 0
   damageOverTime: 30
   slowAmount: 0.5

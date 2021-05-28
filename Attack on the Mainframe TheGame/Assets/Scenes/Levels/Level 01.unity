@@ -16044,36 +16044,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 125817254177808949, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
   m_PrefabInstance: {fileID: 403839015}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &409162084
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 409162085}
-  m_Layer: 0
-  m_Name: Moving Arrows Spawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &409162085
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409162084}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.125, y: -5.125, z: -51.21499}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &417424689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23552,7 +23522,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &570327632
 PrefabInstance:
@@ -24159,6 +24129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camAnim: {fileID: 519420030}
+  livesText: {fileID: 2059285636}
 --- !u!4 &596453865
 Transform:
   m_ObjectHideFlags: 0
@@ -68699,6 +68670,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow Path Spawn
       objectReference: {fileID: 0}
+    - target: {fileID: 4808158396376342818, guid: 023225602aae62340ba2826575eeb4af, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 023225602aae62340ba2826575eeb4af, type: 3}
 --- !u!1001 &1791012023
@@ -77627,6 +77602,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4024176748414592524, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: m_text
+      value: START (20)
+      objectReference: {fileID: 0}
     - target: {fileID: 4024176748426649983, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: waves.Array.size
       value: 10
@@ -77763,6 +77742,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4024176749554690883, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024176749554690883, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6044543590985865809, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -77825,6 +77812,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+--- !u!95 &2059285636 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4437167451797813864, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+  m_PrefabInstance: {fileID: 2059285635}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2059531278
 PrefabInstance:
   m_ObjectHideFlags: 0

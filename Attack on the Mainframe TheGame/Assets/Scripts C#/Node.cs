@@ -356,6 +356,7 @@ public class Node : MonoBehaviour
         {
             return;
         }
+        buildManager.hoverNode = this;
         Collider2D[] canPlaceChecks = Physics2D.OverlapCircleAll(transform.position, 0.1f);
         if (canPlaceChecks != null)
         {
@@ -378,12 +379,19 @@ public class Node : MonoBehaviour
         {
             InDecline();
         }
+
     }
 
     private void OnMouseExit()
     {
         if (buildManager.CanBuild)
             ChangeRange(false);
+        anim.SetBool("Place", false);
+        anim.SetBool("Decline", false);
+    }
+    public void EndHover()
+    {
+        ChangeRange(false);
         anim.SetBool("Place", false);
         anim.SetBool("Decline", false);
     }

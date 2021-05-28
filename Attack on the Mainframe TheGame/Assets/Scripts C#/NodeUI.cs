@@ -32,25 +32,37 @@ public class NodeUI : MonoBehaviour
 
     private void Update()
     {
-        if (BuildManager.instance.GetComponent<WaveSpawner>().BuildMode) 
+        sellButton.interactable = BuildManager.instance.GetComponent<WaveSpawner>().BuildMode;
+        if (!target.isMaxed)
         {
-            if (!target.isMaxed)
-            {
-                levelUpButton.GetComponent<Button>().interactable = PlayerStats.Money >= target.turretBlueprint.levelUpCost * target.UpgradeMultiplier;
-                int multiplyer = (target.upgradeNr > 0) ? 2 : 1;
-                upgradeButton1.interactable = PlayerStats.Money >= target.turretBlueprint.upgradeCost[target.upgradeNr + 1 * multiplyer - 1];
-                upgradeButton2.interactable = PlayerStats.Money >= target.turretBlueprint.upgradeCost[target.upgradeNr + 2 * multiplyer - 1];
-            }
-            sellButton.interactable = true;
+            int multiplyer = (target.upgradeNr > 0) ? 2 : 1;
+            levelUpButton.GetComponent<Button>().interactable = PlayerStats.Money >= target.turretBlueprint.levelUpCost * (target.towerLevel + 1);
+            upgradeButton1.interactable = PlayerStats.Money >= target.turretBlueprint.upgradeCost[target.upgradeNr + 1 * multiplyer - 1];
+            upgradeButton2.interactable = PlayerStats.Money >= target.turretBlueprint.upgradeCost[target.upgradeNr + 2 * multiplyer - 1];
         }
-        else
-        {
-            //levelUpButton.GetComponent<Button>().interactable = false;
-            //upgradeButton1.interactable = false;
-            //upgradeButton2.interactable = false;
-            sellAmount.text = "Sell: <color=#FFD500>$" + target.SellAmount + "</color>";
-            sellButton.interactable = false;
-        }
+
+        //if (BuildManager.instance.GetComponent<WaveSpawner>().BuildMode) 
+        //{
+        //    //if (!target.isMaxed)
+        //    //{
+        //    //    int multiplyer = (target.upgradeNr > 0) ? 2 : 1;
+        //    //    levelUpButton.GetComponent<Button>().interactable = PlayerStats.Money >= target.turretBlueprint.levelUpCost * target.UpgradeMultiplier;
+        //    //    upgradeButton1.interactable = PlayerStats.Money >= target.turretBlueprint.upgradeCost[target.upgradeNr + 1 * multiplyer - 1];
+        //    //    upgradeButton2.interactable = PlayerStats.Money >= target.turretBlueprint.upgradeCost[target.upgradeNr + 2 * multiplyer - 1];
+        //    //}
+        //    sellButton.interactable = true;
+        //}
+        //else
+        //{
+        //    //levelUpButton.GetComponent<Button>().interactable = false;
+        //    //upgradeButton1.interactable = false;
+        //    //upgradeButton2.interactable = false;
+        //    //sellAmount.text = "Sell: <color=#FFD500>$" + target.SellAmount + "</color>";
+        //    sellButton.interactable = false;
+        //}
+
+
+
     }
     public void SetTarget(Node _target)
     {

@@ -23,6 +23,7 @@ public class BuildManager : MonoBehaviour
     private TurretBluePrint turretToBuild;
     [HideInInspector]
     public Node selectedNode;
+    public Node hoverNode;
 
     public NodeUI nodeUI;
     public ShopUI shopUI;
@@ -41,6 +42,13 @@ public class BuildManager : MonoBehaviour
                 DeselectNode();
             }
         }
+    }
+
+    public void DeselectShopItem()
+    {
+        shopUI.DeselectTower();
+        turretToBuild = null;
+        hoverNode.EndHover();
     }
 
     //private Color platformColor;
