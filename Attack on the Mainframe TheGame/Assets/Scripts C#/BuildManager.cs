@@ -23,6 +23,7 @@ public class BuildManager : MonoBehaviour
     private TurretBluePrint turretToBuild;
     [HideInInspector]
     public Node selectedNode;
+    [HideInInspector]
     public Node hoverNode;
 
     public NodeUI nodeUI;

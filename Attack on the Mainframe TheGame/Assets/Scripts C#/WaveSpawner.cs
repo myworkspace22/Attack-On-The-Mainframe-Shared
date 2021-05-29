@@ -16,6 +16,7 @@ public class WaveSpawner : MonoBehaviour
     private GameObject currentArrow;
     public bool arrowPathDeactive;
     private int gameSpeed;
+    [HideInInspector]
     public bool isPaused;
 
     //public int enCount; //til at kunne se hvor mange enemies der er i banen

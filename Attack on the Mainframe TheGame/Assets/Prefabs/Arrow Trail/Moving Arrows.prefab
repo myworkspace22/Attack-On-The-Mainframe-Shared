@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  repathRate: Infinity
+  repathRate: 0.5
   canSearch: 1
   canMove: 1
   speed: 2
@@ -149,7 +149,7 @@ MonoBehaviour:
   enableRotation: 1
   rotationSpeed: 999
   interpolatePathSwitches: 1
-  switchPathInterpolationSpeed: 10
+  switchPathInterpolationSpeed: 5
   targetCompatibility: {fileID: 0}
 --- !u!114 &4950597932026115845
 MonoBehaviour:

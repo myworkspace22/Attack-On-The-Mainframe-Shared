@@ -25326,6 +25326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camAnim: {fileID: 519420030}
+  livesText: {fileID: 0}
 --- !u!4 &596453865
 Transform:
   m_ObjectHideFlags: 0
@@ -34555,19 +34556,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 585784358899228988, guid: 093eb98c45785424eb3b622a5544c031, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 585784358899228988, guid: 093eb98c45785424eb3b622a5544c031, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 585784358899228988, guid: 093eb98c45785424eb3b622a5544c031, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 585784358899228988, guid: 093eb98c45785424eb3b622a5544c031, type: 3}
       propertyPath: m_SortingOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559026435059489860, guid: 093eb98c45785424eb3b622a5544c031, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559026435059489860, guid: 093eb98c45785424eb3b622a5544c031, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559026435059489860, guid: 093eb98c45785424eb3b622a5544c031, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6509804
       objectReference: {fileID: 0}
     - target: {fileID: 4559026435059489860, guid: 093eb98c45785424eb3b622a5544c031, type: 3}
       propertyPath: m_SortingOrder
@@ -63710,6 +63723,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: {fileID: 460495442}
   enemyImage: {fileID: 12494861}
+  arrowPath: {fileID: 0}
+  arrowPathDeactive: 0
+  isPaused: 0
   gameManager: {fileID: 1589514353}
   waves:
   - enemy: {fileID: 5975281576349636344, guid: 940fad39164ca9141802a89e070abe6b, type: 3}
@@ -63724,6 +63740,7 @@ MonoBehaviour:
   timeBetweenWaves: 50
   countdown: 50
   waveCountdownText: {fileID: 1598428958}
+  waveIndex: 0
   nameOfLevel: USB PORT
   nameOfLevelUI: {fileID: 284629164}
 --- !u!4 &1589514350
@@ -63753,6 +63770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedNode: {fileID: 0}
+  hoverNode: {fileID: 0}
   nodeUI: {fileID: 320425719}
   shopUI: {fileID: 1900324469}
 --- !u!114 &1589514352
