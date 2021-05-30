@@ -44126,11 +44126,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: newEnemyTitle.Array.data[0]
-      value: NEW ENEMY APPROCHING!
+      value: NEW ENEMY APPROACHING!
       objectReference: {fileID: 0}
     - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: newEnemyTitle.Array.data[1]
-      value: BOSS APPROCHING!
+      value: BOSS APPROACHING!
       objectReference: {fileID: 0}
     - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: newEnemyDescription.Array.size

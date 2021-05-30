@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 4344552369203659465}
   - component: {fileID: 567247471588682600}
   m_Layer: 5
-  m_Name: New Enemy Approching
+  m_Name: New Enemy Approaching
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
