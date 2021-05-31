@@ -4,7 +4,7 @@
 QualitySettings:
   m_ObjectHideFlags: 0
   serializedVersion: 5
-  m_CurrentQuality: 5
+  m_CurrentQuality: 2
   m_QualitySettings:
   - serializedVersion: 2
     name: Very Low
@@ -220,7 +220,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 11400000, guid: 7a39ffdff02ecfc4fbd6cc217a817d64, type: 2}
+    customRenderPipeline: {fileID: 0}
     excludedTargetPlatforms: []
   m_PerPlatformDefaultQuality:
     Android: 2
@@ -228,7 +228,7 @@ QualitySettings:
     Nintendo Switch: 5
     PS4: 5
     Stadia: 5
-    Standalone: 5
+    Standalone: 2
     WebGL: 3
     Windows Store Apps: 5
     XboxOne: 5

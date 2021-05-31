@@ -49,14 +49,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d74dac3fb455d549bfd69d47fc26ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 1800
+  startHealth: 4000
   maxSpeed: 1
   damage: 1
   worth: 50
   speed: 0
   deathEffect: {fileID: 1787491968115139843, guid: 72ae324c15b9e6d43895e32d4fc3c2c3, type: 3}
   canFly: 0
-  healAmt: 90
+  healAmt: 75
   slowResistence: 0
   increaseSpeed: 0
   stealthTime: 0

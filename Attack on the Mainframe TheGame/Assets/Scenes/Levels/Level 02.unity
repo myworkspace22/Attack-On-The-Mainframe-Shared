@@ -54697,6 +54697,10 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Currency: <color=#FFD500>$300</color>'
       objectReference: {fileID: 0}
+    - target: {fileID: 4024176749232927642, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: m_text
+      value: 'HARD DRIVE (wave: 13)'
+      objectReference: {fileID: 0}
     - target: {fileID: 4024176749366246023, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -54784,6 +54788,10 @@ PrefabInstance:
     - target: {fileID: 7996448898899501882, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392943806218787585, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: levelToUnlock
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}

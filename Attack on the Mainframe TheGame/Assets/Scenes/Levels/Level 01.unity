@@ -77573,6 +77573,10 @@ PrefabInstance:
       propertyPath: m_text
       value: START (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 4024176748426649955, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: levelToUnlock
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4024176748426649983, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: waves.Array.size
       value: 10
@@ -77776,6 +77780,10 @@ PrefabInstance:
     - target: {fileID: 7996448898899501882, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392943806218787585, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: levelToUnlock
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}

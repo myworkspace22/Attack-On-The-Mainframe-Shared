@@ -9,7 +9,7 @@ public class MoneyUI : MonoBehaviour
     public TextMeshProUGUI moneyText;
     void Update()
     {
-        int income = (PlayerStats.Money - PlayerStats.Money % 100) / 5; 
+        int income = (PlayerStats.Money - PlayerStats.Money % 100) / 4; 
 
         if (BuildManager.instance.GetComponent<WaveSpawner>().BuildMode)
         {

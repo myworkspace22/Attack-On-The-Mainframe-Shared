@@ -197,8 +197,8 @@ public class NodeUI : MonoBehaviour
         BuildManager.instance.DeselectNode();
         target.isMaxed = false;
     }
-    public void InDecline(bool active)
-    {
-        target.OnHoverSell(active);
-    }
+    //public void InDecline(bool active)
+    //{
+    //    target.OnHoverSell(active);
+    //}
 }
