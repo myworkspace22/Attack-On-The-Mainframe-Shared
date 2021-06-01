@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8091043518590745029}
   - component: {fileID: 8109400275763236503}
   m_Layer: 0
-  m_Name: 1.9.2 Blue Commander 3
+  m_Name: 1.9.2 Yellow Commander 3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,6 +68,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 59041031136131956}
   healthBar: {fileID: 4417366439022705190}
+  givesMoneyOnEnd: 1
 --- !u!58 &1895774545520125227
 CircleCollider2D:
   m_ObjectHideFlags: 0

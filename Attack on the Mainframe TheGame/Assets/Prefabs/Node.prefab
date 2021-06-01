@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 125817254177808948}
   - component: {fileID: 1874531998607346999}
   - component: {fileID: 9118319029743844233}
-  - component: {fileID: 1975895127}
   m_Layer: 0
   m_Name: Node
   m_TagString: Untagged
@@ -111,6 +110,8 @@ MonoBehaviour:
   - {fileID: 3991686953158210261}
   - {fileID: 7029761187995186042}
   spriteToChange: {fileID: 8620048545108702975}
+  rangeSprite: {fileID: 2599942752457133196}
+  hoverBackground: {fileID: 21300000, guid: 155de46eb2d422f41a7e2c342ec20ce9, type: 3}
   turret: {fileID: 0}
   turretBlueprint:
     title: 
@@ -155,25 +156,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.25, y: 0.25}
   m_EdgeRadius: 0
---- !u!95 &1975895127
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125817254177808951}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 63ca75038be8d6f409336b3ba74e3162, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &492249658463556457
 GameObject:
   m_ObjectHideFlags: 0

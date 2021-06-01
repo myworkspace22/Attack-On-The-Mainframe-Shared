@@ -15,7 +15,8 @@ public class WaveSpawner : MonoBehaviour
     public GameObject arrowPath;
     private GameObject currentArrow;
     public bool arrowPathDeactive;
-    private int gameSpeed;
+    [HideInInspector]
+    public int gameSpeed;
     [HideInInspector]
     public bool isPaused;
 
@@ -123,6 +124,10 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave()
     {
         nameOfLevelUI.text = nameOfLevel + " (wave: " + (waveIndex + 1) + " - " + waves.Length + ")";
+
+        BuildManager.instance.DeselectShopItem();
+
+        Destroy(currentArrow);
 
         PlayerStats.Rounds++;
 

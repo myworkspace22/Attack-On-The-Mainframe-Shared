@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7373373764363036414}
   - component: {fileID: 7203673169436658652}
   m_Layer: 0
-  m_Name: 1.8.2 Blue Stealth (becomes immune) 3
+  m_Name: 1.8.2 Yellow Stealth (becomes immune) 3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,6 +66,7 @@ MonoBehaviour:
   spawn: {fileID: 0}
   spawnPoints: []
   healthBar: {fileID: 1744328501158428074}
+  givesMoneyOnEnd: 1
 --- !u!58 &1895774545520125227
 CircleCollider2D:
   m_ObjectHideFlags: 0

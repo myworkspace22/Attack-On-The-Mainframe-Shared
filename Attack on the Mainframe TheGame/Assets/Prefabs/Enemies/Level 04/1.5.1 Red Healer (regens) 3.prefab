@@ -66,6 +66,7 @@ MonoBehaviour:
   spawn: {fileID: 0}
   spawnPoints: []
   healthBar: {fileID: 762023206198715834}
+  givesMoneyOnEnd: 1
 --- !u!58 &1895774545520125227
 CircleCollider2D:
   m_ObjectHideFlags: 0

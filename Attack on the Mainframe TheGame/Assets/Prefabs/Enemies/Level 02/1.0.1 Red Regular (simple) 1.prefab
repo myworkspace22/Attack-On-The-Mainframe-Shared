@@ -164,6 +164,7 @@ MonoBehaviour:
   - {fileID: 8797156433743137909}
   - {fileID: 9214789908989282344}
   healthBar: {fileID: 4417366439022705190}
+  givesMoneyOnEnd: 1
 --- !u!212 &5975281576349636351
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -70,6 +70,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   healthBar: {fileID: 4417366439022705190}
+  givesMoneyOnEnd: 1
 --- !u!58 &1895774545520125227
 CircleCollider2D:
   m_ObjectHideFlags: 0

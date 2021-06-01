@@ -49,7 +49,7 @@ public class BuildManager : MonoBehaviour
     {
         shopUI.DeselectTower();
         turretToBuild = null;
-        hoverNode.EndHover();
+        if (hoverNode != null) { hoverNode.EndHover(); }
     }
 
     //private Color platformColor;

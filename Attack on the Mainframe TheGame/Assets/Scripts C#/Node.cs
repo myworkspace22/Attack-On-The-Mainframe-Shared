@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
-    private Animator anim;
     public PathChecker pathChecker;
     public Vector3 positionOffset;
 
@@ -15,6 +14,11 @@ public class Node : MonoBehaviour
     
     [Header("Animation Ref.")]
     public SpriteRenderer spriteToChange;
+    public SpriteRenderer rangeSprite;
+    private SpriteRenderer sR;
+    public Sprite hoverBackground;
+    private Sprite baseSprite;
+    private Color baseColor;
 
     [HideInInspector]
     public GameObject turret;
@@ -69,13 +73,17 @@ public class Node : MonoBehaviour
         upgradeNr = 0;
         towerLevel = 0;
 
-        anim = GetComponent<Animator>();
-
         buildManager = BuildManager.instance;
 
         buildManager.GetComponent<WaveSpawner>().OnWavePriceLocked += LockPrice;
 
         towerRange.SetActive(false);
+
+        sR = GetComponent<SpriteRenderer>();
+
+        baseColor = sR.color;
+
+        baseSprite = sR.sprite;
     }
 
     //private void OnDestroy()
@@ -180,9 +188,9 @@ public class Node : MonoBehaviour
 
         PlayerStats.Money -= blueprint.cost;
         priceUnlocked += blueprint.cost; //skal ændres
-        
+
         //Debug.Log("Turret build!");
-        anim.SetBool("Place", false);
+        EndHover();
         if (!Input.GetButton("KeepBuilding"))
         {
             buildManager.SelectNode(this);
@@ -312,6 +320,7 @@ public class Node : MonoBehaviour
 
         PlayerStats.Money += SellAmount;
         priceLocked = 0;
+        priceUnlocked = 0;
 
         //Sell effect for later use!
 
@@ -339,8 +348,6 @@ public class Node : MonoBehaviour
         ChangeRange(false);
 
         AstarPath.active.Scan();
-
-        anim.SetBool("Decline", false);
     }
 
     private void OnMouseEnter()
@@ -372,8 +379,13 @@ public class Node : MonoBehaviour
         if (buildManager.HasMoney)
         {
             spriteToChange.sprite = buildManager.GetTurretToBuild().prefab.GetComponent<SpriteRenderer>().sprite;
-            anim.SetBool("Place", true);
             ChangeRange(true, buildManager.GetTurretToBuild().prefab.GetComponent<Turret>().range);
+            spriteToChange.gameObject.SetActive(true);
+            spriteToChange.color = new Color(0, 0.5372466f, 0.5849056f);
+            sR.color = new Color(0.5849056f, 0.5849056f, 0.5849056f);
+            sR.sortingOrder = 2;
+            rangeSprite.color = new Color(1, 1, 1, 0.78f);
+            sR.sprite = hoverBackground;
         }
         else
         {
@@ -386,14 +398,22 @@ public class Node : MonoBehaviour
     {
         if (buildManager.CanBuild)
             ChangeRange(false);
-        anim.SetBool("Place", false);
-        anim.SetBool("Decline", false);
+        spriteToChange.gameObject.SetActive(false);
+        spriteToChange.sortingOrder = 3;
+        sR.color = baseColor;
+        sR.sortingOrder = 0;
+        rangeSprite.color = new Color(1, 1, 1, 1);
+        sR.sprite = baseSprite;
     }
     public void EndHover()
     {
         ChangeRange(false);
-        anim.SetBool("Place", false);
-        anim.SetBool("Decline", false);
+        spriteToChange.gameObject.SetActive(false);
+        spriteToChange.sortingOrder = 3;
+        sR.color = baseColor;
+        sR.sortingOrder = 0;
+        rangeSprite.color = new Color(1, 1, 1, 1);
+        sR.sprite = baseSprite;
     }
 
     public void LockPrice()
@@ -446,11 +466,28 @@ public class Node : MonoBehaviour
     public void InDecline()
     {
         spriteToChange.sprite = buildManager.GetTurretToBuild().prefab.GetComponent<SpriteRenderer>().sprite;
-        anim.SetBool("Decline", true);
         ChangeRange(true, buildManager.GetTurretToBuild().prefab.GetComponent<Turret>().range);
+        spriteToChange.gameObject.SetActive(true);
+        spriteToChange.color = new Color(0.5843138f, 0, 0);
+        sR.color = new Color(0.5843138f, 0, 0);
+        sR.sortingOrder = 1;
+        spriteToChange.sortingOrder = 2;
+        rangeSprite.color = new Color(1, 0, 0, 0.78f);
+        sR.sprite = hoverBackground;
     }
     public void OnHoverSell(bool active)
     {
-        anim.SetBool("Decline", active);
+        if (active)
+        {
+            spriteToChange.sprite = buildManager.GetTurretToBuild().prefab.GetComponent<SpriteRenderer>().sprite;
+            ChangeRange(true, buildManager.GetTurretToBuild().prefab.GetComponent<Turret>().range);
+            spriteToChange.gameObject.SetActive(true);
+            spriteToChange.color = new Color(0.5843138f, 0, 0);
+            sR.color = new Color(0.5843138f, 0, 0);
+            sR.sortingOrder = 1;
+            spriteToChange.sortingOrder = 2;
+            rangeSprite.color = new Color(1, 0, 0, 0.78f);
+            sR.sprite = hoverBackground;
+        }
     }
 }

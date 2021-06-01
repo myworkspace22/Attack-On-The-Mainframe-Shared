@@ -66,6 +66,8 @@ MonoBehaviour:
   spawn: {fileID: 0}
   spawnPoints: []
   healthBar: {fileID: 4417366439022705190}
+  healthTransform: {fileID: 7705170075573851899}
+  givesMoneyOnEnd: 1
 --- !u!58 &1895774545520125227
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -142,7 +144,7 @@ MonoBehaviour:
   canMove: 1
   speed: 3
   orientation: 1
-  enableRotation: 1
+  enableRotation: 0
   rotationSpeed: 10
   interpolatePathSwitches: 1
   switchPathInterpolationSpeed: 10

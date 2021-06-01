@@ -67,6 +67,7 @@ MonoBehaviour:
   spawn: {fileID: 0}
   spawnPoints: []
   healthBar: {fileID: 6473449545458560516}
+  givesMoneyOnEnd: 1
 --- !u!212 &5975281576349636351
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -30,6 +30,8 @@ public class Enemy : MonoBehaviour
     
     [Header("Unity Stuff")]
     public Image healthBar;
+    public Transform healthTransform;
+    public bool givesMoneyOnEnd;
 
     //Privates
     
@@ -198,6 +200,7 @@ public class Enemy : MonoBehaviour
             for (int i = 0; i < timedSpawnAmt; i++)
             {
                 GameObject spawnee = Instantiate(spawn, spawnPoints[i].position, spawnPoints[i].rotation);
+                if (healthTransform != null) { spawnee.GetComponent<Enemy>().healthTransform.rotation = healthTransform.rotation; }
                 spawnee.GetComponent<AIDestinationSetter>().target = aIDestination.target;
                 WaveSpawner.EnemiesAlive++;
             }
@@ -205,6 +208,7 @@ public class Enemy : MonoBehaviour
         else
         {
             GameObject spawnee = Instantiate(spawn, transform.position, transform.rotation);
+            if (healthTransform != null) { spawnee.GetComponent<Enemy>().healthTransform.rotation = healthTransform.rotation; }
             spawnee.GetComponent<AIDestinationSetter>().target = aIDestination.target;
             WaveSpawner.EnemiesAlive++;
         }
@@ -216,6 +220,7 @@ public class Enemy : MonoBehaviour
             for (int i = 0; i < amt; i++)
             {
                 GameObject spawnee = Instantiate(spawn, spawnPoints[i].position, spawnPoints[i].rotation);
+                if (healthTransform != null) { spawnee.GetComponent<Enemy>().healthTransform.rotation = healthTransform.rotation; }
                 spawnee.GetComponent<AIDestinationSetter>().target = aIDestination.target;
                 WaveSpawner.EnemiesAlive++;
             }
@@ -223,6 +228,7 @@ public class Enemy : MonoBehaviour
         else
         {
             GameObject spawnee = Instantiate(spawn, transform.position, transform.rotation);
+            if (healthTransform != null) { spawnee.GetComponent<Enemy>().healthTransform.rotation = healthTransform.rotation; }
             spawnee.GetComponent<AIDestinationSetter>().target = aIDestination.target;
             WaveSpawner.EnemiesAlive++;
         }
@@ -232,6 +238,10 @@ public class Enemy : MonoBehaviour
     {
         PlayerStats.Lives -= damage;
         WaveSpawner.EnemiesAlive--;
+        if (givesMoneyOnEnd)
+        {
+            PlayerStats.Money += worth;
+        }
         shake.CamShake();
         Destroy(gameObject);
     }

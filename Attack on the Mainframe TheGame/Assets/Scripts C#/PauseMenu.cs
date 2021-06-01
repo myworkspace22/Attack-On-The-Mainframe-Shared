@@ -37,6 +37,8 @@ public class PauseMenu : MonoBehaviour
         if (ui.activeSelf)
         {
             Time.timeScale = 0f;
+        } else if (!BuildManager.instance.GetComponent<WaveSpawner>().BuildMode){
+            Time.timeScale = BuildManager.instance.GetComponent<WaveSpawner>().gameSpeed;
         }
         else
         {

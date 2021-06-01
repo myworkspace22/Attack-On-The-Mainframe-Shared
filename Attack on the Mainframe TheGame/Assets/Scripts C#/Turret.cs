@@ -172,6 +172,6 @@ public class Turret : MonoBehaviour
     }
     private void ResetRotation()
     {
-        rotationPoint.rotation = Quaternion.Euler(0, 0, 0);
+        rotationPoint.rotation = Quaternion.Euler(0, 0, 180);
     }
 }
