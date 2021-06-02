@@ -1258,8 +1258,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1.95, y: -0.47224998}
-  m_SizeDelta: {x: 3.9, y: 0.94449997}
+  m_AnchoredPosition: {x: 1.95, y: -0.45975}
+  m_SizeDelta: {x: 3.9, y: 0.9195}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9110600842192552776
 CanvasRenderer:
@@ -1408,7 +1408,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 31b404451ce0ba04f8756d42972f1983, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -13403,8 +13403,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1.95, y: -4.30575}
-  m_SizeDelta: {x: 3.9, y: 0.94449997}
+  m_AnchoredPosition: {x: 1.95, y: -4.32825}
+  m_SizeDelta: {x: 3.9, y: 0.8995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1764788153589968818
 CanvasRenderer:
@@ -14731,8 +14731,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1.95, y: -3.36125}
-  m_SizeDelta: {x: 3.9, y: 0.94449997}
+  m_AnchoredPosition: {x: 1.95, y: -3.42875}
+  m_SizeDelta: {x: 3.9, y: 0.8995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1175949337039428835
 CanvasRenderer:
@@ -14922,8 +14922,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1.95, y: -1.91675}
-  m_SizeDelta: {x: 3.9, y: 1.9445}
+  m_AnchoredPosition: {x: 1.95, y: -1.94925}
+  m_SizeDelta: {x: 3.9, y: 2.0595}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5961727519694737117
 CanvasRenderer:
@@ -15369,7 +15369,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1309944041957851172}
-  - component: {fileID: 5831856143909629029}
+  - component: {fileID: 2466417870898461143}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -15398,7 +15398,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &5831856143909629029
+--- !u!95 &2466417870898461143
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -15408,7 +15408,7 @@ Animator:
   m_GameObject: {fileID: 9060143917061927110}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6c88b7606a673fc49b8f8eb79263ef0c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 74e2dd72cb9a3a9489ee7d1384fd82d5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
