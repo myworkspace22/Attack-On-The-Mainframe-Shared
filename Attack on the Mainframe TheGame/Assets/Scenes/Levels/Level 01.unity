@@ -77649,6 +77649,10 @@ PrefabInstance:
       propertyPath: m_text
       value: START (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 4024176748426649954, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: startMoney
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 4024176748426649955, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: levelToUnlock
       value: 2
