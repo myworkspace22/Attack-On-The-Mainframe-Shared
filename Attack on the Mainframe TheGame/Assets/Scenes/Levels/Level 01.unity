@@ -8499,9 +8499,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1874531998607346999, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874531998607346999, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
       propertyPath: pathChecker
       value: 
       objectReference: {fileID: 569094244}
+    - target: {fileID: 9118319029743844233, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
 --- !u!4 &228640330 stripped
@@ -13380,9 +13388,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1874531998607346999, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874531998607346999, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
       propertyPath: pathChecker
       value: 
       objectReference: {fileID: 569094244}
+    - target: {fileID: 9118319029743844233, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
 --- !u!4 &321469382 stripped
@@ -19261,9 +19277,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1874531998607346999, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874531998607346999, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
       propertyPath: pathChecker
       value: 
       objectReference: {fileID: 569094244}
+    - target: {fileID: 9118319029743844233, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
 --- !u!4 &468200363 stripped
@@ -24289,9 +24313,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1874531998607346999, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874531998607346999, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
       propertyPath: pathChecker
       value: 
       objectReference: {fileID: 569094244}
+    - target: {fileID: 9118319029743844233, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
 --- !u!4 &562604107 stripped
@@ -60367,9 +60399,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1874531998607346999, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874531998607346999, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
       propertyPath: pathChecker
       value: 
       objectReference: {fileID: 569094244}
+    - target: {fileID: 9118319029743844233, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
 --- !u!4 &1488121951 stripped
@@ -75056,9 +75096,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1874531998607346999, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874531998607346999, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
       propertyPath: pathChecker
       value: 
       objectReference: {fileID: 569094244}
+    - target: {fileID: 9118319029743844233, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6c8491683be4ad41b3a5427635bb8a0, type: 3}
 --- !u!4 &1844965675 stripped
@@ -82415,7 +82463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: newEnemyDescription.Array.data[0]
-      value: SHREDDER (FINAL BOSS)
+      value: THE CORONA (FINAL BOSS)
       objectReference: {fileID: 0}
     - target: {fileID: 709572711536063752, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: m_AnchorMax.y

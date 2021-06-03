@@ -2492,7 +2492,7 @@ MonoBehaviour:
     (ESC) to reset or exit the level
 
 
-    Undo your last tower with (CTRL-Z)'
+    Undo your last tower with (X+Z)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8e5e6ee5dac741408435bd90d2b5349, type: 2}
   m_sharedMaterial: {fileID: 6871096538463531599, guid: b8e5e6ee5dac741408435bd90d2b5349, type: 2}
