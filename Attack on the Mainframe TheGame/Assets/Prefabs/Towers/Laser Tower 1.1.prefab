@@ -91,9 +91,13 @@ MonoBehaviour:
   upgradeLaserDoT: 40
   bulletDamage: 300
   fireRate: 1.7
+  multiTargets: 0
+  multiDelay: 0
+  increseFrenquencyPct: 0
+  instantDamage: 0
   useLaser: 1
   damageOverTime: 300
-  slowAmount: 0.5
+  slowAmount: 0.75
   lineRenderer: {fileID: 6920416368136055428}
   impactEffect: {fileID: 2872334427099462869}
   laserWidth: 0.03

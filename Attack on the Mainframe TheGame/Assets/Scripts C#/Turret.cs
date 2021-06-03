@@ -23,6 +23,17 @@ public class Turret : MonoBehaviour
     public float fireRate = 1f;
     private float fireCountdown = 0f;
 
+    [Header("Special Abileties")]
+    public int multiTargets;
+    public float multiDelay;
+    public float increseFrenquencyPct;
+    public bool sniper;
+
+    private float baseFrenquency;
+    private float multiCountdown;
+    private Stack<Transform> mTargets;
+
+
     [Header("Use Laser")]
     public bool useLaser = false;
 
@@ -45,6 +56,9 @@ public class Turret : MonoBehaviour
 
     private void Start()
     {
+        baseFrenquency = fireRate;
+        mTargets = new Stack<Transform>();
+        multiCountdown = 0;
         InvokeRepeating("UpdateTarget", 0f, 0.2f); //Update Target Delay
         BuildManager.instance.GetComponent<WaveSpawner>().OnWaveEnded += ResetRotation;
         //towerRange.transform.localScale = new Vector2(range * 2, range * 2);
@@ -69,6 +83,7 @@ public class Turret : MonoBehaviour
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
 
+
         foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
@@ -79,6 +94,7 @@ public class Turret : MonoBehaviour
             }
         }
 
+        fireRate = baseFrenquency;
         if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
@@ -88,8 +104,48 @@ public class Turret : MonoBehaviour
             target = null;
         }
     }
+
+    private void FindEnemiesWithinRange()
+    {
+        if (target == null) { return; }
+
+        int index = multiTargets - 1;
+
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+
+        mTargets.Clear();
+
+        foreach (GameObject enemy in enemies)
+        {
+            if (index > 0)
+            {
+                float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
+                if (distanceToEnemy <= range && enemy.transform != target)
+                {
+                    mTargets.Push(enemy.transform);
+                    index--;
+                }
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+
+
+
     private void Update()
     {
+        if (sniper && lineRenderer.enabled)
+        {
+            Color lineColor =  lineRenderer.endColor;
+            lineColor.a -= (fireRate * 2) * Time.deltaTime;
+            Debug.Log("line alpha: " + lineColor.a);
+            lineRenderer.startColor = lineColor;
+            lineRenderer.endColor = lineColor;
+        }
+
         if (target != null)
         {
             if (target.GetComponent<Enemy>().StealthMode)
@@ -114,7 +170,32 @@ public class Turret : MonoBehaviour
             return;
         }
 
-        LockOnTarget();
+        if (mTargets.Count > 0)
+        {
+            while (mTargets.Peek() == null)
+            {
+                mTargets.Pop();
+                if (mTargets.Count > 0) { break; }
+            }
+
+
+            if (mTargets.Count > 0)
+            {
+                LockOnTarget(mTargets.Peek());
+                if (multiCountdown <= 0f)
+                {
+                    Shoot(mTargets.Pop());
+                    multiCountdown = multiDelay;
+                }
+                multiCountdown -= Time.deltaTime;
+            }
+        }
+        else
+        {
+            LockOnTarget(target);
+        }
+        
+        
 
         if (useLaser)
         {
@@ -124,15 +205,28 @@ public class Turret : MonoBehaviour
         {
             if (fireCountdown <= 0f)
             {
-                Shoot();
+                if (multiTargets > 0)
+                {
+                    FindEnemiesWithinRange();
+                    multiCountdown = multiDelay;
+                }
+                if (increseFrenquencyPct > 0)
+                {
+                    if (fireRate < baseFrenquency * 3)
+                    {
+                        fireRate += baseFrenquency * increseFrenquencyPct;
+                    }
+                    
+                }
+                Shoot(target);
                 fireCountdown = 1f / fireRate;
             }
             fireCountdown -= Time.deltaTime;
         }
     }
-    void LockOnTarget()
+    void LockOnTarget(Transform newTraget)
     {
-        Vector3 dir = target.position - transform.position;
+        Vector3 dir = newTraget.position - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         rotationPoint.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
     }
@@ -154,17 +248,32 @@ public class Turret : MonoBehaviour
         impactEffect.transform.position = target.position + dir.normalized * .18f;
         impactEffect.transform.rotation = Quaternion.LookRotation(dir);
     }
-    void Shoot()
+    void Shoot(Transform bulletTarget)
     {
+
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
         if (bullet != null)
         {
             bullet.damage = bulletDamage;
-            bullet.Seek(target);
+            bullet.Seek(bulletTarget);
+            if (sniper)
+            {
+                bullet.transform.position = bulletTarget.position;
+                bullet.HitTarget();
+                lineRenderer.enabled = true;
+                lineRenderer.SetPosition(0, firePoint.position);
+                lineRenderer.SetPosition(1, bulletTarget.position);
+                Color lineColor = lineRenderer.endColor;
+                lineColor.a = 1;
+                lineRenderer.startColor = lineColor;
+                lineRenderer.endColor = lineColor;
+            }
         }
     }
+
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.white;
@@ -172,6 +281,6 @@ public class Turret : MonoBehaviour
     }
     private void ResetRotation()
     {
-        rotationPoint.rotation = Quaternion.Euler(0, 0, 180);
+        rotationPoint.rotation = Quaternion.Euler(0, 0, 0);
     }
 }
