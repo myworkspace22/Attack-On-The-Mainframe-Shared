@@ -57,13 +57,15 @@ public class WaveSpawner : MonoBehaviour
     private void Update()
     {
         //enCount = EnemiesAlive; //til at kunne se hvor mange enemies der er i banen
-
-        if (BuildMode && currentArrow == null && !arrowPathDeactive)
+        if (isPaused && currentArrow != null)
+        {
+            Destroy(currentArrow);
+        }
+        if (BuildMode && currentArrow == null && !arrowPathDeactive && !isPaused)
         {
             currentArrow = Instantiate(arrowPath, spawnPoints[UnityEngine.Random.Range(0, 4)].position, spawnPoints[UnityEngine.Random.Range(0, 4)].rotation);
             currentArrow.GetComponent<AIDestinationSetter>().target = endPoint;
         }
-
         if (EnemiesAlive > 0)
         {
             waveEnded = false;
@@ -146,7 +148,10 @@ public class WaveSpawner : MonoBehaviour
         for (int i = 0; i < wave.count; i++)
         {
             SpawnEnemy(wave.enemy);
-            yield return new WaitForSeconds(1f / wave.rate);
+            if(i < wave.count - 1)
+            {
+                yield return new WaitForSeconds(1f / wave.rate);
+            }
         }
 
         waveIndex++;
@@ -164,6 +169,7 @@ public class WaveSpawner : MonoBehaviour
             SpeedUp();
             return;
         }
+        BuildManager.instance.DeselectNode();
         countdown = 0;
         Time.timeScale = gameSpeed;
         waveCountdownText.text = "SPEED (" + Time.timeScale + ")";

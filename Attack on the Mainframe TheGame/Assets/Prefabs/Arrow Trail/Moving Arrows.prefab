@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  repathRate: Infinity
+  repathRate: 1
   canSearch: 1
   canMove: 1
   speed: 2
