@@ -47,6 +47,9 @@ public class Enemy : MonoBehaviour
     private bool slowed;
     private bool hasDied;
 
+    private int poisonDamage;
+    private float poisonTimer;
+
     private void Start()
     {
         StealthMode = false;
@@ -63,6 +66,9 @@ public class Enemy : MonoBehaviour
         dir = aIDestination.target.position - transform.position;
         //healthUIpct = 165 / startHealth;
         //spriteRenderer = GetComponent<SpriteRenderer>();
+
+        poisonDamage = 0;
+        poisonTimer = 0;
 
         if (timedSpawnAmt > 0 && timedSpawnDelay > 0)
         {
@@ -96,7 +102,23 @@ public class Enemy : MonoBehaviour
             transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
         }
 
-        if (healAmt > 0)
+        if (poisonTimer > 0)
+        {
+            SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
+            Color color = sr.color;
+            color.a = Random.Range(0.3f, 1f);
+            sr.color = color;
+
+            TakeDamage(poisonDamage * Time.deltaTime);
+            poisonTimer -= Time.deltaTime;
+            if (poisonTimer <= 0)
+            {
+                Color c = sr.color;
+                c.a = 1;
+                sr.color = c;
+            }
+        }
+        else if (healAmt > 0)
         {
             health = Mathf.Clamp(health + healAmt * Time.deltaTime, 0, startHealth);
             healthBar.fillAmount = health / startHealth;
@@ -152,6 +174,12 @@ public class Enemy : MonoBehaviour
         {
             SetStealtMode(true);
         }
+    }
+
+    public void Poison(int poisonDmg, float poisonTme)
+    {
+        poisonDamage = poisonDmg;
+        poisonTimer = poisonTme;
     }
 
     private void SetStealtMode(bool change)

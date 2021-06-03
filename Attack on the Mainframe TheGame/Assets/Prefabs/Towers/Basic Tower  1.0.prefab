@@ -410,18 +410,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfcb0d1778176204cbbaef3bdfd47144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 1.5
+  range: 2
   nearestTarget: 0
   upgradeDamage: 25
   upgradeRange: 0.1
   upgradeFrenquency: 0
   upgradeLaserDoT: 0
-  bulletDamage: 25
-  fireRate: 1
+  bulletDamage: 1
+  fireRate: 30
   multiTargets: 0
   multiDelay: 0
   increseFrenquencyPct: 0
   sniper: 0
+  poisonDamage: 10
+  poisonTime: 2
   useLaser: 0
   damageOverTime: 30
   slowAmount: 0.5
@@ -430,7 +432,7 @@ MonoBehaviour:
   laserWidth: 0
   enemyTag: Enemy
   rotationPoint: {fileID: 8277812115738884651}
-  bulletPrefab: {fileID: 4238579209898551604, guid: 7f98077fe9376f04baa4166b7ddbe507, type: 3}
+  bulletPrefab: {fileID: 2881803708027556478, guid: ac8ea7aeb3ab7e8409573b8a8a50ce1d, type: 3}
   firePoint: {fileID: 524606163506090092}
   towerPlatform: {fileID: 4559026435059489860}
 --- !u!212 &2023288362687100980
@@ -592,9 +594,9 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
-      key1: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 1, g: 0, b: 0, a: 1}
+      key1: {r: 1, g: 0, b: 0, a: 1}
+      key2: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -602,7 +604,7 @@ LineRenderer:
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
       ctime1: 65535
-      ctime2: 0
+      ctime2: 65535
       ctime3: 0
       ctime4: 0
       ctime5: 0

@@ -17,7 +17,10 @@ public class ExplosionRadius : MonoBehaviour
     }
     private void Update()
     {
-        
+        if (explosionRange <= 0)
+        {
+            explosionRange = float.MaxValue;
+        }
         if (transform.localScale.x >= explosionRange * 2)
         {
             Destroy(gameObject);

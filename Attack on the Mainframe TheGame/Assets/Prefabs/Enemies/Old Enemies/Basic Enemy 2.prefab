@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6ac95c099f0e2ad4d90aa8dbf92a6f5d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -116,10 +116,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d74dac3fb455d549bfd69d47fc26ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 1
   startHealth: 1000
+  maxSpeed: 0
+  damage: 0
   worth: 50
+  speed: 0
+  deathEffect: {fileID: 0}
+  canFly: 0
+  healAmt: 0
+  slowResistence: 0
+  increaseSpeed: 0
+  stealthTime: 0
+  deathSpawnAmt: 0
+  timedSpawnAmt: 0
+  timedSpawnDelay: 0
+  spawn: {fileID: 0}
+  spawnPoints: []
   healthBar: {fileID: 2149164614439485724}
+  healthTransform: {fileID: 0}
+  givesMoneyOnEnd: 0
 --- !u!114 &-2006979737844182656
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,16 +9,29 @@ public class Bullet : MonoBehaviour
 
     public float speed = 70f;
 
+    public bool flameThrower;
+    private Vector2 flameDir;
+
     public int damage = 50;
 
     public float explosionRadius = 0f;
     public GameObject impactEffect;
     public GameObject impactMissile;
 
+    [HideInInspector]
+    public int poisonDamage;
+    [HideInInspector]
+    public float poisonTime;
+
     public void Seek (Transform _target)
     {
         target = _target;
         targetsLastPos = _target.position;
+        if (flameThrower) 
+        { 
+            flameDir = target.position - transform.position;
+            GetComponent<ExplosionRadius>().explosionRange = explosionRadius;
+        }
     }
     private void Update()
     {
@@ -41,13 +54,20 @@ public class Bullet : MonoBehaviour
         }
 
         float distanceThisFrame = speed * Time.deltaTime;
-        if (dir.magnitude <= distanceThisFrame)
+        if (dir.magnitude <= distanceThisFrame && !flameThrower)
         {
             HitTarget();
             return;
         }
 
-        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        if (flameThrower)
+        {
+            transform.Translate(flameDir.normalized * distanceThisFrame, Space.World);
+        }
+        else
+        {
+            transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        }
     }
     public void HitTarget()
     {
@@ -76,6 +96,10 @@ public class Bullet : MonoBehaviour
         if (e != null)
         {
             e.TakeDamage(damage);
+            if(poisonDamage > 0)
+            {
+                e.Poison(poisonDamage, poisonTime);
+            }
         }
     }
     void Explode()

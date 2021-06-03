@@ -28,6 +28,9 @@ public class Turret : MonoBehaviour
     public float multiDelay;
     public float increseFrenquencyPct;
     public bool sniper;
+    public int poisonDamage;
+    public float poisonTime;
+
 
     private float baseFrenquency;
     private float multiCountdown;
@@ -144,6 +147,7 @@ public class Turret : MonoBehaviour
             Debug.Log("line alpha: " + lineColor.a);
             lineRenderer.startColor = lineColor;
             lineRenderer.endColor = lineColor;
+            if (lineColor.a <= 0) { lineRenderer.enabled = false; }
         }
 
         if (target != null)
@@ -269,6 +273,11 @@ public class Turret : MonoBehaviour
                 lineColor.a = 1;
                 lineRenderer.startColor = lineColor;
                 lineRenderer.endColor = lineColor;
+            }
+            if (poisonDamage > 0)
+            {
+                bullet.poisonDamage = poisonDamage;
+                bullet.poisonTime = poisonTime;
             }
         }
     }

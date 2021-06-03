@@ -303,6 +303,12 @@ MonoBehaviour:
   upgradeLaserDoT: 0
   bulletDamage: 50
   fireRate: 0.6
+  multiTargets: 0
+  multiDelay: 0
+  increseFrenquencyPct: 0
+  sniper: 0
+  poisonDamage: 0
+  poisonTime: 0
   useLaser: 0
   damageOverTime: 30
   slowAmount: 0.5

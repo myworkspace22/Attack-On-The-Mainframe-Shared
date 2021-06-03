@@ -102,6 +102,8 @@ MonoBehaviour:
   explosionRadius: 1.1
   impactEffect: {fileID: 6340635527937755175, guid: 1876738b051d2aa4bac328fc71e8db45, type: 3}
   impactMissile: {fileID: 6235844836480323252, guid: 320c754f1526b87499d8e5f7f677733e, type: 3}
+  poisonDamage: 0
+  poisonTime: 0
 --- !u!1 &4516139076667343306
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +176,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0, g: 0.85098046, b: 0.9960785, a: 1}
+  m_Color: {r: 0.023529412, g: 0.9019608, b: 0.9764706, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -256,7 +258,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0, g: 0.85098046, b: 0.9960785, a: 1}
+  m_Color: {r: 0.023529412, g: 0.9019608, b: 0.9764706, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
