@@ -27,6 +27,7 @@ public class Turret : MonoBehaviour
     public int multiTargets;
     public float multiDelay;
     public float increseFrenquencyPct;
+    public bool sniper;
 
     private float baseFrenquency;
     private float multiCountdown;
@@ -136,6 +137,15 @@ public class Turret : MonoBehaviour
 
     private void Update()
     {
+        if (sniper && lineRenderer.enabled)
+        {
+            Color lineColor =  lineRenderer.endColor;
+            lineColor.a -= (fireRate * 2) * Time.deltaTime;
+            Debug.Log("line alpha: " + lineColor.a);
+            lineRenderer.startColor = lineColor;
+            lineRenderer.endColor = lineColor;
+        }
+
         if (target != null)
         {
             if (target.GetComponent<Enemy>().StealthMode)
@@ -240,6 +250,7 @@ public class Turret : MonoBehaviour
     }
     void Shoot(Transform bulletTarget)
     {
+
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
@@ -247,8 +258,22 @@ public class Turret : MonoBehaviour
         {
             bullet.damage = bulletDamage;
             bullet.Seek(bulletTarget);
+            if (sniper)
+            {
+                bullet.transform.position = bulletTarget.position;
+                bullet.HitTarget();
+                lineRenderer.enabled = true;
+                lineRenderer.SetPosition(0, firePoint.position);
+                lineRenderer.SetPosition(1, bulletTarget.position);
+                Color lineColor = lineRenderer.endColor;
+                lineColor.a = 1;
+                lineRenderer.startColor = lineColor;
+                lineRenderer.endColor = lineColor;
+            }
         }
     }
+
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.white;
