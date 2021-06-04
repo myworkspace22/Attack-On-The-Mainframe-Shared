@@ -10,10 +10,12 @@ public class ExplosionRadius : MonoBehaviour
     public float growSpeed;
     public float multiplier;
     private SpriteRenderer sR;
+    //private CircleCollider2D circleCollider;
 
     private void Start()
     {
         sR = GetComponent<SpriteRenderer>();
+        //circleCollider = GetComponent<CircleCollider2D>();
     }
     private void Update()
     {
@@ -31,6 +33,11 @@ public class ExplosionRadius : MonoBehaviour
         size.y += grow;
         transform.localScale = size;
         growSpeed += multiplier * Time.deltaTime;
+
+        //if (circleCollider != null)
+        //{
+        //    circleCollider.radius = size.x / 2;
+        //}
 
         float fadeSice = 1 - transform.localScale.x / (explosionRange * 2);
         Color color = sR.color;

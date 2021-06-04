@@ -226,6 +226,7 @@ MonoBehaviour:
   - {fileID: 8609438926071773617}
   - {fileID: 1552484871659787942}
   healthBar: {fileID: 4417366439022705190}
+  healthTransform: {fileID: 0}
   givesMoneyOnEnd: 1
 --- !u!58 &1895774545520125227
 CircleCollider2D:

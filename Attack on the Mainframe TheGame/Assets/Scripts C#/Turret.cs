@@ -30,11 +30,16 @@ public class Turret : MonoBehaviour
     public bool sniper;
     public int poisonDamage;
     public float poisonTime;
+    public GameObject clusterBombTarget;
+    public float clusterCooldown;
 
+    private List<Bullet> clusterBullets;
 
     private float baseFrenquency;
     private float multiCountdown;
     private Stack<Transform> mTargets;
+    private float cCooldown;
+    private bool hasCleared;
 
 
     [Header("Use Laser")]
@@ -59,6 +64,14 @@ public class Turret : MonoBehaviour
 
     private void Start()
     {
+        if (clusterBombTarget != null)
+        {
+            fireCountdown = 1f / fireRate;
+            //cEffects = new List<Transform>();
+            clusterBullets = new List<Bullet>();
+            hasCleared = true;
+        }
+
         baseFrenquency = fireRate;
         mTargets = new Stack<Transform>();
         multiCountdown = 0;
@@ -75,6 +88,12 @@ public class Turret : MonoBehaviour
     }
     void UpdateTarget()
     {
+        if (clusterBombTarget != null)
+        {
+            UpdateEnemiesWithinRange();
+            return;
+        }
+
         if (target != null && transform.position != null && !nearestTarget)
         {
             if (Vector2.Distance(transform.position, target.position) <= range)
@@ -97,11 +116,18 @@ public class Turret : MonoBehaviour
             }
         }
 
-        fireRate = baseFrenquency;
+        if (increseFrenquencyPct > 0) { fireRate = baseFrenquency; }
+
         if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
             targetEnemy = nearestEnemy.GetComponent<Enemy>();
+            if (clusterBombTarget  != null) 
+            {
+                GameObject cbEffect = Instantiate(clusterBombTarget, target.position, target.rotation, target);
+                //cbTargets.Add(target, cbEffect); 
+                //if (target != null) { cbTargets.Add(target, cbEffect); }
+            }
         } else
         {
             target = null;
@@ -112,10 +138,11 @@ public class Turret : MonoBehaviour
     {
         if (target == null) { return; }
 
-        int index = multiTargets - 1;
+        int index =  multiTargets - 1;
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
 
+        Debug.LogWarning("");
         mTargets.Clear();
 
         foreach (GameObject enemy in enemies)
@@ -123,9 +150,17 @@ public class Turret : MonoBehaviour
             if (index > 0)
             {
                 float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
-                if (distanceToEnemy <= range && enemy.transform != target)
+
+                if (distanceToEnemy <= range && enemy.transform != target && !enemy.GetComponent<Enemy>().StealthMode)
                 {
+
                     mTargets.Push(enemy.transform);
+                    if (clusterBombTarget != null)
+                    {
+                        GameObject cbEffect = Instantiate(clusterBombTarget, enemy.transform.position, enemy.transform.rotation, enemy.transform);
+                        //cbTargets.Add(enemy.transform, cbEffect);
+                        //if (enemy != null) { cbTargets.Add(enemy.transform, cbEffect); }
+                    }
                     index--;
                 }
             }
@@ -135,6 +170,56 @@ public class Turret : MonoBehaviour
             }
         }
     }
+
+
+    private void UpdateEnemiesWithinRange()
+    {
+        if (cCooldown > 0) { return; }
+
+        int index =  multiTargets;
+
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+
+        foreach (GameObject enemy in enemies)
+        {
+            if (index > 0)
+            {
+                float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
+
+                if (distanceToEnemy <= range && !mTargets.Contains(enemy.transform) && !enemy.GetComponent<Enemy>().StealthMode)
+                {
+                    mTargets.Push(enemy.transform);
+                    GameObject cbEffect = Instantiate(clusterBombTarget, enemy.transform.position, enemy.transform.rotation, enemy.transform);
+                    //cEffects.Add(cbEffect.transform);
+
+                    GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                    Bullet bullet = bulletGO.GetComponent<Bullet>();
+
+                    if (bullet != null)
+                    {
+                        bullet.damage = bulletDamage;
+                        bullet.Seek(enemy.transform);
+                        bullet.cbTarget = cbEffect; 
+                        if (poisonDamage > 0)
+                        {
+                            bullet.poisonDamage = poisonDamage;
+                            bullet.poisonTime = poisonTime;
+                        }
+                        clusterBullets.Add(bullet);
+                    }
+                    
+                    bulletGO.SetActive(false);
+
+                    index--;
+                }
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+
 
 
 
@@ -149,14 +234,23 @@ public class Turret : MonoBehaviour
             lineRenderer.endColor = lineColor;
             if (lineColor.a <= 0) { lineRenderer.enabled = false; }
         }
+        
+        
 
         if (target != null)
         {
-            if (target.GetComponent<Enemy>().StealthMode)
+            if (target.GetComponent<Enemy>().StealthMode || Vector2.Distance(transform.position, target.position) > range)
             {
                 target = null;
             }
         }
+        
+        if (clusterBombTarget != null)
+        {
+            ClusterUpdate();
+            return;
+        }
+
 
         if (target == null)
         {
@@ -171,6 +265,7 @@ public class Turret : MonoBehaviour
                     }
                 }
             }
+            
             return;
         }
 
@@ -179,7 +274,7 @@ public class Turret : MonoBehaviour
             while (mTargets.Peek() == null)
             {
                 mTargets.Pop();
-                if (mTargets.Count > 0) { break; }
+                if (mTargets.Count <= 0) { break; }
             }
 
 
@@ -228,8 +323,84 @@ public class Turret : MonoBehaviour
             fireCountdown -= Time.deltaTime;
         }
     }
+
+    private void ClusterUpdate()
+    {
+        //if (BuildManager.instance.GetComponent<WaveSpawner>().BuildMode) { fireCountdown = 1f / fireRate; return; }
+        //if (mTargets.Count > 0 )
+        //{
+        //    while (mTargets.Peek() == null)
+        //    {
+        //        mTargets.Pop();
+        //        if (mTargets.Count <= 0) { break; }
+        //    }
+
+        //    if (mTargets.Count > 0)
+        //    {
+        //        LockOnTarget(mTargets.Peek());
+        //        if (multiCountdown <= 0f)
+        //        {
+        //            Shoot(mTargets.Pop());
+        //            multiCountdown = multiDelay;
+        //        }
+        //        multiCountdown -= Time.deltaTime;
+        //    }
+        //}
+        if (target != null)
+        {
+            LockOnTarget(target);
+        }
+
+
+        if (fireCountdown <= 0f)
+        {
+            foreach (Bullet bullet in clusterBullets)
+            {
+                bullet.gameObject.SetActive(true);
+            }
+            clusterBullets.Clear();
+
+            if (increseFrenquencyPct > 0)
+            {
+                if (fireRate < baseFrenquency * 3)
+                {
+                    fireRate += baseFrenquency * increseFrenquencyPct;
+                }
+
+            }
+
+            fireCountdown = 1f / fireRate;
+
+            cCooldown = clusterCooldown;
+            hasCleared = false;
+
+        }
+
+        if (cCooldown <= 0f && mTargets.Count > 0 && !hasCleared)
+        {
+            mTargets.Clear();
+            hasCleared = true;
+        }
+        cCooldown -= Time.deltaTime;
+
+        if (mTargets.Count > 0)
+        {
+            if (target == null) 
+            { 
+                target = mTargets.Peek();
+            }
+
+            fireCountdown -= Time.deltaTime;
+        }
+        
+    }
+
     void LockOnTarget(Transform newTraget)
     {
+        if (newTraget == null)
+        {
+            return;
+        }
         Vector3 dir = newTraget.position - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         rotationPoint.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
@@ -262,6 +433,10 @@ public class Turret : MonoBehaviour
         {
             bullet.damage = bulletDamage;
             bullet.Seek(bulletTarget);
+            if (clusterBombTarget != null)
+            {
+                //bullet.cbTarget = cbTargets[bulletTarget]; cbTargets.Remove(bulletTarget); 
+            }
             if (sniper)
             {
                 bullet.transform.position = bulletTarget.position;

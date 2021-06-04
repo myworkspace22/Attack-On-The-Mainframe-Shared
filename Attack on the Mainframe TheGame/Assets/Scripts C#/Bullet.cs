@@ -19,10 +19,13 @@ public class Bullet : MonoBehaviour
     public GameObject impactMissile;
 
     [HideInInspector]
+    public GameObject cbTarget;
+    [HideInInspector]
     public int poisonDamage;
     [HideInInspector]
     public float poisonTime;
 
+    private List<GameObject> enemiesDeltDamage;
     public void Seek (Transform _target)
     {
         target = _target;
@@ -31,6 +34,7 @@ public class Bullet : MonoBehaviour
         { 
             flameDir = target.position - transform.position;
             GetComponent<ExplosionRadius>().explosionRange = explosionRadius;
+            enemiesDeltDamage = new List<GameObject>();
         }
     }
     private void Update()
@@ -60,9 +64,23 @@ public class Bullet : MonoBehaviour
             return;
         }
 
+
         if (flameThrower)
         {
             transform.Translate(flameDir.normalized * distanceThisFrame, Space.World);
+
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+            foreach (GameObject enemy in enemies)
+            {
+                float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
+                if (distanceToEnemy <= explosionRadius && !enemiesDeltDamage.Contains(enemy))
+                {
+
+                    Damage(enemy.transform);
+                    enemiesDeltDamage.Add(enemy);
+                }
+            }
         }
         else
         {
@@ -72,6 +90,8 @@ public class Bullet : MonoBehaviour
     public void HitTarget()
     {
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
+        
+        if (cbTarget != null) { Destroy(cbTarget); }
 
         if (explosionRadius > 0f)
         {
@@ -82,6 +102,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(effectIns, 2f);
             Damage(target);
+            
         }
 
         Destroy(effectIns, 2f);
@@ -116,6 +137,20 @@ public class Bullet : MonoBehaviour
             }
         }
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    Debug.Log("enter trigger");
+    //    if (!flameThrower) { return; }
+    //    Enemy enemy = collision.GetComponent<Enemy>();
+
+    //    if (enemy != null)
+    //    {
+    //        GameObject effectIns = (GameObject)Instantiate(impactEffect, enemy.transform.position, enemy.transform.rotation);
+    //        Destroy(effectIns, 2f);
+    //        Damage(enemy.transform);
+    //    }
+    //}
 
     private void OnDrawGizmos()
     {
