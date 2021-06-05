@@ -90,7 +90,7 @@ public class WaveSpawner : MonoBehaviour
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
-            PlayerStats.Money += (PlayerStats.Money - PlayerStats.Money % 100) / 5;
+            //PlayerStats.Money += (PlayerStats.Money - PlayerStats.Money % 100) / 5;
             return;
         }
         if (waveIndex > 0 && !isPaused)
