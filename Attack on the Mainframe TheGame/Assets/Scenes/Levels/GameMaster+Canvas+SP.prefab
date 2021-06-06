@@ -2485,14 +2485,14 @@ MonoBehaviour:
     your (10) lives
 
 
-    <color=#C1C1C1>Hold (SHIFT) to continue building
+    <color=#C1C1C1>Towers can BLOCK enemies path
 
 
-    Press
-    (ESC) to reset or exit the level
+    Undo
+    your last tower with (X+Z)
 
 
-    Undo your last tower with (X+Z)'
+    Press (ESC) to reset or exit the level'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8e5e6ee5dac741408435bd90d2b5349, type: 2}
   m_sharedMaterial: {fileID: 6871096538463531599, guid: b8e5e6ee5dac741408435bd90d2b5349, type: 2}

@@ -18682,7 +18682,7 @@ GameObject:
   - component: {fileID: 461497848}
   - component: {fileID: 461497849}
   m_Layer: 5
-  m_Name: Tutorial (wave 2)
+  m_Name: Tutorial (wave 4) (skip)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18703,7 +18703,7 @@ RectTransform:
   - {fileID: 199508548}
   - {fileID: 1124864108}
   m_Father: {fileID: 1260872466}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21887,7 +21887,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.027912, y: -1.1396}
-  m_SizeDelta: {x: 3.5507, y: 2.2792}
+  m_SizeDelta: {x: 3.406, y: 2.2792}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &522202541
 MonoBehaviour:
@@ -21909,9 +21909,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Towers can be <color=#00FF00>UPGRADED</color> multiple times and be transformed
-    into more powerful ones with special effects. <color=#B3B3B3>Towers has two form
-    of upgrades at level 3 and 6.
+  m_text: Towers can be <color=#FFD500>UPGRADED</color> multiple times to increase
+    their power and later develop special effects. <color=#B3B3B3>They can also be
+    used to <color=#FF0000>BLOCK</color> enemies path to delay them.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8e5e6ee5dac741408435bd90d2b5349, type: 2}
   m_sharedMaterial: {fileID: 6871096538463531599, guid: b8e5e6ee5dac741408435bd90d2b5349, type: 2}
@@ -34988,7 +34988,7 @@ GameObject:
   - component: {fileID: 828022186}
   - component: {fileID: 828022187}
   m_Layer: 5
-  m_Name: Tutorial (wave 4)
+  m_Name: Tutorial (wave 2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35009,7 +35009,7 @@ RectTransform:
   - {fileID: 537678296}
   - {fileID: 40785621}
   m_Father: {fileID: 1260872466}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -36893,8 +36893,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.12501383, y: 0.9687019}
-  m_SizeDelta: {x: 5.976, y: 5.0857}
+  m_AnchoredPosition: {x: -0.131, y: 0.9687018}
+  m_SizeDelta: {x: 6.614, y: 5.6286}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &883591491
 MonoBehaviour:
@@ -48349,8 +48349,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0279, y: -1.1396}
-  m_SizeDelta: {x: 3.4553, y: 2.2792}
+  m_AnchoredPosition: {x: 0.00000021972, y: -1.1396}
+  m_SizeDelta: {x: 3.4158, y: 2.2792}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1172433151
 MonoBehaviour:
@@ -48372,8 +48372,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Begin the level by selecting a tower under your <color=#FFD500>CURRENCY</color>,
-    and place it on the playing field. Continue until you are ready to <color=#00FF00>START</color>
+  m_text: Begin the level by selecting one of the towers under your <color=#FFD500>CURRENCY</color>,
+    and place it on the playing field. Continue until ur ready to <color=#00FF00>(START)</color>
     the first wave of enemies.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8e5e6ee5dac741408435bd90d2b5349, type: 2}
@@ -51781,9 +51781,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1170643085}
-  - {fileID: 461497848}
-  - {fileID: 56132029}
   - {fileID: 828022186}
+  - {fileID: 56132029}
+  - {fileID: 461497848}
   m_Father: {fileID: 1517183879}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -51799,12 +51799,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53809bc803e925841af54da43c9d3ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveIndex: 01000000020000000300000004000000
+  waveIndex: 010000000200000003000000
   panels:
   - {fileID: 1170643084}
-  - {fileID: 461497847}
-  - {fileID: 56132028}
   - {fileID: 828022185}
+  - {fileID: 56132028}
 --- !u!1001 &1263461622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82567,7 +82566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4024176748426649954, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: startMoney
-      value: 150
+      value: 15000
       objectReference: {fileID: 0}
     - target: {fileID: 4024176748426649955, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: levelToUnlock
@@ -82606,8 +82605,16 @@ PrefabInstance:
       value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4024176748426649983, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: waves.Array.data[7].rate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024176748426649983, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: waves.Array.data[8].rate
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024176748426649983, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: waves.Array.data[9].rate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4024176748426649983, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: waves.Array.data[0].count
@@ -82617,6 +82624,10 @@ PrefabInstance:
       propertyPath: waves.Array.data[0].enemy
       value: 
       objectReference: {fileID: 5975281576349636344, guid: 940fad39164ca9141802a89e070abe6b, type: 3}
+    - target: {fileID: 4024176748426649983, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: waves.Array.data[10].rate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4024176748426649983, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: waves.Array.data[1].count
       value: 5
@@ -82687,6 +82698,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4024176748426649983, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: waves.Array.data[9].enemy
+      value: 
+      objectReference: {fileID: 5975281576349636344, guid: 9608a3cf688ec6141aef7d46117253bf, type: 3}
+    - target: {fileID: 4024176748426649983, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: waves.Array.data[10].count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024176748426649983, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: waves.Array.data[10].enemy
       value: 
       objectReference: {fileID: 5975281576349636344, guid: 9608a3cf688ec6141aef7d46117253bf, type: 3}
     - target: {fileID: 4024176749074835493, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
