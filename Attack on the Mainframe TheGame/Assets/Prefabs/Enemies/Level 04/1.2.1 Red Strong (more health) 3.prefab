@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 2800
-  maxSpeed: 1
+  maxSpeed: 0.8
   damage: 1
   worth: 50
   speed: 0
@@ -162,6 +162,7 @@ MonoBehaviour:
   spawn: {fileID: 0}
   spawnPoints: []
   healthBar: {fileID: 762023206198715834}
+  healthTransform: {fileID: 0}
   givesMoneyOnEnd: 1
 --- !u!58 &1895774545520125227
 CircleCollider2D:
