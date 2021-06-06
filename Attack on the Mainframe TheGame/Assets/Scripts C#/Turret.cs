@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    private Transform target;
+    [HideInInspector]
+    public Transform target;
     private Enemy targetEnemy;
 
     [Header("General")]
@@ -32,6 +33,9 @@ public class Turret : MonoBehaviour
     public float poisonTime;
     public GameObject clusterBombTarget;
     public float clusterCooldown;
+    public bool splitter;
+    public bool tesla;
+    public Turret[] extraLasers;
 
     private List<Bullet> clusterBullets;
 
@@ -67,7 +71,6 @@ public class Turret : MonoBehaviour
         if (clusterBombTarget != null)
         {
             fireCountdown = 1f / fireRate;
-            //cEffects = new List<Transform>();
             clusterBullets = new List<Bullet>();
             hasCleared = true;
         }
@@ -77,7 +80,6 @@ public class Turret : MonoBehaviour
         multiCountdown = 0;
         InvokeRepeating("UpdateTarget", 0f, 0.2f); //Update Target Delay
         BuildManager.instance.GetComponent<WaveSpawner>().OnWaveEnded += ResetRotation;
-        //towerRange.transform.localScale = new Vector2(range * 2, range * 2);
     }
     private void OnDestroy()
     {
@@ -100,16 +102,22 @@ public class Turret : MonoBehaviour
                 return;
         }
 
-
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
 
-
         foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance)
+            if (splitter) 
+            {
+                if (distanceToEnemy < shortestDistance && enemy.transform != extraLasers[0].target && enemy.transform != extraLasers[1].target)
+                {
+                    shortestDistance = distanceToEnemy;
+                    nearestEnemy = enemy;
+                }
+            }
+            else if (distanceToEnemy < shortestDistance)
             {
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
@@ -170,8 +178,6 @@ public class Turret : MonoBehaviour
             }
         }
     }
-
-
     private void UpdateEnemiesWithinRange()
     {
         if (cCooldown > 0) { return; }
@@ -219,10 +225,6 @@ public class Turret : MonoBehaviour
             }
         }
     }
-
-
-
-
     private void Update()
     {
         if (sniper && lineRenderer.enabled)
@@ -234,8 +236,6 @@ public class Turret : MonoBehaviour
             lineRenderer.endColor = lineColor;
             if (lineColor.a <= 0) { lineRenderer.enabled = false; }
         }
-        
-        
 
         if (target != null)
         {
@@ -250,7 +250,6 @@ public class Turret : MonoBehaviour
             ClusterUpdate();
             return;
         }
-
 
         if (target == null)
         {
@@ -294,8 +293,6 @@ public class Turret : MonoBehaviour
             LockOnTarget(target);
         }
         
-        
-
         if (useLaser)
         {
             Laser();
@@ -323,34 +320,12 @@ public class Turret : MonoBehaviour
             fireCountdown -= Time.deltaTime;
         }
     }
-
     private void ClusterUpdate()
     {
-        //if (BuildManager.instance.GetComponent<WaveSpawner>().BuildMode) { fireCountdown = 1f / fireRate; return; }
-        //if (mTargets.Count > 0 )
-        //{
-        //    while (mTargets.Peek() == null)
-        //    {
-        //        mTargets.Pop();
-        //        if (mTargets.Count <= 0) { break; }
-        //    }
-
-        //    if (mTargets.Count > 0)
-        //    {
-        //        LockOnTarget(mTargets.Peek());
-        //        if (multiCountdown <= 0f)
-        //        {
-        //            Shoot(mTargets.Pop());
-        //            multiCountdown = multiDelay;
-        //        }
-        //        multiCountdown -= Time.deltaTime;
-        //    }
-        //}
         if (target != null)
         {
             LockOnTarget(target);
         }
-
 
         if (fireCountdown <= 0f)
         {
@@ -375,7 +350,6 @@ public class Turret : MonoBehaviour
             hasCleared = false;
 
         }
-
         if (cCooldown <= 0f && mTargets.Count > 0 && !hasCleared)
         {
             mTargets.Clear();
@@ -392,9 +366,7 @@ public class Turret : MonoBehaviour
 
             fireCountdown -= Time.deltaTime;
         }
-        
     }
-
     void LockOnTarget(Transform newTraget)
     {
         if (newTraget == null)
@@ -432,7 +404,16 @@ public class Turret : MonoBehaviour
         if (bullet != null)
         {
             bullet.damage = bulletDamage;
-            bullet.Seek(bulletTarget);
+            if (tesla)
+            {
+
+                bullet.Seek(transform);
+            }
+            else
+            {
+                bullet.Seek(bulletTarget);
+            }
+            
             if (clusterBombTarget != null)
             {
                 //bullet.cbTarget = cbTargets[bulletTarget]; cbTargets.Remove(bulletTarget); 
@@ -456,8 +437,6 @@ public class Turret : MonoBehaviour
             }
         }
     }
-
-
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.white;

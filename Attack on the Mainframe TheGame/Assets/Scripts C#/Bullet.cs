@@ -10,6 +10,15 @@ public class Bullet : MonoBehaviour
     public float speed = 70f;
 
     public bool flameThrower;
+    public bool nuke;
+    public bool timbersaw;
+    public float stunTime;
+
+
+    private Vector2 returnPos;
+    //private bool returned;
+
+
     private Vector2 flameDir;
 
     public int damage = 50;
@@ -36,9 +45,22 @@ public class Bullet : MonoBehaviour
             GetComponent<ExplosionRadius>().explosionRange = explosionRadius;
             enemiesDeltDamage = new List<GameObject>();
         }
+        if (timbersaw)
+        {
+            returnPos = transform.position;
+            flameDir = target.position - transform.position;
+            enemiesDeltDamage = new List<GameObject>();
+            target = null;
+        }
+
     }
     private void Update()
     {
+        if (nuke && target != null)
+        {
+            target = null;
+        }
+
         if (target == null && targetsLastPos == null)
         {
             Debug.LogWarning(gameObject + " had no target");
@@ -60,33 +82,51 @@ public class Bullet : MonoBehaviour
         float distanceThisFrame = speed * Time.deltaTime;
         if (dir.magnitude <= distanceThisFrame && !flameThrower)
         {
+            if (timbersaw)
+            {
+                if (targetsLastPos != returnPos)
+                {
+                    flameDir = returnPos - (Vector2)transform.position;
+                    targetsLastPos = returnPos;
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
+                return;
+            }
             HitTarget();
             return;
         }
 
 
-        if (flameThrower)
+        if (flameThrower || timbersaw)
         {
             transform.Translate(flameDir.normalized * distanceThisFrame, Space.World);
-
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-            foreach (GameObject enemy in enemies)
-            {
-                float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
-                if (distanceToEnemy <= explosionRadius && !enemiesDeltDamage.Contains(enemy))
-                {
-
-                    Damage(enemy.transform);
-                    enemiesDeltDamage.Add(enemy);
-                }
-            }
+            DamageNearbyEnemies();
         }
         else
         {
             transform.Translate(dir.normalized * distanceThisFrame, Space.World);
         }
     }
+
+    private void DamageNearbyEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy <= explosionRadius && !enemiesDeltDamage.Contains(enemy))
+            {
+
+                Damage(enemy.transform);
+                enemiesDeltDamage.Add(enemy);
+            }
+        }
+    }
+
     public void HitTarget()
     {
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
@@ -120,6 +160,10 @@ public class Bullet : MonoBehaviour
             if(poisonDamage > 0)
             {
                 e.Poison(poisonDamage, poisonTime);
+            }
+            if (stunTime > 0)
+            {
+                e.Stun(stunTime);
             }
         }
     }

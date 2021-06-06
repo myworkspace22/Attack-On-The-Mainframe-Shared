@@ -50,9 +50,13 @@ public class Enemy : MonoBehaviour
     private int poisonDamage;
     private float poisonTimer;
 
+    private float stunTimer;
+
     private void Start()
     {
         StealthMode = false;
+
+        stunTimer = 0;
 
         aIPath = GetComponent<AILerp>();
         aIDestination = GetComponent<AIDestinationSetter>();
@@ -97,10 +101,7 @@ public class Enemy : MonoBehaviour
             SetSpeed(maxSpeed);
         }
             
-        if (canFly)
-        {
-            transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-        }
+        
 
         if (poisonTimer > 0)
         {
@@ -124,6 +125,17 @@ public class Enemy : MonoBehaviour
             healthBar.fillAmount = health / startHealth;
         }
 
+        if (stunTimer > 0)
+        {
+            stunTimer -= Time.deltaTime;
+            if (stunTimer <= 0)
+            {
+                aIPath.canMove = true;
+            }
+            return;
+        }
+
+
         slowed = false;
 
         if (StealthMode)
@@ -141,6 +153,11 @@ public class Enemy : MonoBehaviour
         if (Vector2.Distance(transform.position, aIDestination.target.position) <= 0.25f)
         {
             EndReached();
+        }
+        
+        if (canFly)
+        {
+            transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
         }
     }
 
@@ -192,6 +209,12 @@ public class Enemy : MonoBehaviour
         Color tmp = sr.color;
         tmp.a = (change)? 0.6f: 1f;
         sr.color = tmp;
+    }
+
+    public void Stun(float stunTime)
+    {
+        aIPath.canMove = false;
+        stunTimer = stunTime;
     }
 
     public void Slow (float pct)
