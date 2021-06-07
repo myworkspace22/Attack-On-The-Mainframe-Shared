@@ -52,6 +52,7 @@ public class WaveSpawner : MonoBehaviour
         currentArrow = null;
         gameSpeed = 1;
         isPaused = false;
+        EnemiesAlive = 0;
     }
 
     private void Update()
@@ -66,6 +67,13 @@ public class WaveSpawner : MonoBehaviour
             currentArrow = Instantiate(arrowPath, spawnPoints[UnityEngine.Random.Range(0, 4)].position, spawnPoints[UnityEngine.Random.Range(0, 4)].rotation);
             currentArrow.GetComponent<AIDestinationSetter>().target = endPoint;
         }
+
+        if (EnemiesAlive < GameObject.FindGameObjectsWithTag("Enemy").Length)
+        {
+            Debug.LogWarning("to few enemies");
+            EnemiesAlive = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        }
+
         if (EnemiesAlive > 0)
         {
             waveEnded = false;
@@ -88,6 +96,9 @@ public class WaveSpawner : MonoBehaviour
         }
         if (countdown <= 0f)
         {
+            BuildManager.instance.DeselectNode();
+            Time.timeScale = gameSpeed;
+            waveCountdownText.text = "SPEED (" + Time.timeScale + ")";
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
             //PlayerStats.Money += (PlayerStats.Money - PlayerStats.Money % 100) / 5;

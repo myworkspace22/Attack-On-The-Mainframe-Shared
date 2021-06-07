@@ -103,7 +103,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 3364265f26d80704a9e9bd270fd21867, type: 3}
   m_Color: {r: 0.07058824, g: 0.86274517, b: 0.9294118, a: 1}
   m_FlipX: 0
@@ -195,8 +195,8 @@ MonoBehaviour:
   upgradeRange: 0
   upgradeFrenquency: 0
   upgradeLaserDoT: 0
-  bulletDamage: 900
-  fireRate: 2
+  bulletDamage: 500
+  fireRate: 1
   multiTargets: 0
   multiDelay: 0
   increseFrenquencyPct: 0
@@ -206,10 +206,10 @@ MonoBehaviour:
   clusterBombTarget: {fileID: 0}
   clusterCooldown: 0
   splitter: 0
-  extraLaisers: []
   tesla: 0
+  extraLasers: []
   useLaser: 1
-  damageOverTime: 5
+  damageOverTime: 500
   slowAmount: 0
   lineRenderer: {fileID: 6920416368136055428}
   impactEffect: {fileID: 4290368347908377900}
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5762aa5fbb3ea4d44990be350f54801e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowAmount: 0.75
+  slowAmount: 0.5
   range: 1.5
 --- !u!212 &8709025309036245343
 SpriteRenderer:
@@ -773,7 +773,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 3364265f26d80704a9e9bd270fd21867, type: 3}
   m_Color: {r: 0.07058824, g: 0.86274517, b: 0.9294118, a: 0.3529412}
   m_FlipX: 0

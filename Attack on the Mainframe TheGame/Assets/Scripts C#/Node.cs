@@ -191,10 +191,10 @@ public class Node : MonoBehaviour
 
         //Debug.Log("Turret build!");
         EndHover();
-        if (!Input.GetButton("KeepBuilding"))
-        {
-            buildManager.SelectNode(this);
-        }
+        //if (!Input.GetButton("KeepBuilding"))
+        //{
+        //    buildManager.SelectNode(this);
+        //}
 
         buildManager.newTowers.Push(this);
     }
@@ -401,7 +401,7 @@ public class Node : MonoBehaviour
         spriteToChange.gameObject.SetActive(false);
         spriteToChange.sortingOrder = 3;
         sR.color = baseColor;
-        sR.sortingOrder = 0;
+        sR.sortingOrder = -1;
         rangeSprite.color = new Color(1, 1, 1, 1);
         sR.sprite = baseSprite;
     }
@@ -411,7 +411,7 @@ public class Node : MonoBehaviour
         spriteToChange.gameObject.SetActive(false);
         spriteToChange.sortingOrder = 3;
         sR.color = baseColor;
-        sR.sortingOrder = 0;
+        sR.sortingOrder = -1;
         rangeSprite.color = new Color(1, 1, 1, 1);
         sR.sprite = baseSprite;
     }
@@ -470,8 +470,8 @@ public class Node : MonoBehaviour
         spriteToChange.gameObject.SetActive(true);
         spriteToChange.color = new Color(0.5843138f, 0, 0);
         sR.color = new Color(0.5843138f, 0, 0);
-        sR.sortingOrder = 1;
-        spriteToChange.sortingOrder = 2;
+        sR.sortingOrder = 0;
+        spriteToChange.sortingOrder = 1;
         rangeSprite.color = new Color(1, 0, 0, 0.78f);
         sR.sprite = hoverBackground;
     }

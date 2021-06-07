@@ -13647,7 +13647,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: waveIndex.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: waveIndex.Array.data[0]
@@ -13658,8 +13658,12 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: waveIndex.Array.data[2]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: newEnemyTitle.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: newEnemyTitle.Array.data[0]
@@ -13670,8 +13674,12 @@ PrefabInstance:
       value: NEW ENEMY APPROACHING!
       objectReference: {fileID: 0}
     - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: newEnemyTitle.Array.data[2]
+      value: BOSS APPROACHING!
+      objectReference: {fileID: 0}
+    - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: newEnemyDescription.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: newEnemyDescription.Array.data[0]
@@ -13680,6 +13688,10 @@ PrefabInstance:
     - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: newEnemyDescription.Array.data[1]
       value: 'SPLITTER: Splits into multiple enemies on death'
+      objectReference: {fileID: 0}
+    - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: newEnemyDescription.Array.data[2]
+      value: THE SHELL (FINAL BOSS)
       objectReference: {fileID: 0}
     - target: {fileID: 709572711536063752, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -13748,6 +13760,10 @@ PrefabInstance:
     - target: {fileID: 3825812581510497384, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024176748426649954, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: startLives
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4024176748426649954, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: startMoney
@@ -14048,6 +14064,14 @@ PrefabInstance:
     - target: {fileID: 4024176749435939333, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -7.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024176749554690883, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024176749554690883, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4024176750376235602, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -64604,7 +64628,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2022878324
 Transform:
   m_ObjectHideFlags: 0

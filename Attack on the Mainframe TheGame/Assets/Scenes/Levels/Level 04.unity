@@ -30354,7 +30354,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &804675677
 Transform:
   m_ObjectHideFlags: 0
@@ -74398,6 +74398,10 @@ PrefabInstance:
     - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: newEnemyDescription.Array.data[1]
       value: 'COMMANDER: Has three different stages'
+      objectReference: {fileID: 0}
+    - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: newEnemyDescription.Array.data[2]
+      value: THE SPIDER (FINAL BOSS)
       objectReference: {fileID: 0}
     - target: {fileID: 709572711536063752, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: m_AnchorMax.y

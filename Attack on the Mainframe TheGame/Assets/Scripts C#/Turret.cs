@@ -74,7 +74,10 @@ public class Turret : MonoBehaviour
             clusterBullets = new List<Bullet>();
             hasCleared = true;
         }
-
+        if (useLaser)
+        {
+            lineRenderer.startWidth = laserWidth;
+        }
         baseFrenquency = fireRate;
         mTargets = new Stack<Transform>();
         multiCountdown = 0;
@@ -150,7 +153,6 @@ public class Turret : MonoBehaviour
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
 
-        Debug.LogWarning("");
         mTargets.Clear();
 
         foreach (GameObject enemy in enemies)
@@ -230,8 +232,7 @@ public class Turret : MonoBehaviour
         if (sniper && lineRenderer.enabled)
         {
             Color lineColor =  lineRenderer.endColor;
-            lineColor.a -= (fireRate * 2) * Time.deltaTime;
-            Debug.Log("line alpha: " + lineColor.a);
+            lineColor.a -= (fireRate * 4) * Time.deltaTime;
             lineRenderer.startColor = lineColor;
             lineRenderer.endColor = lineColor;
             if (lineColor.a <= 0) { lineRenderer.enabled = false; }
@@ -384,13 +385,11 @@ public class Turret : MonoBehaviour
 
         if (!lineRenderer.enabled)
         {
-            lineRenderer.startWidth = laserWidth;
             lineRenderer.enabled = true;
             impactEffect.Play();
         }
         lineRenderer.SetPosition(0, firePoint.position);
         lineRenderer.SetPosition(1, target.position);
-
         Vector3 dir = firePoint.position - target.position;
         impactEffect.transform.position = target.position + dir.normalized * .18f;
         impactEffect.transform.rotation = Quaternion.LookRotation(dir);

@@ -325,14 +325,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfcb0d1778176204cbbaef3bdfd47144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2.5
+  target: {fileID: 0}
+  range: 2.1
   nearestTarget: 0
   upgradeDamage: 0
   upgradeRange: 0
   upgradeFrenquency: 0
   upgradeLaserDoT: 0
-  bulletDamage: 625
-  fireRate: 1.5
+  bulletDamage: 700
+  fireRate: 0.4
+  multiTargets: 3
+  multiDelay: 0
+  increseFrenquencyPct: 0
+  sniper: 0
+  poisonDamage: 0
+  poisonTime: 0
+  clusterBombTarget: {fileID: 6132370042595277427, guid: f41a899d63b2c454cb8378bdbe7a0689, type: 3}
+  clusterCooldown: 1.5
+  splitter: 0
+  tesla: 0
+  extraLasers: []
   useLaser: 0
   damageOverTime: 30
   slowAmount: 0.5
@@ -341,7 +353,7 @@ MonoBehaviour:
   laserWidth: 0
   enemyTag: Enemy
   rotationPoint: {fileID: 2766983560153170726}
-  bulletPrefab: {fileID: 2881803708027556478, guid: 23e6b7c082407484c8a368c9500e548c, type: 3}
+  bulletPrefab: {fileID: 2881803708027556478, guid: 1b53c52ae1addbd4aa878e9cf2ec9c07, type: 3}
   firePoint: {fileID: 6035166715951589729}
   towerPlatform: {fileID: 7764791535041439049}
 --- !u!212 &1811285495851032897

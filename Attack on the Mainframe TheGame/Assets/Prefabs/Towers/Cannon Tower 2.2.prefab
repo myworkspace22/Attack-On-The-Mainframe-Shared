@@ -325,14 +325,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfcb0d1778176204cbbaef3bdfd47144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   range: 2
   nearestTarget: 0
   upgradeDamage: 0
   upgradeRange: 0
   upgradeFrenquency: 0
   upgradeLaserDoT: 0
-  bulletDamage: 600
-  fireRate: 0.9
+  bulletDamage: 1500
+  fireRate: 0.4
+  multiTargets: 0
+  multiDelay: 0
+  increseFrenquencyPct: 0
+  sniper: 0
+  poisonDamage: 0
+  poisonTime: 0
+  clusterBombTarget: {fileID: 0}
+  clusterCooldown: 0
+  splitter: 0
+  tesla: 0
+  extraLasers: []
   useLaser: 0
   damageOverTime: 30
   slowAmount: 0.5

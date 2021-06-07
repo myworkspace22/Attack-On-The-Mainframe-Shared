@@ -10,6 +10,7 @@ public class ExplosionRadius : MonoBehaviour
     public float growSpeed;
     public float multiplier;
     private SpriteRenderer sR;
+    public bool Tesla;
     //private CircleCollider2D circleCollider;
 
     private void Start()
@@ -38,8 +39,15 @@ public class ExplosionRadius : MonoBehaviour
         //{
         //    circleCollider.radius = size.x / 2;
         //}
-
-        float fadeSice = 1 - transform.localScale.x / (explosionRange * 2);
+        float fadeSice;
+        if (Tesla) 
+        {
+            fadeSice = 1 - transform.localScale.x / (explosionRange * 8);
+        }
+        else
+        {
+            fadeSice = 1 - transform.localScale.x / (explosionRange * 2);
+        }
         Color color = sR.color;
         color.a = fadeSice;
         sR.color = color;

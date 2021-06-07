@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -8091043518590745029}
   - component: {fileID: 8109400275763236503}
   m_Layer: 0
-  m_Name: 1.9 Commander 3
+  m_Name: 1.9 Commander 4
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,6 +56,7 @@ MonoBehaviour:
   damage: 1
   worth: 0
   speed: 0
+  stunResistence: 0.3
   deathEffect: {fileID: 1787491968115139843, guid: 72ae324c15b9e6d43895e32d4fc3c2c3, type: 3}
   canFly: 0
   healAmt: 0
@@ -71,6 +72,7 @@ MonoBehaviour:
   healthBar: {fileID: 4417366439022705190}
   healthTransform: {fileID: 7705170075573851899}
   givesMoneyOnEnd: 1
+  spriteToRotate: {fileID: 0}
 --- !u!212 &5975281576349636351
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -7788,13 +7788,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 287515446}
+  - component: {fileID: 287515447}
   m_Layer: 0
   m_Name: The Villain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &287515446
 Transform:
   m_ObjectHideFlags: 0
@@ -7811,6 +7812,22 @@ Transform:
   m_Father: {fileID: 514648151752935781}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &287515447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287515445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0febb51e52e764ea6b826eb5904f95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveIndex: 000000000e000000
+  villiangPanels:
+  - {fileID: 1042893953}
+  - {fileID: 1335785350}
 --- !u!1001 &288796409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26387,8 +26404,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NewEnemyUI, Assembly-CSharp
+      - m_Target: {fileID: 287515447}
+        m_TargetAssemblyTypeName: VillainDialog, Assembly-CSharp
         m_MethodName: CloseWindow
         m_Mode: 1
         m_Arguments:
@@ -28876,6 +28893,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1042893951}
   - component: {fileID: 1042893952}
+  - component: {fileID: 1042893953}
   m_Layer: 5
   m_Name: Demongo 1
   m_TagString: Untagged
@@ -28915,13 +28933,28 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ef2b9d0a1576af34dbd0fc52cadb5e7e, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1042893953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042893950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf8b63072022ebc4d8ecee9c43dde91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogPanels:
+  - {fileID: 305205426}
+  - {fileID: 1546365144}
 --- !u!1001 &1050692196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35860,6 +35893,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1335785348}
   - component: {fileID: 1335785349}
+  - component: {fileID: 1335785350}
   m_Layer: 5
   m_Name: Demongo 2
   m_TagString: Untagged
@@ -35899,13 +35933,28 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ef2b9d0a1576af34dbd0fc52cadb5e7e, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1335785350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335785347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf8b63072022ebc4d8ecee9c43dde91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogPanels:
+  - {fileID: 713519475}
+  - {fileID: 1111750134}
 --- !u!1001 &1350097504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39242,8 +39291,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NewEnemyUI, Assembly-CSharp
+      - m_Target: {fileID: 287515447}
+        m_TargetAssemblyTypeName: VillainDialog, Assembly-CSharp
         m_MethodName: CloseWindow
         m_Mode: 1
         m_Arguments:

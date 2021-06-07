@@ -100,9 +100,10 @@ MonoBehaviour:
   nuke: 0
   timbersaw: 0
   stunTime: 0
+  rotateMissile: 0
   damage: 0
-  explosionRadius: 2.8
-  impactEffect: {fileID: 6340635527937755175, guid: 549effe715d6f23498b1170d183595e7, type: 3}
+  explosionRadius: 2.2
+  impactEffect: {fileID: 6340635527937755175, guid: 5fed388afc3a0b04fa0648e9e85911c1, type: 3}
   impactMissile: {fileID: 6235844836480323252, guid: 320c754f1526b87499d8e5f7f677733e, type: 3}
   cbTarget: {fileID: 0}
   poisonDamage: 0

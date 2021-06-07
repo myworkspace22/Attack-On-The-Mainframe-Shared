@@ -13,13 +13,14 @@ public class Enemy : MonoBehaviour
     public int worth;
     [HideInInspector]
     public float speed;
-
+    public float stunResistence;
     public GameObject deathEffect;
 
     [Header("Special Stats:")]
     public bool canFly;
     public float healAmt;
-    public bool slowResistence;
+    public float slowResistence;
+    //public bool slowResistence;
     public bool increaseSpeed;
     public float stealthTime;
     public int deathSpawnAmt;
@@ -32,14 +33,16 @@ public class Enemy : MonoBehaviour
     public Image healthBar;
     public Transform healthTransform;
     public bool givesMoneyOnEnd;
+    public GameObject spriteToRotate;
 
     //Privates
     
     public bool StealthMode { get; private set; }
     private float StartSpeed { get; set; }
     private float health;
+    private float stunResistenceTimer;
     private Vector2 dir;
-
+    private Color enemyBaseColor;
     private AILerp aIPath;
     private AIDestinationSetter aIDestination;
     private CameraShake shake;
@@ -66,6 +69,7 @@ public class Enemy : MonoBehaviour
         health = startHealth;
         hasDied = false;
         shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<CameraShake>();
+        stunResistenceTimer = 0;
 
         dir = aIDestination.target.position - transform.position;
         //healthUIpct = 165 / startHealth;
@@ -78,7 +82,13 @@ public class Enemy : MonoBehaviour
         {
             InvokeRepeating("Spawn", timedSpawnDelay, timedSpawnDelay);
         }
-        
+
+        enemyBaseColor = GetComponentInChildren<SpriteRenderer>().color;
+
+        if (canFly)
+        {
+            RotateTowardsEnd();
+        }
     }
 
     private void SetSpeed(float newSpeed)
@@ -93,6 +103,11 @@ public class Enemy : MonoBehaviour
             aIPath.speed = newSpeed;
         }
     }
+    private void RotateTowardsEnd()
+    {
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        spriteToRotate.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+    }
 
     private void Update()
     {
@@ -100,22 +115,16 @@ public class Enemy : MonoBehaviour
         {
             SetSpeed(maxSpeed);
         }
-            
-        
 
         if (poisonTimer > 0)
         {
-            SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
-            Color color = sr.color;
-            color.a = Random.Range(0.3f, 1f);
-            sr.color = color;
-
             TakeDamage(poisonDamage * Time.deltaTime);
             poisonTimer -= Time.deltaTime;
             if (poisonTimer <= 0)
             {
+                SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
                 Color c = sr.color;
-                c.a = 1;
+                c = enemyBaseColor;
                 sr.color = c;
             }
         }
@@ -130,11 +139,19 @@ public class Enemy : MonoBehaviour
             stunTimer -= Time.deltaTime;
             if (stunTimer <= 0)
             {
-                aIPath.canMove = true;
+                if (!canFly)
+                {
+                    aIPath.canMove = true;
+                }
+                SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
+                Color c = sr.color;
+                c = enemyBaseColor;
+                sr.color = c;
             }
             return;
         }
 
+        if (stunResistenceTimer > 0) { stunResistenceTimer -= Time.deltaTime; }
 
         slowed = false;
 
@@ -197,6 +214,10 @@ public class Enemy : MonoBehaviour
     {
         poisonDamage = poisonDmg;
         poisonTimer = poisonTme;
+        SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
+        Color color = sr.color;
+        color = Color.green;
+        sr.color = color;
     }
 
     private void SetStealtMode(bool change)
@@ -213,17 +234,21 @@ public class Enemy : MonoBehaviour
 
     public void Stun(float stunTime)
     {
+        if(stunResistenceTimer > 0) { return; }
         aIPath.canMove = false;
         stunTimer = stunTime;
+        SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
+        Color color = sr.color;
+        color = Color.cyan;
+        sr.color = color;
+        stunResistenceTimer = stunResistence;
     }
 
     public void Slow (float pct)
     {
         if (StealthMode) { return; }
-
-        if (slowResistence) { return; }
+        pct -= slowResistence;
         SetSpeed(maxSpeed * (1f - pct));
-        //aIPath.speed = startSpeed * (1f - pct);
         slowed = true;
     }
     void Die()

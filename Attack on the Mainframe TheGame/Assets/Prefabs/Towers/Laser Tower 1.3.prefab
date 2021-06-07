@@ -96,12 +96,13 @@ MonoBehaviour:
   clusterBombTarget: {fileID: 0}
   clusterCooldown: 0
   splitter: 1
-  extraLaisers:
-  - {fileID: 6595567104721690625}
+  tesla: 0
+  extraLasers:
   - {fileID: 3749382570788660919}
+  - {fileID: 6595567104721690625}
   useLaser: 1
-  damageOverTime: 900
-  slowAmount: 0.5
+  damageOverTime: 500
+  slowAmount: 0.75
   lineRenderer: {fileID: 6504848342243824772}
   impactEffect: {fileID: 542028477967590547}
   laserWidth: 0.03
@@ -351,8 +352,8 @@ MonoBehaviour:
   upgradeRange: 0
   upgradeFrenquency: 0
   upgradeLaserDoT: 0
-  bulletDamage: 900
-  fireRate: 2
+  bulletDamage: 500
+  fireRate: 1
   multiTargets: 0
   multiDelay: 0
   increseFrenquencyPct: 0
@@ -362,12 +363,13 @@ MonoBehaviour:
   clusterBombTarget: {fileID: 0}
   clusterCooldown: 0
   splitter: 1
-  extraLaisers:
+  tesla: 0
+  extraLasers:
   - {fileID: 7151086252326480661}
   - {fileID: 3749382570788660919}
   useLaser: 1
-  damageOverTime: 900
-  slowAmount: 0.5
+  damageOverTime: 500
+  slowAmount: 0.75
   lineRenderer: {fileID: 6920416368136055428}
   impactEffect: {fileID: 3871315479789446270}
   laserWidth: 0.03
@@ -837,12 +839,13 @@ MonoBehaviour:
   clusterBombTarget: {fileID: 0}
   clusterCooldown: 0
   splitter: 1
-  extraLaisers:
-  - {fileID: 6595567104721690625}
+  tesla: 0
+  extraLasers:
   - {fileID: 7151086252326480661}
+  - {fileID: 6595567104721690625}
   useLaser: 1
-  damageOverTime: 900
-  slowAmount: 0.5
+  damageOverTime: 500
+  slowAmount: 0.75
   lineRenderer: {fileID: 2049763727636447868}
   impactEffect: {fileID: 1194017718859168963}
   laserWidth: 0.03

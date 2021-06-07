@@ -69246,6 +69246,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: waveIndex.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: waveIndex.Array.data[0]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: waveIndex.Array.data[1]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: waveIndex.Array.data[2]
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: newEnemyTitle.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: newEnemyTitle.Array.data[0]
+      value: BOSS APPROACHING!
+      objectReference: {fileID: 0}
+    - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: newEnemyTitle.Array.data[1]
+      value: BOSS APPROACHING!
+      objectReference: {fileID: 0}
+    - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: newEnemyTitle.Array.data[2]
+      value: BOSS APPROACHING!
+      objectReference: {fileID: 0}
+    - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: newEnemyDescription.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: newEnemyDescription.Array.data[0]
+      value: THE FLASK (FINAL BOSS)
+      objectReference: {fileID: 0}
+    - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: newEnemyDescription.Array.data[1]
+      value: THE SPEED (FINAL BOSS)
+      objectReference: {fileID: 0}
+    - target: {fileID: 567247471588682600, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
+      propertyPath: newEnemyDescription.Array.data[2]
+      value: THE STAR (FINAL BOSS)
+      objectReference: {fileID: 0}
     - target: {fileID: 1273944314190668188, guid: aeed40f055876b94a9260fcf6f53ac7e, type: 3}
       propertyPath: m_Name
       value: GameMaster+Canvas+SP
@@ -78594,7 +78642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1853941548
 Transform:
   m_ObjectHideFlags: 0

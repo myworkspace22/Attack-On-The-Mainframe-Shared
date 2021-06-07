@@ -150,10 +150,11 @@ MonoBehaviour:
   damage: 5
   worth: 50
   speed: 0
+  stunResistence: 1
   deathEffect: {fileID: 1787491968115139843, guid: 72ae324c15b9e6d43895e32d4fc3c2c3, type: 3}
   canFly: 0
   healAmt: 0
-  slowResistence: 1
+  slowResistence: 0.3
   increaseSpeed: 1
   stealthTime: 0
   deathSpawnAmt: 0
@@ -165,6 +166,7 @@ MonoBehaviour:
   healthBar: {fileID: 4417366439022705190}
   healthTransform: {fileID: 7705170075573851899}
   givesMoneyOnEnd: 1
+  spriteToRotate: {fileID: 0}
 --- !u!58 &1895774545520125227
 CircleCollider2D:
   m_ObjectHideFlags: 0

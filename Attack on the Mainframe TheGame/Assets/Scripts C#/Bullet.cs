@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
     public bool nuke;
     public bool timbersaw;
     public float stunTime;
-
+    public bool rotateMissile;
 
     private Vector2 returnPos;
     //private bool returned;
@@ -48,9 +48,7 @@ public class Bullet : MonoBehaviour
         if (timbersaw)
         {
             returnPos = transform.position;
-            flameDir = target.position - transform.position;
             enemiesDeltDamage = new List<GameObject>();
-            target = null;
         }
 
     }
@@ -77,6 +75,10 @@ public class Bullet : MonoBehaviour
         {
             targetsLastPos = target.position;
             dir = target.position - transform.position;
+            if (rotateMissile)
+            {
+                LookAtTarget();
+            }
         }
 
         float distanceThisFrame = speed * Time.deltaTime;
@@ -88,6 +90,7 @@ public class Bullet : MonoBehaviour
                 {
                     flameDir = returnPos - (Vector2)transform.position;
                     targetsLastPos = returnPos;
+                    target = null;
                 }
                 else
                 {
@@ -98,9 +101,12 @@ public class Bullet : MonoBehaviour
             HitTarget();
             return;
         }
+        if (timbersaw)
+        {
+            DamageNearbyEnemies();
+        }
 
-
-        if (flameThrower || timbersaw)
+        if (flameThrower)
         {
             transform.Translate(flameDir.normalized * distanceThisFrame, Space.World);
             DamageNearbyEnemies();
@@ -109,6 +115,13 @@ public class Bullet : MonoBehaviour
         {
             transform.Translate(dir.normalized * distanceThisFrame, Space.World);
         }
+    }
+
+    private void LookAtTarget()
+    {
+        Vector3 dir = target.position - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
     }
 
     private void DamageNearbyEnemies()

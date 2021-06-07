@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3688554121917185102}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: -0.1875, z: 0}
+  m_LocalPosition: {x: 0.21875, y: -0.15625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1831770446247871429}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4610998660970553652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: -0.1875, z: 0}
+  m_LocalPosition: {x: -0.21875, y: -0.15625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1831770446247871429}
@@ -211,10 +211,11 @@ MonoBehaviour:
   damage: 5
   worth: 25
   speed: 0
+  stunResistence: 1
   deathEffect: {fileID: 1787491968115139843, guid: 72ae324c15b9e6d43895e32d4fc3c2c3, type: 3}
   canFly: 0
   healAmt: 0
-  slowResistence: 1
+  slowResistence: 0.3
   increaseSpeed: 0
   stealthTime: 0
   deathSpawnAmt: 3
@@ -228,6 +229,7 @@ MonoBehaviour:
   healthBar: {fileID: 4417366439022705190}
   healthTransform: {fileID: 0}
   givesMoneyOnEnd: 1
+  spriteToRotate: {fileID: 0}
 --- !u!58 &1895774545520125227
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -333,7 +335,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6428819690354720370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0.21875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1831770446247871429}

@@ -1998,7 +1998,7 @@ MonoBehaviour:
     - {fileID: 7916541085778940208, guid: 4dc36c88a1310214fb953f2d4815af58, type: 3}
     - {fileID: 7916541085778940208, guid: 093eb98c45785424eb3b622a5544c031, type: 3}
     - {fileID: 7916541085778940208, guid: a479a156e3581be4789abc961d554ff2, type: 3}
-    upgradeCost: af000000960000005e0100002c010000450100005e010000
+    upgradeCost: af00000096000000c201000090010000a9010000c2010000
     upgradeEffect:
     - 
     - 
@@ -2018,13 +2018,13 @@ MonoBehaviour:
     - Flamethrower
     - Nuke
     - Cluster
-    - Timbersaw
+    - BuzzSaw
     upgradeDescription:
     - Can shoot two missiles at a time that no longer explodes
     - Throws out a powerful explosion causing high damage
-    - Scans for nearby enemies and sends out seeking missiles
+    - Shoot out a cone of fire damaging all enemies in the area
     - Throws out a high impact explosion causing damage to multiple enemies
-    - Shoots out small missiles that sets enemies on fire, dealing damage over time
+    - Scans for nearby enemies and sends out seeking missiles
     - Sends out a spinning projectile that deals damage on collision
     upgradedPrefab:
     - {fileID: 4133119791020861501, guid: ad6e739ccabcb4f488132022e4e5b85c, type: 3}
@@ -2043,7 +2043,7 @@ MonoBehaviour:
     - 
   laserTurret:
     title: Laser
-    description: Fires lasers at a high frequency
+    description: Shoots lasers at enemies with stun
     prefab: {fileID: 5556433950650397502, guid: f4615c7410a365e428c6f329470011b9, type: 3}
     cost: 150
     levelUpCost: 150
@@ -2056,11 +2056,11 @@ MonoBehaviour:
     - Telsa
     upgradeDescription:
     - Fires a laser that slows down enemies
-    - Shoots laser beams at enemies
-    - Fires a strong laser that slows down enemies around the impact
-    - Shoots stronger laser beams that stuns enemies
+    - Shoots laser beams at enemies with stun
+    - Slow enemies around the tower while shooting laser
+    - Shoots laser beams that stuns enemies for longer
     - Fires out multiple beams that damages enemies
-    - Shoots out a chain of laser slowing multiple enemies
+    - Shoots radioactive waves damaging enemies around
     upgradedPrefab:
     - {fileID: 5556433950650397502, guid: 2517126d7116b9a4bb30c0a1e97979ac, type: 3}
     - {fileID: 5556433950650397502, guid: e63b2928cb181df45bf9a4569b674829, type: 3}
@@ -2073,9 +2073,9 @@ MonoBehaviour:
     - 'Effect: slowing'
     - 
     - 'Effect: slowing'
-    - 'Effect: stunning'
     - 
     - 'Effect: slowing'
+    - 
 --- !u!1 &4024176748426649982
 GameObject:
   m_ObjectHideFlags: 0
@@ -2478,18 +2478,18 @@ MonoBehaviour:
 
 
     Continue
-    until your ready to <color=#00FF00>START</color>
+    until your ready to <color=#00FF00>(START)</color>
 
 
-    Try not to lose all of
-    your (10) lives
+    Try not to lose all
+    of your (10) lives
 
 
-    <color=#C1C1C1>Towers can BLOCK enemies path
+    <color=#C1C1C1>Undo your last tower with (X+Z)
 
 
-    Undo
-    your last tower with (X+Z)
+    Use
+    towers to BLOCK enemies path
 
 
     Press (ESC) to reset or exit the level'

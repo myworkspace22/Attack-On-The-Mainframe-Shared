@@ -90,8 +90,8 @@ MonoBehaviour:
   upgradeRange: 0
   upgradeFrenquency: 0
   upgradeLaserDoT: 0
-  bulletDamage: 5
-  fireRate: 1
+  bulletDamage: 900
+  fireRate: 1.6
   multiTargets: 0
   multiDelay: 0
   increseFrenquencyPct: 0
@@ -101,7 +101,8 @@ MonoBehaviour:
   clusterBombTarget: {fileID: 0}
   clusterCooldown: 0
   splitter: 0
-  extraLaisers: []
+  tesla: 0
+  extraLasers: []
   useLaser: 0
   damageOverTime: 80
   slowAmount: 0.8
